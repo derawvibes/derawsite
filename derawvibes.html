@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derawvibes | Geopolitics, EHS, Science, Tech</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-lora { font-family: 'Lora', serif; }
+        .masthead { font-family: 'Inter', sans-serif; font-weight: 900; }
+        html { scroll-behavior: smooth; }
+
+        /* Custom scrollbar for the article viewer */
+        #article-viewer::-webkit-scrollbar { width: 8px; }
+        #article-viewer::-webkit-scrollbar-track { background: #f1f1f1; }
+        #article-viewer::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        #article-viewer::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* Add pointer cursor to article cards to indicate they are clickable */
+        .article-card { cursor: pointer; }
+
+        /* --- NEW: Style for the active navigation link --- */
+        .active-nav-link {
+            color: #111827; /* Darker text color for active link */
+            position: relative;
+        }
+        .active-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; /* Position the underline */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%; /* Width of the underline */
+            height: 2px;
+            background-color: #2563eb; /* Blue underline */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Main Site Content -->
+    <div id="main-content">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Header Section -->
+            <header class="py-8 text-center border-b-2 border-gray-200">
+                <a href="#page-home" class="home-link cursor-pointer">
+                    <h1 class="masthead text-4xl sm:text-5xl md:text-6xl font-black tracking-widest uppercase">Derawvibes</h1>
+                </a>
+                <p class="text-gray-500 mt-2">Insightful analysis on the world around us!</p>
+            </header>
+
+            <!-- Navigation Bar -->
+            <nav class="py-4 border-b border-gray-200 sticky top-0 bg-gray-50/90 backdrop-blur-sm z-20">
+                <ul class="flex justify-center flex-wrap space-x-4 sm:space-x-8 text-sm sm:text-base font-medium uppercase tracking-wider text-gray-600">
+                    <!-- The active-nav-link class will be dynamically added by JavaScript -->
+                    <li><a href="#page-home" class="nav-item hover:text-black transition duration-300 py-2">Home</a></li>
+                    <li><a href="#page-ehs" class="nav-item hover:text-black transition duration-300 py-2">EHS</a></li>
+                    <li><a href="#page-science" class="nav-item hover:text-black transition duration-300 py-2">Science</a></li>
+                    <li><a href="#page-tech" class="nav-item hover:text-black transition duration-300 py-2">Tech</a></li>
+                    <li><a href="#page-commerce" class="nav-item hover:text-black transition duration-300 py-2">Commerce</a></li>
+                    <li><a href="#page-geopolitics" class="nav-item hover:text-black transition duration-300 py-2">Geopolitics</a></li>
+                    <!-- UPDATED: Removed hardcoded blue color. It will be styled like other links until the user is on that page. -->
+                    <li><a href="#page-submit" class="nav-item font-bold hover:text-blue-600 transition duration-300 py-2">Submit Article</a></li>
+                    <li><a href="#page-about" class="nav-item hover:text-black transition duration-300 py-2">About</a></li>
+                    <li><a href="#page-contact" class="nav-item hover:text-black transition duration-300 py-2">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main>
+                
+                <!-- Home Page Section -->
+                <section id="page-home" class="page-section py-12">
+                    <article class="article-card grid grid-cols-1 lg:grid-cols-5 gap-8 items-center mb-12">
+                        <div class="lg:col-span-3">
+                            <img src="EHSS.avif" alt="Futuristic green cityscape" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
+                        </div>
+                        <div class="lg:col-span-2">
+                            <span class="article-category text-xs font-bold uppercase text-red-600">Featured Story</span>
+                            <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h2>
+                            <p class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
+                            <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on September 30, 2025</p>
+                            <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">September 30, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>For decades, Environmental, Health, and Safety (EHS) has been a field of reaction. An incident occurs, an investigation follows, and new protocols are implemented. But what if we could prevent incidents before they even happen? Welcome to the age of predictive analytics in EHS.</p>
+                                <p>Artificial intelligence is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets from IoT sensors, incident reports, and even weather patterns, machine learning algorithms can identify hidden correlations and flag high-risk scenarios with astonishing accuracy.</p>
+                                <blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote>
+                                <p>Companies at the forefront are using AI to predict equipment failures, identify at-risk employee behaviors, and model the potential impact of chemical spills. The result is not just a safer workplace, but a more efficient and resilient operation. The AI revolution isn't coming to EHS—it's already here.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="article-card grid grid-cols-1 lg:grid-cols-5 gap-8 items-center mb-12">
+                        <div class="lg:col-span-3">
+                            <img src="Sci.avif" alt="Scientific research concept" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
+                        </div>
+                        <div class="lg:col-span-2">
+                            <span class="article-category text-xs font-bold uppercase text-sky-600">Featured Story</span>
+                            <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">Breakthrough in Fusion Energy: A Star on Earth?</h2>
+                            <p class="text-gray-600 mb-4">Scientists have achieved a net energy gain in a fusion reaction for the first time, a monumental step towards clean energy...</p>
+                            <p class="text-sm text-gray-500 mb-4">By Jane Doe | Published on September 30, 2025</p>
+                            <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
+                            <div class="article-meta hidden">
+                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
+                                <span class="article-author">Jane Doe</span>
+                                <span class="article-date">September 30, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>In a historic announcement that has sent shockwaves through the scientific community, researchers at the National Ignition Facility have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is possible.</p>
+                                <p>The experiment focused 192 high-powered lasers onto a tiny pellet of hydrogen, creating temperatures and pressures hotter than the center of the sun, causing the hydrogen atoms to fuse and release a tremendous amount of energy—more than was used to initiate the reaction.</p>
+                                <blockquote>"This is a landmark achievement for the researchers and staff at the National Ignition Facility, and it is a testament to the power of American innovation."</blockquote>
+                                <p>While commercial fusion power plants are still decades away, this breakthrough removes the fundamental scientific barrier. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world and combat climate change in an unprecedented way.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <section class="my-12 bg-gradient-to-r from-slate-50 to-gray-100 p-8 sm:p-12 rounded-lg shadow-lg border-t-4 border-indigo-600">
+                        <div class="max-w-4xl mx-auto text-center">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">WELCOME TO DERAWVIBES</h2>
+                            <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+                                In an age of information overload, we bring you clarity. <p>
+                                </p>We delve into <a href="#page-geopolitics" class="text-indigo-600 font-semibold hover:underline">Geopolitics</a>, <a href="#page-ehs" class="text-red-600 font-semibold hover:underline">EHS</a>, <a href="#page-science" class="text-sky-600 font-semibold hover:underline">Science</a>,<a href="#page-commerce" class="text-yellow-600 font-semibold hover:underline">Commerce</a> and <a href="#page-tech" class="text-green-600 font-semibold hover:underline">Technology</a>.
+                            </p>
+                        </div>
+                    </section>
+
+                    <hr class="my-12 border-gray-200">
+                    <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-wider">Latest Articles</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1727610542348-9636c3b65d2a?q=80&w=2070&auto=format&fit=crop" alt="Geopolitics Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Moon+Base';">
+                            <span class="article-category text-xs font-bold uppercase text-indigo-700 mb-2">Geopolitics</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The New Space Race: Tensions Rise Over Lunar Resources</h4>
+                            <p class="text-gray-600 text-sm mb-4">Nations are competing for strategic locations on the Moon for water ice and minerals...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">September 27, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>In a move signaling a new era of cosmic contention, multiple nations have laid out ambitious plans for permanent lunar bases. The focus is not on planting flags, but on the strategic control of resources, particularly water ice discovered in the permanently shadowed craters of the lunar poles. This ice is seen as the key to a sustainable presence in space, as it can be converted into water, oxygen, and rocket fuel.</p>
+                                <blockquote>"We are not just going back to the Moon; we are going to stay. And what we find there will define humanity's future in space for the next century."</blockquote>
+                                <p>The technological and economic stakes are immense. The nation or coalition that first masters in-situ resource utilization (ISRU) will have a decisive advantage, capable of building and refueling spacecraft far beyond Earth's deep gravity well. This could pave the way for missions to Mars and beyond, making the Moon the strategic high ground of the 21st century.</p>
+                            </div>
+                        </article>
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="EHS Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
+                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium Packaging: Can Fungus Replace Plastic?</h4>
+                            <p class="text-gray-600 text-sm mb-4">Startups are attracting investment for biodegradable materials made from mushroom roots...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
+                                <span class="article-author">Jane Doe</span>
+                                <span class="article-date">September 26, 2025</span>
+                            </div>
+                                <div class="article-full-content hidden">
+                                <p>The world is drowning in plastic, and innovators are looking to nature for a solution. Enter mycelium, the root network of fungi. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and compostable.</p>
+                                <p>Companies like Ecovative Design are pioneering this technology, mixing agricultural waste like hemp hurds with mycelium, which then grows to form a solid, lightweight, and surprisingly durable material. It can replace Styrofoam, plastics, and other harmful packaging materials.</p>
+                                <blockquote>"Nature has already figured out how to create high-performance materials. We just need to learn how to work with it."</blockquote>
+                                <p>While challenges in scaling production and cost remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment when their lifecycle ends.</p>
+                            </div>
+                        </article>
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Science Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
+                            <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Science</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Gene-Edited Crops: A Solution to Food Scarcity?</h4>
+                            <p class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing drought-resistant wheat...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">September 25, 2025</span>
+                            </div>
+                               <div class="article-full-content hidden">
+                                <p>The specter of climate change and a growing global population poses a dire threat to food security. Scientists, however, believe they have a powerful tool in their arsenal: CRISPR-Cas9 gene editing.</p>
+                                <p>Unlike traditional GMOs, which often introduce genes from other species, CRISPR allows for precise edits to a plant's own DNA. This can be used to enhance desirable traits, such as making wheat resistant to drought, rice more nutritious, or tomatoes less susceptible to disease. The process mimics natural genetic mutation but on an accelerated timescale.</p>
+                                <blockquote>"We can now do in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
+                                <p>Regulatory hurdles and public perception remain significant challenges. However, many scientists argue that the potential benefits—feeding more people with fewer resources—are too great to ignore. The debate over gene-edited crops will be one of the defining scientific conversations of our time.</p>
+                            </div>
+                        </article>
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" alt="Tech Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Quantum';">
+                            <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Tech</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Post-Quantum Encryption is Here: Is Your Data Safe?</h4>
+                            <p class="text-gray-600 text-sm mb-4">The first NIST-approved quantum-resistant algorithms are being deployed...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
+                                <span class="article-author">John Smith</span>
+                                <span class="article-date">September 24, 2025</span>
+                            </div>
+                               <div class="article-full-content hidden">
+                                <p>The digital world runs on encryption, but a new threat looms on the horizon: quantum computers. These powerful machines, once theoretical, are becoming a reality, and they possess the ability to break the encryption standards that protect everything from your bank account to national secrets.</p>
+                                <p>In response, a global effort has been underway to develop "post-quantum cryptography" (PQC)—new encryption algorithms that are resistant to attacks from both classical and quantum computers. The U.S. National Institute of Standards and Technology (NIST) has recently standardized the first suite of these PQC algorithms.</p>
+                                <blockquote>"The transition to quantum-resistant encryption is one of the most critical cybersecurity upgrades in the history of the internet. It's a race against time."</blockquote>
+                                <p>Companies and governments are now beginning the monumental task of upgrading their systems. For the average user, the change will be invisible, but behind the scenes, it's a critical defense against the looming threat of "Q-Day"—the day a quantum computer can shatter our digital security.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                
+                <!-- Geopolitics Page Section -->
+                <section id="page-geopolitics" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Geopolitics</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1727610542348-9636c3b65d2a?q=80&w=2070&auto=format&fit=crop" alt="Geopolitics Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Moon+Base';">
+                            <span class="article-category text-xs font-bold uppercase text-indigo-700 mb-2">Geopolitics</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The New Space Race: Tensions Rise Over Lunar Resources</h4>
+                            <p class="text-gray-600 text-sm mb-4">Nations are competing for strategic locations on the Moon...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">September 27, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>In a move signaling a new era of cosmic contention, multiple nations have laid out ambitious plans for permanent lunar bases. The focus is not on planting flags, but on the strategic control of resources, particularly water ice discovered in the permanently shadowed craters of the lunar poles. This ice is seen as the key to a sustainable presence in space, as it can be converted into water, oxygen, and rocket fuel.</p>
+                                <blockquote>"We are not just going back to the Moon; we are going to stay. And what we find there will define humanity's future in space for the next century."</blockquote>
+                                <p>The technological and economic stakes are immense. The nation or coalition that first masters in-situ resource utilization (ISRU) will have a decisive advantage, capable of building and refueling spacecraft far beyond Earth's deep gravity well. This could pave the way for missions to Mars and beyond, making the Moon the strategic high ground of the 21st century.</p>
+                            </div>
+                        </article>
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="geo2.avif" alt="Arctic shipping routes" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Arctic+Shipping';">
+                            <span class="article-category text-xs font-bold uppercase text-purple-700 mb-2">Geopolitics</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Arctic Shipping Lanes Open: A New Arena for Superpower Rivalry</h4>
+                            <p class="text-gray-600 text-sm mb-4">As polar ice melts, new trade routes emerge, sparking a geopolitical chess match...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                             <div class="article-meta hidden">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
+                                <span class="article-author">John Smith</span>
+                                <span class="article-date">September 23, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>Climate change is redrawing the map of global trade. As the Arctic ice cap recedes at an alarming rate, previously impassable sea routes like the Northern Sea Route and the Northwest Passage are becoming viable for commercial shipping. These routes can cut travel time between Europe and Asia by up to 40%, offering enormous economic incentives.</p>
+                                <p>This has triggered a new geopolitical competition. Russia is heavily investing in icebreakers and military bases along its northern coast to control the Northern Sea Route. Meanwhile, the United States, Canada, and China are all vying for influence, access, and control over these strategic waterways and the vast, untapped natural resources beneath the Arctic seabed.</p>
+                                <blockquote>"The Arctic is no longer a frozen wasteland; it is the new frontier for economic and military competition in the 21st century."</blockquote>
+                                <p>The implications are profound, raising questions about international law, environmental protection, and the potential for conflict in a region that was once defined by its icy stability.</p>
+                            </div>
+                        </article>
+                </section>
+
+                <!-- EHS Page Section -->
+                <section id="page-ehs" class="page-section hidden py-12">
+                             <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Environmental, Health & Safety</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="EHSS.avif" alt="EHS Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Healthcare';">
+                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Effective Interprofessional Communication for Patient Safety in Low-Resource Settings: A Concept Analysis</h4>
+                            <p class="text-gray-600 text-sm mb-4">This article addresses a critical aspect of health and safety—communication—and its impact on patient outcomes, particularly in vulnerable settings...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="images/author-jane.jpg" alt="Author's photo">
+                                <span class="article-author">MDPI (Multidisciplinary Digital Publishing Institute)</span>
+                                <span class="article-date">Journal: Safety, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p><strong>What It's About</strong></p>
+                                <p> In simple terms, this article tackles a life-or-death question: How can doctors, nurses, and other medical staff work together better to keep patients safe, especially in places that don't have a lot of money, staff, or modern equipment?</p>
+                            </div>
+                        </article>
+                </section>
+
+                <!-- Science Page Section -->
+                <section id="page-science" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Science</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Science Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
+                            <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Science</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Gene-Edited Crops: A Solution to Food Scarcity?</h4>
+                            <p class="text-gray-600 text-sm mb-4">With CRISPR-Cas9 technology, scientists are developing drought-resistant wheat and rice...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">September 25, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>The specter of climate change and a growing global population poses a dire threat to food security. Scientists, however, believe they have a powerful tool in their arsenal: CRISPR-Cas9 gene editing.</p>
+                                <p>Unlike traditional GMOs, which often introduce genes from other species, CRISPR allows for precise edits to a plant's own DNA. This can be used to enhance desirable traits, such as making wheat resistant to drought, rice more nutritious, or tomatoes less susceptible to disease. The process mimics natural genetic mutation but on an accelerated timescale.</p>
+                                <blockquote>"We can now do in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
+                                <p>Regulatory hurdles and public perception remain significant challenges. However, many scientists argue that the potential benefits—feeding more people with fewer resources—are too great to ignore. The debate over gene-edited crops will be one of the defining scientific conversations of our time.</p>
+                            </div>
+                            </article>
+                    </div>
+                </section>
+
+                <!-- Tech Page Section -->
+                <section id="page-tech" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Technology</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop" alt="Tech Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Quantum';">
+                            <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Tech</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Post-Quantum Encryption is Here: Is Your Data Truly Safe?</h4>
+                            <p class="text-gray-600 text-sm mb-4">The first NIST-approved quantum-resistant algorithms are being deployed...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
+                                <span class="article-author">John Smith</span>
+                                <span class="article-date">September 24, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>The digital world runs on encryption, but a new threat looms on the horizon: quantum computers. These powerful machines, once theoretical, are becoming a reality, and they possess the ability to break the encryption standards that protect everything from your bank account to national secrets.</p>
+                                <p>In response, a global effort has been underway to develop "post-quantum cryptography" (PQC)—new encryption algorithms that are resistant to attacks from both classical and quantum computers. The U.S. National Institute of Standards and Technology (NIST) has recently standardized the first suite of these PQC algorithms.</p>
+                                <blockquote>"The transition to quantum-resistant encryption is one of the most critical cybersecurity upgrades in the history of the internet. It's a race against time."</blockquote>
+                                <p>Companies and governments are now beginning the monumental task of upgrading their systems. For the average user, the change will be invisible, but behind the scenes, it's a critical defense against the looming threat of "Q-Day"—the day a quantum computer can shatter our digital security.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Commerce Page Section -->
+                <section id="page-commerce" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Commerce</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e2775d2?q=80&w=2070&auto=format&fit=crop" alt="commerce Article" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Supply+Chain';">
+                            <span class="article-category text-xs font-bold uppercase text-cyan-700 mb-2">Commerce</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Future of Supply Chains is Hyper-Localized</h4>
+                            <p class="text-gray-600 text-sm mb-4">On-demand manufacturing and 3D printing are disrupting global trade patterns...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
+                                <span class="article-author">John Smith</span>
+                                <span class="article-date">September 18, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>The pandemic and geopolitical tensions have exposed the fragility of global supply chains. The era of relying on a single factory halfway across the world is coming to an end. The future, many experts believe, is hyper-localized.</p>
+                                <p>Technologies like advanced automation, robotics, and 3D printing are making it economically viable to produce goods closer to the point of consumption. This "reshoring" or "near-shoring" trend is being driven by a desire for resilience, speed, and sustainability. Instead of massive container ships, think local micro-factories that can produce customized goods on demand.</p>
+                                <blockquote>"The supply chain of tomorrow isn't a chain at all; it's a network. It's decentralized, adaptable, and far more resilient to global shocks."</blockquote>
+                                <p>This shift has profound implications for global trade, manufacturing jobs, and carbon emissions. While global trade won't disappear, it will be transformed, with a greater emphasis on regional self-sufficiency and technologically advanced manufacturing.</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                
+                <!-- NEW: Submit Article Page Section -->
+                <section id="page-submit" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Submit Your Article</h2>
+                           <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
+                                <div class="text-center mb-8">
+                                    <h3 class="text-2xl font-bold mb-2">Become a Contributor</h3>
+                                    <p class="text-gray-600">Have an idea or a story that fits our vibe? We'd love to read it. Fill out the form below to submit your article for consideration. We review all submissions and will get back to you if it's a good fit for our platform.</p>
+                                </div>
+                                <form id="submission-form" novalidate>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <label for="author-name" class="block text-gray-700 font-bold mb-2">Your Name</label>
+                                            <input type="text" id="author-name" name="author-name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                                        </div>
+                                        <div>
+                                            <label for="author-email" class="block text-gray-700 font-bold mb-2">Your Email</label>
+                                            <input type="email" id="author-email" name="author-email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <label for="article-title" class="block text-gray-700 font-bold mb-2">Article Title</label>
+                                            <input type="text" id="article-title" name="article-title" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                                        </div>
+                                         <div>
+                                            <label for="article-category" class="block text-gray-700 font-bold mb-2">Category</label>
+                                            <select id="article-category" name="article-category" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 bg-white">
+                                                <option value="" disabled selected>Select a category</option>
+                                                <option value="Geopolitics">Geopolitics</option>
+                                                <option value="EHS">EHS</option>
+                                                <option value="Science">Science</option>
+                                                <option value="Tech">Tech</option>
+                                                <option value="Commerce">Commerce</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <label for="article-content" class="block text-gray-700 font-bold mb-2">Article Content</label>
+                                        <textarea id="article-content" name="article-content" rows="12" required placeholder="Paste your full article content here..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"></textarea>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 text-lg">
+                                            Submit for Review
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                </section>
+
+
+                <!-- About Page Section -->
+                <section id="page-about" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">About Derawvibes</h2>
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="A team collaborating" class="rounded-lg w-full h-64 object-cover mb-8" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=About+Us';">
+                        <div class="text-lg text-gray-700 leading-relaxed space-y-4">
+                            <p><strong class="font-lora text-2xl text-black">Derawvibes</strong> In a world buzzing with data and endless headlines, Derawvibes is your anchor for clarity. We are a curated space dedicated to exploring the critical forces that shape our world.
+                             Our mission is to cut through the noise. </p>
+                            <p>We dive deep into the complex, fascinating intersections of Geopolitics, Environmental Health & Safety (EHS), Science, and Technology. We don't just report the news; we connect the dots, break down the jargon, and explore the real-world implications of global events and scientific breakthroughs.</p>
+                             <p>Derawvibes is for the intellectually curious—the thinkers, the learners, and anyone who believes that understanding our world is the first step to changing it.</p>
+                            <p>Our mission is to bridge the gap between complex discussions and the general public. We break down jargon, connect dots, and explore real-world implications.</p>
+                            <p>Founded on intellectual curiosity, Derawvibes is for anyone who wants to look beyond the headlines. Welcome to the conversation.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Privacy Policy Page Section -->
+                <section id="page-privacy-policy" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Privacy Policy</h2>
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
+                        <p><strong>Last Updated: September 30, 2025</strong></p>
+                        <p>Derawvibes ("us", "we", or "our") operates the Derawvibes website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+                        <h3>Information Collection and Use</h3>
+                        <p>We collect several different types of information for various purposes to provide and improve our Service to you. This may include, but is not limited to, your email address when you subscribe to our newsletter.</p>
+                        <h3>Use of Data</h3>
+                        <p>Derawvibes uses the collected data for various purposes:</p>
+                        <ul>
+                            <li>To provide and maintain the Service</li>
+                            <li>To notify you about changes to our Service</li>
+                            <li>To provide you with news, special offers and general information about other goods, services and events which we offer.</li>
+                        </ul>
+                        <h3>Security of Data</h3>
+                        <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+                    </div>
+                </section>
+                
+                <!-- Terms of Service Page Section -->
+                
+                <section id="page-terms-of-service" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Terms of Service</h2>
+                           <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
+                            <p><strong>Last Updated: September 30, 2025</strong></p>
+                            <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the Derawvibes website (the "Service") operated by Derawvibes ("us", "we", or "our").</p>
+                            <h3>Accounts</h3>
+                            <p>When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
+                            <h3>Intellectual Property</h3>
+                            <p>The Service and its original content, features and functionality are and will remain the exclusive property of Derawvibes and its licensors. The Service is protected by copyright, trademark, and other laws of both the India and foreign countries.</p>
+                            <h3>Links To Other Web Sites</h3>
+                            <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by Derawvibes. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third party web sites or services.</p>
+                        </div>
+                </section>
+
+                <!-- Contact Page Section -->
+                <section id="page-contact" class="page-section hidden py-12">
+                    <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Contact Us</h2>
+                    <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <!-- Contact Form -->
+                            <div>
+                                <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
+                                <form id="contact-form" action="#" method="POST">
+                                    <div class="mb-4">
+                                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+                                    </div>
+                                    <div class="mb-6">
+                                        <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                                        <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"></textarea>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-md transition-colors duration-300">
+                                            Submit Form
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Contact Info -->
+                            <div class="space-y-6">
+                                <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Have a story idea, a correction, or just want to share your thoughts? We'd love to hear from you. Use the form or reach out through one of the channels below.
+                                </p>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <a href="https://mail.google.com/mail/?view=cm&to=derawvibes@gmail.com" class="text-blue-600 hover:underline">derawvibes@gmail.com</a>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Follow Us</h4>
+                                    <div class="flex items-center space-x-4 mt-2">
+                                        <a href="https://x.com/devrawal09?s=21" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on X">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                                        </a>
+                                        <a href="https://www.instagram.com/derawvibes/" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on Instagram">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg>
+                                        </a>
+                                        <a href="#" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on LinkedIn">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+             <footer id="contact" class="bg-slate-900 text-white mt-12">
+                   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                               <div class="md:col-span-2 lg:col-span-1">
+                                   <h5 class="text-3xl font-black tracking-widest uppercase">Derawvibes</h5>
+                                   <p class="text-slate-400 mt-4 text-sm leading-relaxed">
+                                       Exploring the intersections of geopolitics, science, and technology to bring you insightful analysis and vibrant perspectives.
+                                   </p>
+                               </div>
+                               <div>
+                                   <h6 class="font-bold uppercase tracking-wider text-slate-300">Content</h6>
+                                   <ul class="mt-4 space-y-2">
+                                       <li><a href="#page-geopolitics" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Geopolitics</a></li>
+                                       <li><a href="#page-ehs" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">EHS</a></li>
+                                       <li><a href="#page-science" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Science</a></li>
+                                       <li><a href="#page-tech" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Tech</a></li>
+                                       <li><a href="#page-commerce" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Commerce</a></li>
+                                   </ul>
+                               </div>
+                               <div>
+                                   <h6 class="font-bold uppercase tracking-wider text-slate-300">Company</h6>
+                                   <ul class="mt-4 space-y-2">
+                                       <li><a href="#page-about" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">About Us</a></li>
+                                       <li><a href="#page-contact" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Contact</a></li>
+                                       <li><a href="#page-privacy-policy" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Privacy Policy</a></li>
+                                       <li><a href="#page-terms-of-service" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Terms of Service</a></li>
+                                   </ul>
+                               </div>
+                               <div>
+                                   <h6 class="font-bold uppercase tracking-wider text-slate-300">Stay Updated</h6>
+                                   <p class="text-slate-400 mt-4 text-sm">Subscribe to our newsletter for the latest updates.</p>
+                                   <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row items-center w-full max-w-sm">
+                                       <input name="email" type="email" placeholder="Your email address" required class="form-input w-full px-4 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-blue-500 transition duration-300" aria-label="Email Address">
+                                       <button type="submit" class="form-button w-full sm:w-auto mt-2 sm:mt-0 sm:ml-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300" aria-label="Subscribe to newsletter">
+                                           Sign Up
+                                       </button>
+                                   </form>
+                               </div>
+                         </div>
+                         <div class="border-t border-slate-800"></div>
+                         <div class="flex flex-col md:flex-row items-center justify-between mt-8">
+                               <p class="text-slate-500 text-sm text-center md:text-left">
+                                   &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
+                               </p>
+                               <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                   <a href="https://x.com/devrawal09?s=21" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on X">
+                                       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                                   </a>
+                                   <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram">
+                                       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg>
+                                   </a>
+                                   <a href="#" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn">
+                                       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                                   </a>
+                               </div>
+                         </div>
+                   </div>
+             </footer>
+        </div>
+    </div>
+
+
+    <!-- Article Viewer (Initially Hidden) -->
+    <div id="article-viewer" class="hidden fixed inset-0 bg-white z-50 overflow-y-auto">
+        <!-- NEW: Added a fixed header for better navigation within the viewer -->
+        <div class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 shadow-sm">
+             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+                <button id="back-to-main-btn" class="flex items-center text-gray-700 hover:text-black font-semibold transition-colors duration-300 rounded-lg px-3 py-2 -ml-3 hover:bg-gray-200">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Articles
+                </button>
+                <button id="close-article-btn" class="text-gray-600 hover:text-black rounded-full p-2 hover:bg-gray-200">
+                    <span class="sr-only">Close article</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+             </div>
+        </div>
+
+        <!-- UPDATED: Adjusted padding-top to account for the new fixed header -->
+        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-28 md:pb-20">
+            <header class="text-center mb-10">
+                <span id="article-viewer-category" class="text-sm font-bold uppercase text-indigo-600">Category</span>
+                <h1 id="article-viewer-title" class="text-4xl md:text-5xl font-lora font-bold my-4 leading-tight">Article Title</h1>
+            </header>
+            
+            <div class="flex items-center justify-center mb-10">
+                <img id="article-viewer-author-photo" src="" alt="Author's photo" class="w-16 h-16 rounded-full mr-4 object-cover shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';">
+                <div>
+                    <p id="article-viewer-author" class="font-bold text-lg">Devansh Singh Rawal</p>
+                    <p id="article-viewer-date" class="text-gray-500 text-sm">Published on September 28, 2025</p>
+                </div>
+            </div>
+
+            <img id="article-viewer-image" src="" alt="Article main image" class="rounded-lg shadow-xl w-full max-h-[60vh] object-cover mb-12">
+
+            <div id="article-viewer-content" class="prose lg:prose-xl max-w-none mx-auto text-gray-800">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </article>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- IMPORTANT ---
+            // You must replace these placeholder URLs with your actual Google Apps Script Web App URLs.
+            const contactFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
+            const newsletterFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
+            const submissionFormScriptURL = 'https://script.google.com/macros/s/AKfycbzvJpJrngVozkg6JGFM8UA4o3yZcJYKOd8-pjqP3DmjZZvZ8iMU1yNQxRW4exFsQSAo/exec';
+
+            // --- Navigation and Page Switching ---
+            const allPageLinks = document.querySelectorAll('nav a, header a, footer a, .page-section a[href^="#page-"]');
+            const mainNavLinks = document.querySelectorAll('nav ul a.nav-item'); // Target only main nav links for active state
+            const pageSections = document.querySelectorAll('.page-section');
+            
+            // --- Forms ---
+            const newsletterForm = document.getElementById('newsletter-form');
+            const contactForm = document.getElementById('contact-form');
+            const submissionForm = document.getElementById('submission-form');
+            
+            // --- Article Viewer Elements ---
+            const articleViewer = document.getElementById('article-viewer');
+            const closeArticleBtn = document.getElementById('close-article-btn');
+            const backToMainBtn = document.getElementById('back-to-main-btn'); // New back button
+            const articleCards = document.querySelectorAll('.article-card');
+            
+            const articleViewerCategory = document.getElementById('article-viewer-category');
+            const articleViewerTitle = document.getElementById('article-viewer-title');
+            const articleViewerImage = document.getElementById('article-viewer-image');
+            const articleViewerContent = document.getElementById('article-viewer-content');
+            const articleViewerAuthor = document.getElementById('article-viewer-author');
+            const articleViewerDate = document.getElementById('article-viewer-date');
+            const articleViewerAuthorPhoto = document.getElementById('article-viewer-author-photo');
+
+
+            const showPage = (targetId) => {
+                // Hide all page sections
+                pageSections.forEach(section => section.classList.add('hidden'));
+                
+                // Show the target page section
+                const targetPage = document.querySelector(targetId);
+                if (targetPage) {
+                    targetPage.classList.remove('hidden');
+                }
+
+                // --- NEW: Update active navigation link ---
+                mainNavLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === targetId) {
+                        navLink.classList.add('active-nav-link');
+                    } else {
+                        navLink.classList.remove('active-nav-link');
+                    }
+                });
+                
+                window.scrollTo(0, 0); // Scroll to top on page change
+            };
+
+            // Add click listeners for all links that switch pages
+            allPageLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#page-')) {
+                        e.preventDefault();
+                        showPage(href);
+                        // Optional: Update URL hash for better history
+                        // history.pushState(null, '', href);
+                    }
+                });
+            });
+
+            const openArticle = (card) => {
+                // Gather data from the clicked card
+                const categoryElement = card.querySelector('.article-category');
+                const titleElement = card.querySelector('.article-title');
+                const imageElement = card.querySelector('img');
+                const contentElement = card.querySelector('.article-full-content');
+                const authorElement = card.querySelector('.article-author');
+                const dateElement = card.querySelector('.article-date');
+                const authorImgTag = card.querySelector('.article-meta img');
+
+                // Populate the article viewer
+                articleViewerCategory.textContent = categoryElement.textContent;
+                articleViewerTitle.textContent = titleElement.textContent;
+                articleViewerImage.src = imageElement.src;
+                articleViewerImage.alt = imageElement.alt;
+                
+                if (authorElement && dateElement) {
+                    articleViewerAuthor.textContent = authorElement.textContent;
+                    articleViewerDate.textContent = "Published on " + dateElement.textContent;
+                } else {
+                    articleViewerAuthor.textContent = "Derawvibes Staff";
+                    articleViewerDate.textContent = "Published recently";
+                }
+                
+                if (authorImgTag && authorImgTag.src) {
+                    articleViewerAuthorPhoto.src = authorImgTag.src;
+                } else {
+                    // Provide a default placeholder if no author image is found
+                    articleViewerAuthorPhoto.src = 'https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';
+                }
+                
+                if (contentElement) {
+                    articleViewerContent.innerHTML = contentElement.innerHTML;
+                } else {
+                    articleViewerContent.innerHTML = "<p>Article content could not be loaded. Please try again later.</p>";
+                }
+                
+                // Match the category color styling
+                articleViewerCategory.className = categoryElement.className.replace('mb-2', '');
+                
+                // Show viewer and lock background scroll
+                articleViewer.classList.remove('hidden');
+                articleViewer.scrollTo(0, 0);
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeArticle = () => {
+                articleViewer.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore background scroll
+            };
+
+            // Add click listener to each article card
+            articleCards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Prevent default action only if an actual link inside the card was the direct target
+                    if (e.target.tagName === 'A') {
+                        e.preventDefault();
+                    }
+                    openArticle(card);
+                });
+            });
+
+            // Listeners for closing the article viewer
+            closeArticleBtn.addEventListener('click', closeArticle);
+            backToMainBtn.addEventListener('click', closeArticle); // New listener for back button
+
+            // Generic form submission handler
+            const handleFormSubmit = (form, url, button, originalText, successText) => {
+                button.textContent = 'Submitting...';
+                button.disabled = true;
+
+                fetch(url, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        // Google Apps Script often redirects, so check for multiple success conditions
+                        if (response.ok || response.type === 'opaque' || response.status === 302) {
+                            return response.text();
+                        }
+                        throw new Error(`Network response was not ok. Status: ${response.status}.`);
+                    })
+                    .then(data => {
+                        button.textContent = successText;
+                        button.classList.add('bg-green-600', 'hover:bg-green-700');
+                        button.classList.remove('bg-blue-600', 'hover:bg-blue-700', 'bg-black', 'hover:bg-gray-800');
+                        form.reset();
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                            button.disabled = false;
+                            button.classList.remove('bg-green-600', 'hover:bg-green-700');
+                             if(form.id === 'newsletter-form' || form.id === 'submission-form') {
+                                 button.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                             } else {
+                                 button.classList.add('bg-black', 'hover:bg-gray-800');
+                             }
+                        }, 3000);
+                    })
+                    .catch(error => {
+                        console.error('Error!', error.message);
+                        button.textContent = 'Error!';
+                        button.classList.add('bg-red-600');
+                        button.disabled = false;
+                    });
+            };
+            
+            // Attach form handlers
+            if (newsletterForm) {
+                const newsletterButton = newsletterForm.querySelector('button');
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleFormSubmit(newsletterForm, newsletterFormScriptURL, newsletterButton, 'Sign Up', 'Thank You!');
+                });
+            }
+            
+            if (contactForm) {
+                const contactButton = contactForm.querySelector('button');
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleFormSubmit(contactForm, contactFormScriptURL, contactButton, 'Submit Form', 'Message Sent!');
+                });
+            }
+
+            if (submissionForm) {
+                const submissionButton = submissionForm.querySelector('button');
+                submissionForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    handleFormSubmit(submissionForm, submissionFormScriptURL, submissionButton, 'Submit for Review', 'Submission Received!');
+                });
+            }
+
+            // Set current year in footer and show the home page on initial load
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            showPage('#page-home');
+        });
+    </script>
+</body>
+</html>
