@@ -34,9 +34,14 @@
             color: #0f766e; /* A strong teal text for contrast */
             font-weight: 600; /* Make active link a bit bolder */
         }
+        article p {
+          text-align: justify;
+        text-indent: 1px;
+        line-height: 1.6;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray -50 text-gray-800">
 
     <!-- Main Site Content -->
     <div id="main-content">
@@ -62,7 +67,6 @@
                     <li><a href="#page-contact" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Contact</a></li>
                 </ul>
             </nav>
-
             <!-- Main Content Area -->
             <main>
                 
@@ -75,7 +79,7 @@
                         <div class="lg:col-span-2">
                             <span class="article-category text-xs font-bold uppercase text-red-600">Featured Story</span>
                             <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h2>
-                            <p class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
+                            <a class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
                             <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 1, 2025</p>
                             <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
                             <div class="article-meta hidden">
@@ -98,7 +102,7 @@ Companies at the forefront are using AI to predict equipment failures, identify 
                         <div class="lg:col-span-2">
                             <span class="article-category text-xs font-bold uppercase text-sky-600">Featured Story</span>
                             <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">Fusion Energy Breakthrough: The Ultimate Clean Power Source?</h2>
-                            <p class="text-gray-600 mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy to fight climate change...</p>
+                            <a class="text-gray-600 mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy to fight climate change...</p>
                             <p class="text-sm text-gray-500 mb-4">By Jane Doe | Published on September 30, 2025</p>
                             <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
                             <div class="article-meta hidden">
@@ -123,7 +127,7 @@ While commercial fusion power plants are still decades away, this breakthrough r
                             </p>
                         </div>
                     </section>
-
+              <!-- latest articles -->
                     <hr class="my-12 border-gray-200">
                     <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-wider">Latest Articles</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -131,7 +135,7 @@ While commercial fusion power plants are still decades away, this breakthrough r
                             <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Circular economy diagram" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Circular+Economy';">
                             <span class="article-category text-xs font-bold uppercase text-blue-700 mb-2">EHS</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Circular Economy: A Blueprint for a Waste-Free Future</h4>
-                            <p class="text-gray-600 text-sm mb-4">Moving beyond the 'take-make-dispose' model to create systems that are regenerative by design...</p>
+                            <a class="text-gray-600 text-sm mb-4">Moving beyond the 'take-make-dispose' model to create systems that are regenerative by design...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
@@ -149,7 +153,7 @@ Companies and governments are beginning to embrace this concept, recognizing tha
                             <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="Mycelium material close-up" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
                             <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium Packaging: Can Fungus Replace Plastic?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Startups are attracting investment for biodegradable materials made from mushroom roots...</p>
+                            <a class="text-gray-600 text-sm mb-4">Startups are attracting investment for biodegradable materials made from mushroom roots...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
@@ -167,7 +171,7 @@ While challenges in scaling production and cost remain, mycelium represents a pa
                             <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Drought-resistant crops in a dry field" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
                             <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Eco Science</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">Drought-Resistant Crops: An Answer to Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing crops that can thrive in a warming world...</p>
+                            <a class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing crops that can thrive in a warming world...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
@@ -185,8 +189,8 @@ Regulatory hurdles and public perception remain significant challenges. However,
                             <img src="https://images.unsplash.com/photo-1629813291088-5fed1490216b?q=80&w=2070&auto=format&fit=crop" alt="Direct air capture facility" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Green+Tech';">
                             <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">Direct Air Capture: Can We Reverse Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">New technologies aim to pull CO2 directly from the atmosphere. But is it a viable solution?...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <a class="text-gray-600 text-sm mb-4">New technologies aim to pull CO2 directly from the atmosphere. But is it a viable solution?...</p>
+                            <p href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">John Smith</span>
@@ -216,13 +220,70 @@ The technology is still in its early stages and faces challenges of cost and sca
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 1, 2025</span>
+                                <span class="article-date">October 4, 2025</span>
                             </div>
                             <div class="article-full-content hidden">
 For decades, Environmental, Health, and Safety (EHS) has been a field of reaction. An incident occurs, an investigation follows, and new protocols are implemented. But what if we could prevent incidents before they even happen? Welcome to the age of predictive analytics in EHS.
 Artificial intelligence is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets from IoT sensors, incident reports, and even weather patterns, machine learning algorithms can identify hidden correlations and flag high-risk scenarios with astonishing accuracy.
 "We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."
 Companies at the forefront are using AI to predict equipment failures, identify at-risk employee behaviors, and model the potential impact of chemical spills. The result is not just a safer workplace, but a more efficient and resilient operation.
+                            </div>
+                        </article>
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="INDEX EHS !.avif" alt="EHS professional at a worksite" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Healthcare';">
+                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The-Future is Now: How Artificial Intelligence is Revolutionizing EHS</h4>
+                            <a class="text-gray-600 text-sm mb-4">From Reactive to Predictive: AI Transforms Environmental, Health, and Safety Management</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">October 1, 2025</span>
+                            </div>
+                            <div class="article-full-content hidden">
+
+                            <strong>For decades,</strong> the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive, responding to incidents after they occur. However, the integration of Artificial Intelligence (AI) is flipping this paradigm on its head. By harnessing the power of data, machine learning, and computer vision, AI is empowering organizations to anticipate, identify, and mitigate risks before they lead to harm, ushering in a new era of proactive and predictive safety management.
+<br
+<p><strong>Predictive Analytics: Seeing Danger Before It Strikes</strong> </p>
+<p>One of the most significant impacts of AI in EHS is the ability to forecast potential incidents. AI-powered systems analyze vast datasets, including historical incident reports, equipment maintenance logs, employee behavior patterns, and even weather conditions. By identifying subtle correlations and trends that a human observer might miss, machine learning models can predict when and where an incident is most likely to occur. This allows EHS professionals to take preemptive action, such as scheduling maintenance on a piece of machinery before it fails or providing targeted training to employees exhibiting at-risk behaviors. Case studies have shown that this predictive approach can lead to significant reductions in workplace accidents.</p>
+<br
+<h2><strong>Computer Vision: An Unblinking Eye on Safety</strong>  </h2>
+<p>The proliferation of cameras in the workplace has created a massive, underutilized source of safety data. AI-powered computer vision is changing that by transforming standard CCTV systems into intelligent, real-time safety monitors.</p>
+<br
+<p><em>AI-powered computer vision is changing that by transforming standard CCTV systems into intelligent, real-time safety monitors. These systems can automatically:</em></p>
+<br>
+<ul class="list-disc list-inside pl-4">
+  <li><strong>Detect Personal Protective Equipment (PPE) Non-Compliance:</strong> AI can instantly identify if workers are wearing the required hard hats. </li>
+  <li><strong>Identify Unsafe Conditions:</strong> Computer vision can spot potential hazards like spills or blocked emergency exits.</li>
+</ul>
+<p><strong>Monitor Ergonomics:</strong> By analyzing worker postures, AI can flag potentially harmful ergonomic risks, helping to prevent musculoskeletal disorders.
+</p>
+<br
+<P><strong>Recognize At-Risk Behaviors:</strong> The technology can detect unsafe actions, such as entering restricted zones or operating machinery improperly, allowing for timely intervention.
+</P>
+<br
+<p>One power plant reported an 89% reduction in safety alerts after implementing an AI-driven monitoring system, showcasing the technology's effectiveness.
+</p>
+
+Streamlining Compliance and Reporting
+
+Navigating the complex web of EHS regulations is a major challenge for organizations. AI is simplifying this by automating compliance-related tasks. Natural Language Processing (NLP), a branch of AI, can scan and interpret regulatory documents, automatically flagging relevant updates and identifying potential gaps in a company's current policies.
+
+
+Furthermore, AI can automate the collection and analysis of data for compliance reporting, significantly reducing the administrative burden on EHS professionals. This frees up their time to focus on more strategic, high-value tasks that enhance workplace safety and environmental stewardship.
+
+
+The Human Element in an AI-Driven World
+
+While AI offers powerful tools, it is not a replacement for human expertise. The successful implementation of AI in EHS requires a thoughtful, human-centric approach. EHS professionals are crucial for interpreting AI-driven insights, making final decisions, and ensuring that the technology is used responsibly and ethically. The quality of the data fed into AI systems is also paramount; inaccurate or biased data will lead to flawed conclusions.
+
+
+
+Challenges and the Path Forward
+
+The adoption of AI in EHS is not without its challenges. High implementation costs, the need for clean and structured data, and concerns about data privacy and cybersecurity are all significant hurdles. Moreover, managing change and ensuring user adoption requires clear communication and comprehensive training.
+
+Despite these challenges, the trajectory is clear. AI is no longer a futuristic concept but a practical tool that is delivering tangible improvements in safety and environmental performance. As the technology continues to evolve and become more accessible, its role as a cornerstone of modern EHS strategy will only grow, creating safer, more compliant, and more sustainable workplaces for everyone.
                             </div>
                         </article>
                     </div>
