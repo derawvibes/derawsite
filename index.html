@@ -34,14 +34,67 @@
             color: #0f766e; /* A strong teal text for contrast */
             font-weight: 600; /* Make active link a bit bolder */
         }
+        
+        /* General article paragraph styling */
         article p {
-          text-align: justify;
-        text-indent: 1px;
-        line-height: 1.6;
+            text-align: justify;
+            text-indent: 1px;
+            line-height: 1.6;
         }
+
+        /* Improved styling for article content within the viewer */
+        #article-viewer-content p {
+            line-height: 1.8; /* More readable line spacing */
+            margin-bottom: 1.5em;
+        }
+        #article-viewer-content blockquote {
+            border-left-color: #14b8a6; /* Teal color for quote */
+            font-style: italic;
+            color: #374151; /* Darker gray for quotes */
+        }
+        #article-viewer-content h2, #article-viewer-content h3 {
+            font-family: 'Lora', serif;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        #author-bio-section {
+            border-top: 2px solid #f3f4f6;
+        }
+
+        /* --- NEW: Animation Styles --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animation Classes */
+        .viewer-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        
+        /* Staggered slide-up animations for article elements */
+        .header-slide-up { animation: slideUp 0.5s ease-out 0.1s forwards; }
+        .image-slide-up { animation: slideUp 0.5s ease-out 0.2s forwards; }
+        .content-slide-up { animation: slideUp 0.5s ease-out 0.3s forwards; }
+
+        /* Initially hide elements that will be animated in */
+        .is-animating > article > * {
+            opacity: 0;
+        }
+
+        /* Bouncy hover effect for social share buttons */
+        .social-share-btn {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .social-share-btn:hover {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
     </style>
 </head>
-<body class="bg-gray -50 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
     <!-- Main Site Content -->
     <div id="main-content">
@@ -79,13 +132,14 @@
                         <div class="lg:col-span-2">
                             <span class="article-category text-xs font-bold uppercase text-red-600">Featured Story</span>
                             <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h2>
-                            <a class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
+                            <p class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
                             <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 1, 2025</p>
                             <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
                                 <span class="article-date">October 1, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
 For decades, Environmental, Health, and Safety (EHS) has been a field of reaction. An incident occurs, an investigation follows, and new protocols are implemented. But what if we could prevent incidents before they even happen? Welcome to the age of predictive analytics in EHS.
@@ -102,13 +156,14 @@ Companies at the forefront are using AI to predict equipment failures, identify 
                         <div class="lg:col-span-2">
                             <span class="article-category text-xs font-bold uppercase text-sky-600">Featured Story</span>
                             <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">Fusion Energy Breakthrough: The Ultimate Clean Power Source?</h2>
-                            <a class="text-gray-600 mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy to fight climate change...</p>
+                            <p class="text-gray-600 mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy to fight climate change...</p>
                             <p class="text-sm text-gray-500 mb-4">By Jane Doe | Published on September 30, 2025</p>
                             <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">Jane Doe</span>
                                 <span class="article-date">September 30, 2025</span>
+                                <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
                             </div>
                             <div class="article-full-content hidden">
 In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is possible.
@@ -127,7 +182,7 @@ While commercial fusion power plants are still decades away, this breakthrough r
                             </p>
                         </div>
                     </section>
-              <!-- latest articles -->
+                <!-- latest articles -->
                     <hr class="my-12 border-gray-200">
                     <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-wider">Latest Articles</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -135,12 +190,13 @@ While commercial fusion power plants are still decades away, this breakthrough r
                             <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Circular economy diagram" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Circular+Economy';">
                             <span class="article-category text-xs font-bold uppercase text-blue-700 mb-2">EHS</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Circular Economy: A Blueprint for a Waste-Free Future</h4>
-                            <a class="text-gray-600 text-sm mb-4">Moving beyond the 'take-make-dispose' model to create systems that are regenerative by design...</p>
+                            <p class="text-gray-600 text-sm mb-4">Moving beyond the 'take-make-dispose' model to create systems that are regenerative by design...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
                                 <span class="article-date">September 29, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
 The linear economy—take, make, dispose—is pushing our planet to its limits. The circular economy offers a radical alternative: a system where waste is designed out, materials are kept in use, and natural systems are regenerated.
@@ -153,12 +209,13 @@ Companies and governments are beginning to embrace this concept, recognizing tha
                             <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="Mycelium material close-up" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
                             <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium Packaging: Can Fungus Replace Plastic?</h4>
-                            <a class="text-gray-600 text-sm mb-4">Startups are attracting investment for biodegradable materials made from mushroom roots...</p>
+                            <p class="text-gray-600 text-sm mb-4">Startups are attracting investment for biodegradable materials made from mushroom roots...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">Jane Doe</span>
                                 <span class="article-date">September 26, 2025</span>
+                                <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
                             </div>
                                 <div class="article-full-content hidden">
 The world is drowning in plastic, and innovators are looking to nature for a solution. Enter mycelium, the root network of fungi. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and compostable.
@@ -171,12 +228,13 @@ While challenges in scaling production and cost remain, mycelium represents a pa
                             <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Drought-resistant crops in a dry field" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
                             <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Eco Science</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">Drought-Resistant Crops: An Answer to Climate Change?</h4>
-                            <a class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing crops that can thrive in a warming world...</p>
+                            <p class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing crops that can thrive in a warming world...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
                                 <span class="article-date">September 25, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                                <div class="article-full-content hidden">
 The specter of climate change poses a dire threat to food security. Scientists, however, believe they have a powerful tool in their arsenal: CRISPR-Cas9 gene editing.
@@ -189,12 +247,13 @@ Regulatory hurdles and public perception remain significant challenges. However,
                             <img src="https://images.unsplash.com/photo-1629813291088-5fed1490216b?q=80&w=2070&auto=format&fit=crop" alt="Direct air capture facility" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Green+Tech';">
                             <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">Direct Air Capture: Can We Reverse Climate Change?</h4>
-                            <a class="text-gray-600 text-sm mb-4">New technologies aim to pull CO2 directly from the atmosphere. But is it a viable solution?...</p>
-                            <p href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <p class="text-gray-600 text-sm mb-4">New technologies aim to pull CO2 directly from the atmosphere. But is it a viable solution?...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">John Smith</span>
                                 <span class="article-date">September 24, 2025</span>
+                                <span class="article-author-bio">John Smith is a climate policy analyst who tracks the evolution of green technologies. He writes about the intersection of innovation, policy, and environmental impact.</span>
                             </div>
                                <div class="article-full-content hidden">
 While reducing emissions is critical, many scientists agree that we also need to remove existing carbon dioxide from the atmosphere. This is where Direct Air Capture (DAC) comes in.
@@ -221,6 +280,7 @@ The technology is still in its early stages and faces challenges of cost and sca
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
                                 <span class="article-date">October 4, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
 For decades, Environmental, Health, and Safety (EHS) has been a field of reaction. An incident occurs, an investigation follows, and new protocols are implemented. But what if we could prevent incidents before they even happen? Welcome to the age of predictive analytics in EHS.
@@ -233,57 +293,40 @@ Companies at the forefront are using AI to predict equipment failures, identify 
                             <img src="INDEX EHS !.avif" alt="EHS professional at a worksite" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Healthcare';">
                             <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">The-Future is Now: How Artificial Intelligence is Revolutionizing EHS</h4>
-                            <a class="text-gray-600 text-sm mb-4">From Reactive to Predictive: AI Transforms Environmental, Health, and Safety Management</p>
+                            <p class="text-gray-600 text-sm mb-4">From Reactive to Predictive: AI Transforms Environmental, Health, and Safety Management</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
                                 <span class="article-date">October 1, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
+                                <p><strong>For decades,</strong> the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive, responding to incidents after they occur. However, the integration of Artificial Intelligence (AI) is flipping this paradigm on its head. By harnessing the power of data, machine learning, and computer vision, AI is empowering organizations to anticipate, identify, and mitigate risks before they lead to harm, ushering in a new era of proactive and predictive safety management.</p>
+                                
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics at Work</h3>
+                                <p>One of the most significant impacts of AI in EHS is the ability to forecast potential incidents. AI-powered systems analyze vast datasets, including historical incident reports, equipment maintenance logs, employee behavior patterns, and even weather conditions. By identifying subtle correlations and trends that a human observer might miss, machine learning models can predict when and where an incident is most likely to occur. This allows EHS professionals to take preemptive action, such as scheduling maintenance on a piece of machinery before it fails or providing targeted training to employees exhibiting at-risk behaviors. Case studies have shown that this predictive approach can lead to significant reductions in workplace accidents.</p>
+                                
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Digital Sentinels: AI's Watchful Gaze on Safety</h3>
+                                <p>The proliferation of cameras in the workplace has created a massive, underutilized source of safety data. AI-powered computer vision is changing that by transforming standard CCTV systems into intelligent, real-time safety monitors. These systems can automatically:</p>
+                                <ul class="list-disc list-outside pl-8 my-4 space-y-2">
+                                    <li><strong>Detect Personal Protective Equipment (PPE) Non-Compliance:</strong> Instantly identify if workers are wearing required hard hats, safety glasses, or high-visibility vests and issue real-time alerts.</li>
+                                    <li><strong>Identify Unsafe Conditions:</strong> Spot potential hazards like spills, blocked emergency exits, or improperly stored materials, notifying supervisors to correct the issue immediately.</li>
+                                    <li><strong>Monitor Ergonomics:</strong> Analyze worker postures to flag potentially harmful ergonomic risks, helping to prevent musculoskeletal disorders.</li>
+                                    <li><strong>Recognize At-Risk Behaviors:</strong> Detect unsafe actions, such as entering restricted zones or operating machinery improperly, allowing for timely intervention.</li>
+                                </ul>
+                                <p>One power plant reported an 89% reduction in safety alerts after implementing an AI-driven monitoring system, showcasing the technology's effectiveness.</p>
 
-                            <strong>For decades,</strong> the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive, responding to incidents after they occur. However, the integration of Artificial Intelligence (AI) is flipping this paradigm on its head. By harnessing the power of data, machine learning, and computer vision, AI is empowering organizations to anticipate, identify, and mitigate risks before they lead to harm, ushering in a new era of proactive and predictive safety management.
-<br
-<p><strong>Predictive Analytics: Seeing Danger Before It Strikes</strong> </p>
-<p>One of the most significant impacts of AI in EHS is the ability to forecast potential incidents. AI-powered systems analyze vast datasets, including historical incident reports, equipment maintenance logs, employee behavior patterns, and even weather conditions. By identifying subtle correlations and trends that a human observer might miss, machine learning models can predict when and where an incident is most likely to occur. This allows EHS professionals to take preemptive action, such as scheduling maintenance on a piece of machinery before it fails or providing targeted training to employees exhibiting at-risk behaviors. Case studies have shown that this predictive approach can lead to significant reductions in workplace accidents.</p>
-<br
-<h2><strong>Computer Vision: An Unblinking Eye on Safety</strong>  </h2>
-<p>The proliferation of cameras in the workplace has created a massive, underutilized source of safety data. AI-powered computer vision is changing that by transforming standard CCTV systems into intelligent, real-time safety monitors.</p>
-<br
-<p><em>AI-powered computer vision is changing that by transforming standard CCTV systems into intelligent, real-time safety monitors. These systems can automatically:</em></p>
-<br>
-<ul class="list-disc list-inside pl-4">
-  <li><strong>Detect Personal Protective Equipment (PPE) Non-Compliance:</strong> AI can instantly identify if workers are wearing the required hard hats. </li>
-  <li><strong>Identify Unsafe Conditions:</strong> Computer vision can spot potential hazards like spills or blocked emergency exits.</li>
-</ul>
-<p><strong>Monitor Ergonomics:</strong> By analyzing worker postures, AI can flag potentially harmful ergonomic risks, helping to prevent musculoskeletal disorders.
-</p>
-<br
-<P><strong>Recognize At-Risk Behaviors:</strong> The technology can detect unsafe actions, such as entering restricted zones or operating machinery improperly, allowing for timely intervention.
-</P>
-<br
-<p>One power plant reported an 89% reduction in safety alerts after implementing an AI-driven monitoring system, showcasing the technology's effectiveness.
-</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Cutting Through Red Tape with AI</h3>
+                                <p>Navigating the complex web of EHS regulations is a major challenge. AI is simplifying this by automating compliance-related tasks. Natural Language Processing (NLP), a branch of AI, can scan regulatory documents, automatically flagging relevant updates and identifying potential gaps in a company's current policies.</p>
+                                <p>Furthermore, AI can automate the collection and analysis of data for compliance reporting, significantly reducing the administrative burden on EHS professionals. This frees up their time to focus on more strategic, high-value tasks that enhance workplace safety and environmental stewardship.</p>
 
-Streamlining Compliance and Reporting
-
-Navigating the complex web of EHS regulations is a major challenge for organizations. AI is simplifying this by automating compliance-related tasks. Natural Language Processing (NLP), a branch of AI, can scan and interpret regulatory documents, automatically flagging relevant updates and identifying potential gaps in a company's current policies.
-
-
-Furthermore, AI can automate the collection and analysis of data for compliance reporting, significantly reducing the administrative burden on EHS professionals. This frees up their time to focus on more strategic, high-value tasks that enhance workplace safety and environmental stewardship.
-
-
-The Human Element in an AI-Driven World
-
-While AI offers powerful tools, it is not a replacement for human expertise. The successful implementation of AI in EHS requires a thoughtful, human-centric approach. EHS professionals are crucial for interpreting AI-driven insights, making final decisions, and ensuring that the technology is used responsibly and ethically. The quality of the data fed into AI systems is also paramount; inaccurate or biased data will lead to flawed conclusions.
-
-
-
-Challenges and the Path Forward
-
-The adoption of AI in EHS is not without its challenges. High implementation costs, the need for clean and structured data, and concerns about data privacy and cybersecurity are all significant hurdles. Moreover, managing change and ensuring user adoption requires clear communication and comprehensive training.
-
-Despite these challenges, the trajectory is clear. AI is no longer a futuristic concept but a practical tool that is delivering tangible improvements in safety and environmental performance. As the technology continues to evolve and become more accessible, its role as a cornerstone of modern EHS strategy will only grow, creating safer, more compliant, and more sustainable workplaces for everyone.
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Man and Machine: The New EHS Partnership</h3>
+                                <p>While AI offers powerful tools, it is not a replacement for human expertise. The successful implementation of AI in EHS requires a thoughtful, human-centric approach. EHS professionals are crucial for interpreting AI-driven insights, making final decisions, and ensuring that the technology is used responsibly and ethically. The quality of the data fed into AI systems is also paramount; inaccurate or biased data will lead to flawed conclusions.</p>
+                                
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead for AI in EHS</h3>
+                                <p>The adoption of AI in EHS is not without its challenges. High implementation costs, the need for clean and structured data, and concerns about data privacy are all significant hurdles. Moreover, managing change and ensuring user adoption requires clear communication and comprehensive training.</p>
+                                <p>Despite these challenges, the trajectory is clear. AI is no longer a futuristic concept but a practical tool that is delivering tangible improvements in safety and environmental performance. As the technology continues to evolve and become more accessible, its role as a cornerstone of modern EHS strategy will only grow, creating safer, more compliant, and more sustainable workplaces for everyone.</p>
                             </div>
                         </article>
                     </div>
@@ -303,6 +346,7 @@ Despite these challenges, the trajectory is clear. AI is no longer a futuristic 
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
                                 <span class="article-date">September 25, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                                <div class="article-full-content hidden">
 The specter of climate change poses a dire threat to food security. Scientists, however, believe they have a powerful tool in their arsenal: CRISPR-Cas9 gene editing.
@@ -328,6 +372,7 @@ Regulatory hurdles and public perception remain significant challenges. However,
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">John Smith</span>
                                 <span class="article-date">September 24, 2025</span>
+                                <span class="article-author-bio">John Smith is a climate policy analyst who tracks the evolution of green technologies. He writes about the intersection of innovation, policy, and environmental impact.</span>
                             </div>
                                <div class="article-full-content hidden">
 While reducing emissions is critical, many scientists agree that we also need to remove existing carbon dioxide from the atmosphere. This is where Direct Air Capture (DAC) comes in.
@@ -342,48 +387,48 @@ The technology is still in its early stages and faces challenges of cost and sca
                 <!-- Submit Article Page Section -->
                 <section id="page-submit" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Submit Your Article</h2>
-                           <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
-                                <div class="text-center mb-8">
-                                    <h3 class="text-2xl font-bold mb-2">Become a Contributor</h3>
-                                    <p class="text-gray-600">Have an idea or a story that fits our new focus on EHS and the environment? We'd love to read it. Fill out the form below to submit your article for consideration.</p>
+                               <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
+                                    <div class="text-center mb-8">
+                                        <h3 class="text-2xl font-bold mb-2">Become a Contributor</h3>
+                                        <p class="text-gray-600">Have an idea or a story that fits our new focus on EHS and the environment? We'd love to read it. Fill out the form below to submit your article for consideration.</p>
+                                    </div>
+                                    <form id="submission-form" novalidate>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                            <div>
+                                                <label for="author-name" class="block text-gray-700 font-bold mb-2">Your Name</label>
+                                                <input type="text" id="author-name" name="author-name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                            </div>
+                                            <div>
+                                                <label for="author-email" class="block text-gray-700 font-bold mb-2">Your Email</label>
+                                                <input type="email" id="author-email" name="author-email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                            <div>
+                                                <label for="article-title-submit" class="block text-gray-700 font-bold mb-2">Article Title</label>
+                                                <input type="text" id="article-title-submit" name="article-title" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                            </div>
+                                             <div>
+                                                <label for="article-category-submit" class="block text-gray-700 font-bold mb-2">Category</label>
+                                                <select id="article-category-submit" name="article-category" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-white">
+                                                    <option value="" disabled selected>Select a category</option>
+                                                    <option value="EHS">EHS</option>
+                                                    <option value="Eco Science">Eco Science</option>
+                                                    <option value="Green Tech">Green Tech</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-6">
+                                            <label for="article-content-submit" class="block text-gray-700 font-bold mb-2">Article Content</label>
+                                            <textarea id="article-content-submit" name="article-content" rows="12" required placeholder="Paste your full article content here..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300"></textarea>
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 text-lg">
+                                                Submit for Review
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <form id="submission-form" novalidate>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label for="author-name" class="block text-gray-700 font-bold mb-2">Your Name</label>
-                                            <input type="text" id="author-name" name="author-name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
-                                        </div>
-                                        <div>
-                                            <label for="author-email" class="block text-gray-700 font-bold mb-2">Your Email</label>
-                                            <input type="email" id="author-email" name="author-email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
-                                        </div>
-                                    </div>
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                                        <div>
-                                            <label for="article-title-submit" class="block text-gray-700 font-bold mb-2">Article Title</label>
-                                            <input type="text" id="article-title-submit" name="article-title" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
-                                        </div>
-                                         <div>
-                                            <label for="article-category-submit" class="block text-gray-700 font-bold mb-2">Category</label>
-                                            <select id="article-category-submit" name="article-category" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-white">
-                                                <option value="" disabled selected>Select a category</option>
-                                                <option value="EHS">EHS</option>
-                                                <option value="Eco Science">Eco Science</option>
-                                                <option value="Green Tech">Green Tech</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="mb-6">
-                                        <label for="article-content-submit" class="block text-gray-700 font-bold mb-2">Article Content</label>
-                                        <textarea id="article-content-submit" name="article-content" rows="12" required placeholder="Paste your full article content here..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300"></textarea>
-                                    </div>
-                                    <div>
-                                        <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 text-lg">
-                                            Submit for Review
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
                 </section>
 
 
@@ -414,12 +459,12 @@ The technology is still in its early stages and faces challenges of cost and sca
                 <!-- Terms of Service Page Section -->
                 <section id="page-terms-of-service" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Terms of Service</h2>
-                           <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                            <p><strong>Last Updated: October 1, 2025</strong></p>
-                            <p>Please read these Terms of Service ("Terms") carefully before using the Derawvibes website (the "Service") operated by Derawvibes ("us", "we", or "our"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.</p>
-                            <h3>Intellectual Property</h3>
-                            <p>The Service and its original content, features and functionality are and will remain the exclusive property of Derawvibes and its licensors.</p>
-                        </div>
+                               <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
+                                <p><strong>Last Updated: October 1, 2025</strong></p>
+                                <p>Please read these Terms of Service ("Terms") carefully before using the Derawvibes website (the "Service") operated by Derawvibes ("us", "we", or "our"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.</p>
+                                <h3>Intellectual Property</h3>
+                                <p>The Service and its original content, features and functionality are and will remain the exclusive property of Derawvibes and its licensors.</p>
+                            </div>
                 </section>
 
                 <!-- Contact Page Section -->
@@ -464,7 +509,7 @@ The technology is still in its early stages and faces challenges of cost and sca
                                     <h4 class="font-bold text-gray-800">Follow Us</h4>
                                     <div class="flex items-center space-x-4 mt-2">
                                         <a href="https://x.com/devrawal09?s=21" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                                        <a href="https://www.instagram.com/derawvibes/" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72_0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
+                                        <a href="https://www.instagram.com/derawvibes/" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
                                         <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
                                     </div>
                                 </div>
@@ -476,61 +521,66 @@ The technology is still in its early stages and faces challenges of cost and sca
 
             <!-- Footer -->
              <footer id="contact" class="bg-slate-900 text-white mt-12">
-                   <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                               <div class="md:col-span-2 lg:col-span-1">
-                                   <h5 class="text-3xl font-black tracking-widest uppercase">Derawvibes</h5>
-                                   <p class="text-slate-400 mt-4 text-sm leading-relaxed">
-                                       Exploring the intersection of environment, health, and safety to build a sustainable future.
-                                   </p>
-                               </div>
-                               <div>
-                                   <h6 class="font-bold uppercase tracking-wider text-slate-300">Content</h6>
-                                   <ul class="mt-4 space-y-2">
-                                       <li><a href="#page-ehs" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">EHS</a></li>
-                                       <li><a href="#page-eco-science" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Eco Science</a></li>
-                                       <li><a href="#page-green-tech" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Green Tech</a></li>
-                                   </ul>
-                               </div>
-                               <div>
-                                   <h6 class="font-bold uppercase tracking-wider text-slate-300">Company</h6>
-                                   <ul class="mt-4 space-y-2">
-                                       <li><a href="#page-about" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">About Us</a></li>
-                                       <li><a href="#page-contact" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Contact</a></li>
-                                       <li><a href="#page-privacy-policy" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Privacy Policy</a></li>
-                                       <li><a href="#page-terms-of-service" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Terms of Service</a></li>
-                                   </ul>
-                               </div>
-                               <div>
-                                   <h6 class="font-bold uppercase tracking-wider text-slate-300">Stay Updated</h6>
-                                   <p class="text-slate-400 mt-4 text-sm">Subscribe to our newsletter for the latest updates.</p>
-                                   <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row items-center w-full max-w-sm" novalidate>
-                                       <input name="email" type="email" placeholder="Your email address" required class="form-input w-full px-4 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-teal-500 transition duration-300" aria-label="Email Address">
-                                       <button type="submit" class="form-button w-full sm:w-auto mt-2 sm:mt-0 sm:ml-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300" aria-label="Subscribe to newsletter">
-                                           Sign Up
-                                       </button>
-                                   </form>
-                               </div>
-                         </div>
-                         <div class="border-t border-slate-800"></div>
-                         <div class="flex flex-col md:flex-row items-center justify-between mt-8">
-                               <p class="text-slate-500 text-sm text-center md:text-left">
-                                   &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
-                               </p>
-                               <div class="flex items-center space-x-4 mt-4 md:mt-0">
-                                   <a href="https://x.com/devrawal09?s=21" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                                   <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
-                                   <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
-                               </div>
-                         </div>
-                   </div>
-             </footer>
+                     <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+                           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                                  <div class="md:col-span-2 lg:col-span-1">
+                                      <h5 class="text-3xl font-black tracking-widest uppercase">Derawvibes</h5>
+                                      <p class="text-slate-400 mt-4 text-sm leading-relaxed">
+                                          Exploring the intersection of environment, health, and safety to build a sustainable future.
+                                      </p>
+                                  </div>
+                                  <div>
+                                      <h6 class="font-bold uppercase tracking-wider text-slate-300">Content</h6>
+                                      <ul class="mt-4 space-y-2">
+                                          <li><a href="#page-ehs" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">EHS</a></li>
+                                          <li><a href="#page-eco-science" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Eco Science</a></li>
+                                          <li><a href="#page-green-tech" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Green Tech</a></li>
+                                      </ul>
+                                  </div>
+                                  <div>
+                                      <h6 class="font-bold uppercase tracking-wider text-slate-300">Company</h6>
+                                      <ul class="mt-4 space-y-2">
+                                          <li><a href="#page-about" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">About Us</a></li>
+                                          <li><a href="#page-contact" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Contact</a></li>
+                                          <li><a href="#page-privacy-policy" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Privacy Policy</a></li>
+                                          <li><a href="#page-terms-of-service" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Terms of Service</a></li>
+                                      </ul>
+                                  </div>
+                                  <div>
+                                      <h6 class="font-bold uppercase tracking-wider text-slate-300">Stay Updated</h6>
+                                      <p class="text-slate-400 mt-4 text-sm">Subscribe to our newsletter for the latest updates.</p>
+                                      <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row items-center w-full max-w-sm" novalidate>
+                                          <input name="email" type="email" placeholder="Your email address" required class="form-input w-full px-4 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-teal-500 transition duration-300" aria-label="Email Address">
+                                          <button type="submit" class="form-button w-full sm:w-auto mt-2 sm:mt-0 sm:ml-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300" aria-label="Subscribe to newsletter">
+                                              Sign Up
+                                          </button>
+                                      </form>
+                                  </div>
+                           </div>
+                           <div class="border-t border-slate-800"></div>
+                           <div class="flex flex-col md:flex-row items-center justify-between mt-8">
+                                <p class="text-slate-500 text-sm text-center md:text-left">
+                                    &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
+                                </p>
+                                <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                    <a href="https://x.com/devrawal09?s=21" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                                    <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
+                                    <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+                                </div>
+                           </div>
+                     </div>
+               </footer>
         </div>
     </div>
 
 
     <!-- Article Viewer (Initially Hidden) -->
     <div id="article-viewer" class="hidden fixed inset-0 bg-white z-50 overflow-y-auto">
+         <!-- Reading Progress Bar -->
+        <div class="fixed top-0 left-0 w-full h-1.5 z-[60]">
+            <div id="progress-bar" class="h-full bg-teal-500 transition-all duration-150 ease-linear" style="width: 0%;"></div>
+        </div>
+
         <div class="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-sm z-50 shadow-sm">
              <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
                 <button id="back-to-main-btn" class="flex items-center text-gray-700 hover:text-black font-semibold transition-colors duration-300 rounded-lg px-3 py-2 -ml-3 hover:bg-gray-200">
@@ -544,24 +594,59 @@ The technology is still in its early stages and faces challenges of cost and sca
              </div>
         </div>
 
-        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-28 md:pb-20">
-            <header class="text-center mb-10">
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-28 md:pb-20">
+            <header class="mb-8">
                 <span id="article-viewer-category" class="text-sm font-bold uppercase text-teal-600">Category</span>
                 <h1 id="article-viewer-title" class="text-4xl md:text-5xl font-lora font-bold my-4 leading-tight">Article Title</h1>
+                 <!-- Meta Info: Author, Date, Read Time -->
+                <div class="flex flex-wrap items-center text-sm text-gray-500 mt-4 gap-x-4 gap-y-2">
+                    <div class="flex items-center">
+                        <img id="article-viewer-author-photo" src="" alt="Author's photo" class="w-10 h-10 rounded-full mr-3 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';">
+                        <span id="article-viewer-author" class="font-semibold text-gray-800">Devansh Singh Rawal</span>
+                    </div>
+                    <span class="hidden sm:inline-block">•</span>
+                    <span id="article-viewer-date">Published on October 1, 2025</span>
+                    <span class="hidden sm:inline-block">•</span>
+                    <span id="article-viewer-read-time" class="flex items-center">
+                        <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>5 min read</span>
+                    </span>
+                </div>
             </header>
             
-            <div class="flex items-center justify-center mb-10">
-                <img id="article-viewer-author-photo" src="" alt="Author's photo" class="w-16 h-16 rounded-full mr-4 object-cover shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';">
-                <div>
-                    <p id="article-viewer-author" class="font-bold text-lg">Devansh Singh Rawal</p>
-                    <p id="article-viewer-date" class="text-gray-500 text-sm">Published on October 1, 2025</p>
-                </div>
-            </div>
-
             <img id="article-viewer-image" src="" alt="Article main image" class="rounded-lg shadow-xl w-full max-h-[60vh] object-cover mb-12">
 
             <div id="article-viewer-content" class="prose lg:prose-xl max-w-none mx-auto text-gray-800">
                 <!-- Content will be dynamically inserted here -->
+            </div>
+
+            <!-- Share Section -->
+            <div class="mt-12 py-6 border-t border-b border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <h4 class="font-bold text-lg">Share This Article:</h4>
+                <div class="flex items-center space-x-3">
+                    <!-- X (Twitter) -->
+                    <a id="share-x" href="#" target="_blank" class="social-share-btn w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-black transition-colors duration-300" aria-label="Share on X">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <!-- LinkedIn -->
+                    <a id="share-linkedin" href="#" target="_blank" class="social-share-btn w-10 h-10 flex items-center justify-center bg-blue-700 text-white rounded-full hover:bg-blue-800 transition-colors duration-300" aria-label="Share on LinkedIn">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                    <!-- Copy Link -->
+                    <button id="copy-link-btn" class="social-share-btn w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-colors duration-300" aria-label="Copy article link">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Author Bio Section -->
+            <div id="author-bio-section" class="mt-12 p-6 bg-gray-50 rounded-lg flex items-start space-x-6">
+                <img id="author-bio-photo" src="" alt="Author's photo" class="w-20 h-20 rounded-full object-cover flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';">
+                <div>
+                    <h4 class="text-xs uppercase font-bold text-gray-500 tracking-wider">Written By</h4>
+                    <h3 id="author-bio-name" class="text-2xl font-lora font-bold mt-1 mb-2">Author Name</h3>
+                    <p id="author-bio-text" class="text-gray-600">A short bio about the author will appear here, giving readers more context about their expertise and background.</p>
+                </div>
             </div>
         </article>
     </div>
@@ -607,41 +692,44 @@ The technology is still in its early stages and faces challenges of cost and sca
             const articleViewerDate = document.getElementById('article-viewer-date');
             const articleViewerAuthorPhoto = document.getElementById('article-viewer-author-photo');
 
-            // --- NEW: Success Modal Elements ---
+            // --- Professional Article Viewer Elements ---
+            const progressBar = document.getElementById('progress-bar');
+            const articleViewerReadTime = document.getElementById('article-viewer-read-time').querySelector('span');
+            const shareXBtn = document.getElementById('share-x');
+            const shareLinkedinBtn = document.getElementById('share-linkedin');
+            const copyLinkBtn = document.getElementById('copy-link-btn');
+            const authorBioPhoto = document.getElementById('author-bio-photo');
+            const authorBioName = document.getElementById('author-bio-name');
+            const authorBioText = document.getElementById('author-bio-text');
+
+            // Success Modal Elements
             const successOverlay = document.getElementById('success-overlay');
             const successBox = document.getElementById('success-box');
             const successMessageText = document.getElementById('success-message-text');
 
-            // --- NEW: Function to show animated success message ---
             const showSuccessMessage = (message) => {
                 successMessageText.textContent = message;
                 successOverlay.classList.remove('hidden');
                 setTimeout(() => {
                     successOverlay.classList.remove('opacity-0');
                     successBox.classList.remove('scale-95');
-                }, 10); // Short delay to allow CSS transitions to trigger
+                }, 10);
 
                 setTimeout(() => {
                     successOverlay.classList.add('opacity-0');
                     successBox.classList.add('scale-95');
-                    setTimeout(() => {
-                        successOverlay.classList.add('hidden');
-                    }, 300); // Hide after transition ends
-                }, 3000); // Message stays on screen for 3 seconds
+                    setTimeout(() => successOverlay.classList.add('hidden'), 300);
+                }, 3000);
             };
 
-            // --- Page Navigation Logic (Unchanged) ---
+            // Page Navigation Logic
             const showPage = (targetId) => {
                 pageSections.forEach(section => section.classList.add('hidden'));
                 const targetPage = document.querySelector(targetId);
-                if (targetPage) {
-                    targetPage.classList.remove('hidden');
-                }
+                if (targetPage) targetPage.classList.remove('hidden');
+                
                 mainNavLinks.forEach(navLink => {
-                    navLink.classList.remove('active-nav-link');
-                    if (navLink.getAttribute('href') === targetId) {
-                        navLink.classList.add('active-nav-link');
-                    }
+                    navLink.classList.toggle('active-nav-link', navLink.getAttribute('href') === targetId);
                 });
                 window.scrollTo(0, 0);
             };
@@ -656,7 +744,35 @@ The technology is still in its early stages and faces challenges of cost and sca
                 });
             });
             
-            // --- Article Viewer Logic (Unchanged) ---
+            // --- Article Viewer Helper Functions ---
+            const calculateReadTime = (content) => {
+                if (!content) return;
+                const text = content.textContent || content.innerText;
+                const wordCount = text.split(/\s+/).length;
+                const wordsPerMinute = 225;
+                const readTime = Math.ceil(wordCount / wordsPerMinute);
+                articleViewerReadTime.textContent = `${readTime} min read`;
+            };
+
+            const updateProgressBar = () => {
+                const { scrollTop, scrollHeight, clientHeight } = articleViewer;
+                if (scrollHeight <= clientHeight) {
+                    progressBar.style.width = '0%';
+                    return;
+                }
+                const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                progressBar.style.width = `${scrollPercent}%`;
+            };
+
+            const setupShareLinks = (title) => {
+                const url = window.location.href; 
+                const encodedTitle = encodeURIComponent(title);
+                const encodedUrl = encodeURIComponent(url);
+                shareXBtn.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
+                shareLinkedinBtn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
+            };
+            
+            // --- UPDATED: Article Viewer Logic ---
             const openArticle = (card) => {
                 const categoryElement = card.querySelector('.article-category');
                 const titleElement = card.querySelector('.article-title');
@@ -665,63 +781,98 @@ The technology is still in its early stages and faces challenges of cost and sca
                 const authorElement = card.querySelector('.article-author');
                 const dateElement = card.querySelector('.article-date');
                 const authorImgTag = card.querySelector('.article-meta img');
+                const authorBioElement = card.querySelector('.article-author-bio');
 
+                // Populate header and meta
                 articleViewerCategory.textContent = categoryElement.textContent;
                 articleViewerTitle.textContent = titleElement.textContent;
                 articleViewerImage.src = imageElement.src;
                 articleViewerImage.alt = imageElement.alt;
+                articleViewerAuthor.textContent = authorElement ? authorElement.textContent : "Derawvibes Staff";
+                articleViewerDate.textContent = dateElement ? "Published on " + dateElement.textContent : "Published recently";
+                articleViewerAuthorPhoto.src = authorImgTag && authorImgTag.src ? authorImgTag.src : 'https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';
                 
-                if (authorElement && dateElement) {
-                    articleViewerAuthor.textContent = authorElement.textContent;
-                    articleViewerDate.textContent = "Published on " + dateElement.textContent;
+                // Populate main content
+                articleViewerContent.innerHTML = contentElement ? contentElement.innerHTML : "<p>Article content could not be loaded.</p>";
+                
+                // Populate new professional features
+                calculateReadTime(contentElement);
+                setupShareLinks(titleElement.textContent);
+                
+                if (authorElement && authorBioElement) {
+                    authorBioPhoto.src = articleViewerAuthorPhoto.src;
+                    authorBioName.textContent = authorElement.textContent;
+                    authorBioText.textContent = authorBioElement.textContent;
                 } else {
-                    articleViewerAuthor.textContent = "Derawvibes Staff";
-                    articleViewerDate.textContent = "Published recently";
+                    authorBioPhoto.src = 'https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';
+                    authorBioName.textContent = "Derawvibes Staff";
+                    authorBioText.textContent = "This article was written by the editorial team at Derawvibes, focusing on delivering high-quality insights into environmental science and technology.";
                 }
-                
-                if (authorImgTag && authorImgTag.src) {
-                    articleViewerAuthorPhoto.src = authorImgTag.src;
-                } else {
-                    articleViewerAuthorPhoto.src = 'https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';
-                }
-                
-                if (contentElement) {
-                    const rawText = contentElement.innerHTML;
-                    const paragraphs = rawText.split('\n').map(p => p.trim()).filter(p => p.length > 0).map(p => {
-                        if (p.startsWith('"') && p.endsWith('"')) {
-                            return `<blockquote><p>${p.slice(1, -1)}</p></blockquote>`;
-                        }
-                        return `<p>${p}</p>`;
-                    }).join('');
-                    articleViewerContent.innerHTML = paragraphs;
-                } else {
-                    articleViewerContent.innerHTML = "<p>Article content could not be loaded.</p>";
-                }
-                
+
                 articleViewerCategory.className = categoryElement.className.replace('mb-2', '');
+                
+                // --- NEW: Add animation classes ---
+                articleViewer.classList.add('is-animating');
+                articleViewer.classList.add('viewer-fade-in');
+                const viewerHeader = articleViewer.querySelector('header');
+                const viewerShare = articleViewer.querySelector('.mt-12.py-6');
+                const viewerBio = articleViewer.querySelector('#author-bio-section');
+                
+                viewerHeader.classList.add('header-slide-up');
+                articleViewerImage.classList.add('image-slide-up');
+                articleViewerContent.classList.add('content-slide-up');
+                viewerShare.classList.add('content-slide-up');
+                viewerBio.classList.add('content-slide-up');
+
                 articleViewer.classList.remove('hidden');
                 articleViewer.scrollTo(0, 0);
+                updateProgressBar(); // Set initial progress bar state
                 document.body.style.overflow = 'hidden';
+                articleViewer.addEventListener('scroll', updateProgressBar);
             };
 
             const closeArticle = () => {
                 articleViewer.classList.add('hidden');
                 document.body.style.overflow = 'auto';
+                articleViewer.removeEventListener('scroll', updateProgressBar);
+
+                // --- NEW: Remove animation classes for next open ---
+                articleViewer.classList.remove('is-animating', 'viewer-fade-in');
+                const animatedElements = articleViewer.querySelectorAll('.header-slide-up, .image-slide-up, .content-slide-up');
+                animatedElements.forEach(el => {
+                    el.classList.remove('header-slide-up', 'image-slide-up', 'content-slide-up');
+                });
             };
 
             articleCards.forEach(card => {
                 card.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'A') {
-                        e.preventDefault();
-                    }
+                    if (e.target.closest('a')) e.preventDefault();
                     openArticle(card);
                 });
             });
 
             closeArticleBtn.addEventListener('click', closeArticle);
             backToMainBtn.addEventListener('click', closeArticle);
+            
+            copyLinkBtn.addEventListener('click', () => {
+                const url = window.location.href;
+                const tempInput = document.createElement('textarea');
+                tempInput.style.position = 'absolute';
+                tempInput.style.left = '-9999px';
+                tempInput.value = url;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    document.execCommand('copy');
+                    showSuccessMessage('Link copied to clipboard!');
+                } catch (err) {
+                    console.error('Could not copy text: ', err);
+                }
+                document.body.removeChild(tempInput);
+            });
 
-            // --- UPDATED: Form Submission Logic ---
+
+            // Form Submission Logic
             const handleFormSubmit = (form, url, button, successMessage) => {
                 const originalText = button.textContent;
                 button.textContent = 'Submitting...';
@@ -729,9 +880,7 @@ The technology is still in its early stages and faces challenges of cost and sca
 
                 fetch(url, { method: 'POST', body: new FormData(form) })
                     .then(response => {
-                        if (response.ok || response.type === 'opaque' || response.status === 302) {
-                            return response.text();
-                        }
+                        if (response.ok || response.type === 'opaque' || response.status === 302) return response.text();
                         throw new Error(`Network response was not ok: ${response.status}`);
                     })
                     .then(() => {
@@ -744,7 +893,6 @@ The technology is still in its early stages and faces challenges of cost and sca
                         button.classList.add('bg-red-600');
                     })
                     .finally(() => {
-                        // Reset button after a short delay to prevent double-clicking
                         setTimeout(() => {
                             button.textContent = originalText;
                             button.disabled = false;
@@ -753,50 +901,28 @@ The technology is still in its early stages and faces challenges of cost and sca
                     });
             };
 
-            // --- UPDATED: Form Event Listeners with Validation ---
-            if (newsletterForm) {
-                const btn = newsletterForm.querySelector('button');
-                newsletterForm.addEventListener('submit', (e) => {
+            const setupFormListener = (form, url, successMessage) => {
+                if (!form) return;
+                const btn = form.querySelector('button[type="submit"]');
+                form.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    // Check browser validation
-                    if (!newsletterForm.checkValidity()) {
-                        newsletterForm.reportValidity();
+                    if (!form.checkValidity()) {
+                        form.reportValidity();
                         return;
                     }
-                    handleFormSubmit(newsletterForm, newsletterFormScriptURL, btn, 'You are now subscribed!');
+                    handleFormSubmit(form, url, btn, successMessage);
                 });
-            }
-            
-            if (contactForm) {
-                const btn = contactForm.querySelector('button');
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    // Check browser validation
-                    if (!contactForm.checkValidity()) {
-                        contactForm.reportValidity();
-                        return;
-                    }
-                    handleFormSubmit(contactForm, contactFormScriptURL, btn, 'Your message has been sent!');
-                });
-            }
+            };
 
-            if (submissionForm) {
-                const btn = submissionForm.querySelector('button');
-                submissionForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    // Check browser validation
-                    if (!submissionForm.checkValidity()) {
-                        submissionForm.reportValidity();
-                        return;
-                    }
-                    handleFormSubmit(submissionForm, submissionFormScriptURL, btn, 'Your article has been received!');
-                });
-            }
+            setupFormListener(newsletterForm, newsletterFormScriptURL, 'You are now subscribed!');
+            setupFormListener(contactForm, contactFormScriptURL, 'Your message has been sent!');
+            setupFormListener(submissionForm, submissionFormScriptURL, 'Your article has been received!');
 
-            // --- Footer Year (Unchanged) ---
+            // --- Footer Year & Initial Page Load ---
             document.getElementById('current-year').textContent = new Date().getFullYear();
             showPage('#page-home');
         });
     </script>
 </body>
 </html>
+
