@@ -31,10 +31,9 @@
             font-weight: 600; /* Make active link a bit bolder */
         }
         
-        article p {
+        article p, .prose p {
             text-align: justify;
-            text-indent: 1px;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         /* --- NEW: Enhanced Viewer & Animation Styles --- */
@@ -54,7 +53,7 @@
         }
 
         /* Stylish drop-cap for first paragraph */
-        #article-viewer-content p:first-of-type::first-letter {
+        #article-viewer-content .prose > p:first-of-type::first-letter {
             font-size: 4.5em; /* Larger size */
             font-weight: 700;
             float: left;
@@ -149,20 +148,24 @@
                         <div class="lg:col-span-2">
                             <span class="article-category text-xs font-bold uppercase text-red-600">Featured Story</span>
                             <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h2>
-                            <p class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
-                            <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 6, 2025</p>
+                            <p class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen, analyze ergonomic risks in real-time, and ensure PPE compliance automatically...</p>
+                            <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 7, 2025</p>
                             <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 6, 2025</span>
+                                <span class="article-date">October 7, 2025</span>
                                 <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
-For decades, Environmental, Health, and Safety (EHS) has been a field of reaction. An incident occurs, an investigation follows, and new protocols are implemented. But what if we could prevent incidents before they even happen? Welcome to the age of predictive analytics in EHS.
-Artificial intelligence is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets from IoT sensors, incident reports, and even weather patterns, machine learning algorithms can identify hidden correlations and flag high-risk scenarios with astonishing accuracy.
-"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."
-Companies at the forefront are using AI to predict equipment failures, identify at-risk employee behaviors, and model the potential impact of chemical spills. The result is not just a safer workplace, but a more efficient and resilient operation. The AI revolution isn't coming to EHS—it's already here.
+                                <p>For decades, the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive. An incident occurs, an investigation follows, and new protocols are implemented to prevent a recurrence. But what if we could shift from reacting to predicting? Welcome to the age of proactive safety, powered by Artificial Intelligence.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics</h3>
+                                <p>AI is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets—from IoT sensor readings on machinery and historical incident reports to employee work patterns and even weather forecasts—machine learning algorithms can identify hidden correlations that elude human analysis. These models can flag high-risk scenarios with astonishing accuracy, predicting equipment failures before they happen or identifying employees who may be at higher risk of injury due to fatigue.</p>
+                                <blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Computer Vision: The Watchful Eye</h3>
+                                <p>Beyond crunching numbers, AI-powered computer vision is transforming workplace monitoring. Smart cameras can now automatically detect if workers are wearing the correct Personal Protective Equipment (PPE), identify unsafe conditions like spills or blocked exits, and even analyze worker movements to flag poor ergonomic practices that could lead to long-term injuries. This provides a constant, non-intrusive layer of oversight that helps enforce safety protocols in real-time.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Challenges and the Human Element</h3>
+                                <p>The transition isn't without its challenges. High implementation costs, the need for clean and comprehensive data, and addressing employee privacy concerns are significant hurdles. However, it's crucial to remember that AI is a tool, not a replacement for human expertise. EHS professionals are essential for interpreting AI-driven insights, making informed decisions, and managing the ethical considerations of this new technology. The result is not just a safer workplace, but a more efficient, resilient, and sustainable operation. The AI revolution isn't coming to EHS—it's already here.</p>
                             </div>
                         </div>
                     </article>
@@ -171,22 +174,26 @@ Companies at the forefront are using AI to predict equipment failures, identify 
                             <img src="Sci.avif" alt="Diagram of a fusion reactor" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
                         </div>
                         <div class="lg:col-span-2">
-                            <span class="article-category text-xs font-bold uppercase text-sky-600">Featured Story</span>
+                            <span class="article-category text-xs font-bold uppercase text-sky-600">Eco Science</span>
                             <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">Fusion Energy Breakthrough: The Ultimate Clean Power Source?</h2>
-                            <p class="text-gray-600 mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy to fight climate change...</p>
-                            <p class="text-sm text-gray-500 mb-4">By Jane Doe | Published on September 30, 2025</p>
+                            <p class="text-gray-600 mb-4">In a landmark achievement, scientists have achieved a net energy gain from a fusion reaction, a monumental step towards the dream of limitless, carbon-free energy...</p>
+                            <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 5, 2025</p>
                             <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
                             <div class="article-meta hidden">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
-                                <span class="article-author">Jane Doe</span>
-                                <span class="article-date">September 30, 2025</span>
-                                <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">October 5, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
-In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is possible.
-The experiment created temperatures and pressures hotter than the center of the sun, causing hydrogen atoms to fuse and release a tremendous amount of energy—more than was used to initiate the reaction.
-"This is a landmark achievement and a testament to the power of innovation."
-While commercial fusion power plants are still decades away, this breakthrough removes a fundamental scientific barrier. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world and combat climate change in an unprecedented way.
+                                <p>In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is not just a theoretical possibility but an achievable reality.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">What is Fusion Energy?</h3>
+                                <p>Unlike nuclear fission, which powers today's nuclear plants by splitting heavy atoms, fusion does the opposite: it combines light atomic nuclei, such as hydrogen, to form a heavier nucleus, releasing an immense amount of energy in the process. It's the same reaction that powers our sun. The primary fuel, derived from water and lithium, is abundant, and the process produces no long-lived radioactive waste and carries no risk of meltdown.</p>
+                                <blockquote>"This is a landmark achievement and a testament to decades of collective scientific innovation. We took a star and held it in our hands for a moment."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The "Net Energy Gain" Milestone</h3>
+                                <p>For decades, the challenge has been to get more energy out of the reaction than is required to start it. In the groundbreaking experiment, lasers were used to create temperatures and pressures hotter than the center of the sun, causing hydrogen atoms to fuse and release a tremendous amount of energy—significantly more than was delivered by the lasers. This is the first time in history that a controlled fusion reaction has crossed this critical threshold.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead</h3>
+                                <p>While this is a monumental scientific breakthrough, commercial fusion power plants are still likely decades away. Engineers now face the challenge of turning this proof-of-concept into a reliable, cost-effective power source that can be connected to the grid. However, this achievement removes a fundamental scientific barrier and injects a massive wave of optimism into the fight against climate change. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world in an unprecedented way.</p>
                             </div>
                         </div>
                     </article>
@@ -207,19 +214,21 @@ While commercial fusion power plants are still decades away, this breakthrough r
                             <img src="https://images.unsplash.com/photo-1622321893963-c28373327b2d?q=80&w=2070&auto=format&fit=crop" alt="A modern vertical farm with rows of leafy greens under purple LED lights" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Vertical+Farming';">
                             <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">Vertical Farming: The Future of Urban Agriculture?</h4>
-                            <p class="text-gray-600 text-sm mb-4">As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally...</p>
+                            <p class="text-gray-600 text-sm mb-4">As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally, but is it a scalable solution for global food security?...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">Jane Doe</span>
-                                <span class="article-date">October 7, 2025</span>
+                                <span class="article-date">October 6, 2025</span>
                                 <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
                             </div>
                             <div class="article-full-content hidden">
-As cities expand and populations grow, traditional agriculture faces unprecedented challenges from land scarcity to climate change. A promising solution is sprouting in warehouses and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often indoors, is revolutionizing urban agriculture.
-By controlling light, temperature, and nutrients in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, regardless of external weather conditions. These farms use up to 95% less water than traditional agriculture and, by being located within cities, drastically reduce transportation costs and carbon emissions.
-"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."
-However, the technology is not without its hurdles. The primary challenge is the high energy consumption required for artificial lighting and climate control. As renewable energy sources become cheaper and LED technology more efficient, the economic and environmental viability of vertical farming continues to improve, positioning it as a cornerstone of future food security.
+                                <p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3>
+                                <p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p>
+                                <blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3>
+                                <p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>
                             </div>
                         </article>
                         <!-- END NEW ARTICLE -->
@@ -228,77 +237,64 @@ However, the technology is not without its hurdles. The primary challenge is the
                             <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Circular economy diagram" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Circular+Economy';">
                             <span class="article-category text-xs font-bold uppercase text-blue-700 mb-2">EHS</span>
                             <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Circular Economy: A Blueprint for a Waste-Free Future</h4>
-                            <p class="text-gray-600 text-sm mb-4">Moving beyond the 'take-make-dispose' model to create systems that are regenerative by design...</p>
+                            <p class="text-gray-600 text-sm mb-4">Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">September 29, 2025</span>
+                                <span class="article-date">October 3, 2025</span>
                                 <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
-The linear economy—take, make, dispose—is pushing our planet to its limits. The circular economy offers a radical alternative: a system where waste is designed out, materials are kept in use, and natural systems are regenerated.
-This model is built on principles like designing for durability, reuse, remanufacturing, and recycling to create a closed-loop system. It's a shift in perspective that sees all materials as valuable resources rather than disposable trash.
-"The circular economy is not just about recycling. It's about a complete redesign of our industrial and economic systems to work with nature, not against it."
-Companies and governments are beginning to embrace this concept, recognizing that it not only reduces environmental impact but also drives innovation and creates new economic opportunities. From product-as-a-service models to advanced materials science, the circular economy is the cornerstone of a sustainable future.
+                                <p>Our global economy has long operated on a linear model: we extract resources, manufacture products, use them, and then dispose of them as waste. This "take-make-dispose" system is pushing our planet to its limits, leading to resource depletion, pollution, and a growing climate crisis. The circular economy offers a radical and necessary alternative: a system where waste is designed out, materials are kept in use for as long as possible, and natural systems are regenerated.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Core Principles of Circularity</h3>
+                                <p>This model is built on three core principles. First, eliminate waste and pollution from the very beginning through better design. Second, circulate products and materials at their highest value, through strategies like repair, reuse, remanufacturing, and recycling. Third, regenerate nature by returning valuable nutrients to the soil and other ecosystems. It's a fundamental shift in perspective that sees all materials as valuable resources rather than disposable trash.</p>
+                                <blockquote>"The circular economy is not just about recycling more. It's about a complete redesign of our industrial and economic systems to work with nature, not against it."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Circularity in Action</h3>
+                                <p>Companies and governments are beginning to embrace this concept, recognizing that it not only reduces environmental impact but also drives innovation and creates new economic opportunities. Examples include "product-as-a-service" models where customers lease products like lighting or carpets instead of owning them, advanced recycling technologies that can break down complex plastics, and the use of regenerative agricultural practices that rebuild soil health. By decoupling economic growth from resource consumption, the circular economy provides a tangible blueprint for a prosperous and sustainable future.</p>
                             </div>
                         </article>
                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
                             <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="Mycelium material close-up" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
-                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium Packaging: Can Fungus Replace Plastic?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Startups are attracting investment for biodegradable materials made from mushroom roots...</p>
+                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">Green Tech</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium: Can Fungus Replace Plastic Packaging?</h4>
+                            <p class="text-gray-600 text-sm mb-4">Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
-                                <span class="article-author">Jane Doe</span>
-                                <span class="article-date">September 26, 2025</span>
-                                <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">October 1, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                                 <div class="article-full-content hidden">
-The world is drowning in plastic, and innovators are looking to nature for a solution. Enter mycelium, the root network of fungi. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and compostable.
-Companies like Ecovative Design are pioneering this technology, mixing agricultural waste like hemp hurds with mycelium, which then grows to form a solid, lightweight, and surprisingly durable material. It can replace Styrofoam, plastics, and other harmful packaging materials.
-"Nature has already figured out how to create high-performance materials. We just need to learn how to work with it."
-While challenges in scaling production and cost remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment when their lifecycle ends.
+                                <p>The world is drowning in plastic waste, with single-use packaging being a primary culprit. In the search for sustainable alternatives, innovators are looking to an unexpected source: the kingdom of fungi. Enter mycelium, the intricate, fibrous root network of mushrooms. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and home-compostable.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">From Farm Waste to Functional Material</h3>
+                                <p>The process is as ingenious as it is eco-friendly. Companies like Ecovative Design are pioneering this technology by taking agricultural waste, such as hemp hurds or corn husks, and inoculating it with mycelium spores. In the dark, the mycelium grows, feeding on the waste and weaving a dense network of fibers throughout it. After a few days, the resulting composite is placed into a mold and then heated to stop the growth, resulting in a solid, lightweight, and surprisingly durable material that can replace Styrofoam, plastics, and other harmful packaging materials.</p>
+                                <blockquote>"Nature has already figured out how to create high-performance materials through billions of years of R&D. We just need to learn how to partner with it."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">A Truly Circular Solution</h3>
+                                <p>Unlike bioplastics that often require industrial composting facilities, mycelium packaging breaks down in a typical backyard compost pile in a matter of weeks, returning nutrients to the soil. While challenges in scaling production to compete with the low cost of plastic remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment at the end of their lifecycle.</p>
                                 </div>
                         </article>
                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
                             <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Drought-resistant crops in a dry field" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
                             <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Eco Science</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Drought-Resistant Crops: An Answer to Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing crops that can thrive in a warming world...</p>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Gene-Edited Crops: An Answer to Climate Change?</h4>
+                            <p class="text-gray-600 text-sm mb-4">Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">September 25, 2025</span>
+                                <span class="article-date">September 28, 2025</span>
                                 <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                                <div class="article-full-content hidden">
-The specter of climate change poses a dire threat to food security. Scientists, however, believe they have a powerful tool in their arsenal: CRISPR-Cas9 gene editing.
-Unlike traditional GMOs, CRISPR allows for precise edits to a plant's own DNA. This can be used to enhance desirable traits, such as making wheat resistant to drought, rice more nutritious, or tomatoes less susceptible to disease. The process mimics natural genetic mutation but on an accelerated timescale.
-"We can now do in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."
-Regulatory hurdles and public perception remain significant challenges. However, many scientists argue that the potential benefits—feeding more people with fewer resources on a volatile planet—are too great to ignore.
-                                </div>
-                        </article>
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1629813291088-5fed1490216b?q=80&w=2070&auto=format&fit=crop" alt="Direct air capture facility" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Green+Tech';">
-                            <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Direct Air Capture: Can We Reverse Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">New technologies aim to pull CO2 directly from the atmosphere. But is it a viable solution?...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
-                                <span class="article-author">John Smith</span>
-                                <span class="article-date">September 24, 2025</span>
-                                <span class="article-author-bio">John Smith is a climate policy analyst who tracks the evolution of green technologies. He writes about the intersection of innovation, policy, and environmental impact.</span>
-                            </div>
-                               <div class="article-full-content hidden">
-While reducing emissions is critical, many scientists agree that we also need to remove existing carbon dioxide from the atmosphere. This is where Direct Air Capture (DAC) comes in.
-DAC technologies use large fans to pull in ambient air and pass it over chemical filters that bind with CO2. The captured CO2 can then be stored permanently underground or used to create products like carbon-neutral fuels.
-"DAC is not a silver bullet, but it may be a necessary tool in our climate toolbox to address historical emissions and hard-to-abate sectors."
-The technology is still in its early stages and faces challenges of cost and scale. However, with increasing investment and innovation, DAC could play a crucial role in helping the world achieve its net-zero emissions goals and potentially even reverse some of the impacts of climate change.
-                                </div>
+                                <p>The specter of climate change—marked by rising temperatures, prolonged droughts, and unpredictable weather—poses a dire threat to global food security. As traditional crops struggle to adapt, scientists believe they have a powerful tool in their arsenal: CRISPR-Cas9, a revolutionary gene-editing technology.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Precision Breeding for a New Era</h3>
+                                <p>Unlike traditional Genetically Modified Organisms (GMOs), which often involve inserting foreign DNA, CRISPR allows for incredibly precise edits to a plant's own genetic code. It works like a pair of molecular scissors, allowing scientists to snip out, replace, or silence specific genes. This can be used to enhance naturally occurring, desirable traits—such as making wheat more resistant to drought by improving its water retention, making rice more tolerant of salty soil, or boosting a tomato's natural resistance to disease. The process essentially mimics and accelerates natural genetic mutation, which has been the basis of selective breeding for millennia.</p>
+                                <blockquote>"We can now achieve in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Navigating the Debate</h3>
+                                <p>Despite its promise, the technology is not without controversy. Regulatory hurdles, public perception shaped by the GMO debate, and ethical questions remain significant challenges. Proponents argue that since CRISPR often introduces no foreign DNA, it should be regulated differently from traditional GMOs. They contend that the potential benefits—feeding a growing population with fewer resources on an increasingly volatile planet—are too great to ignore. As our climate continues to change, gene-edited crops may become an indispensable tool in ensuring a resilient and secure food supply.</p>
+                               </div>
                         </article>
                     </div>
                 </section>
@@ -307,29 +303,10 @@ The technology is still in its early stages and faces challenges of cost and sca
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Environmental, Health & Safety</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="EHSS.avif" alt="EHS professional at a worksite" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Healthcare';">
+                            <img src="EHSS.avif" alt="EHS professional at a worksite" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=AI in EHS';">
                             <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">AI in EHS: The Predictive Revolution</h4>
-                            <p class="text-gray-600 text-sm mb-4">Moving from reactive to predictive safety protocols using machine learning...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 4, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-For decades, Environmental, Health, and Safety (EHS) has been a field of reaction. An incident occurs, an investigation follows, and new protocols are implemented. But what if we could prevent incidents before they even happen? Welcome to the age of predictive analytics in EHS.
-Artificial intelligence is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets from IoT sensors, incident reports, and even weather patterns, machine learning algorithms can identify hidden correlations and flag high-risk scenarios with astonishing accuracy.
-"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."
-Companies at the forefront are using AI to predict equipment failures, identify at-risk employee behaviors, and model the potential impact of chemical spills. The result is not just a safer workplace, but a more efficient and resilient operation.
-                            </div>
-                        </article>
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="INDEX EHS !.avif" alt="EHS professional at a worksite" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Healthcare';">
-                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The-Future is Now: How Artificial Intelligence is Revolutionizing EHS</h4>
-                            <p class="text-gray-600 text-sm mb-4">From Reactive to Predictive: AI Transforms Environmental, Health, and Safety Management</p>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h4>
+                            <p class="text-gray-600 text-sm mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
@@ -338,31 +315,35 @@ Companies at the forefront are using AI to predict equipment failures, identify 
                                 <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                             <div class="article-full-content hidden">
-                                <p><strong>For decades,</strong> the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive, responding to incidents after they occur. However, the integration of Artificial Intelligence (AI) is flipping this paradigm on its head. By harnessing the power of data, machine learning, and computer vision, AI is empowering organizations to anticipate, identify, and mitigate risks before they lead to harm, ushering in a new era of proactive and predictive safety management.</p>
-                                
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics at Work</h3>
-                                <p>One of the most significant impacts of AI in EHS is the ability to forecast potential incidents. AI-powered systems analyze vast datasets, including historical incident reports, equipment maintenance logs, employee behavior patterns, and even weather conditions. By identifying subtle correlations and trends that a human observer might miss, machine learning models can predict when and where an incident is most likely to occur. This allows EHS professionals to take preemptive action, such as scheduling maintenance on a piece of machinery before it fails or providing targeted training to employees exhibiting at-risk behaviors. Case studies have shown that this predictive approach can lead to significant reductions in workplace accidents.</p>
-                                
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Digital Sentinels: AI's Watchful Gaze on Safety</h3>
-                                <p>The proliferation of cameras in the workplace has created a massive, underutilized source of safety data. AI-powered computer vision is changing that by transforming standard CCTV systems into intelligent, real-time safety monitors. These systems can automatically:</p>
-                                <ul class="list-disc list-outside pl-8 my-4 space-y-2">
-                                    <li><strong>Detect Personal Protective Equipment (PPE) Non-Compliance:</strong> Instantly identify if workers are wearing required hard hats, safety glasses, or high-visibility vests and issue real-time alerts.</li>
-                                    <li><strong>Identify Unsafe Conditions:</strong> Spot potential hazards like spills, blocked emergency exits, or improperly stored materials, notifying supervisors to correct the issue immediately.</li>
-                                    <li><strong>Monitor Ergonomics:</strong> Analyze worker postures to flag potentially harmful ergonomic risks, helping to prevent musculoskeletal disorders.</li>
-                                    <li><strong>Recognize At-Risk Behaviors:</strong> Detect unsafe actions, such as entering restricted zones or operating machinery improperly, allowing for timely intervention.</li>
-                                </ul>
-                                <p>One power plant reported an 89% reduction in safety alerts after implementing an AI-driven monitoring system, showcasing the technology's effectiveness.</p>
-
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Cutting Through Red Tape with AI</h3>
-                                <p>Navigating the complex web of EHS regulations is a major challenge. AI is simplifying this by automating compliance-related tasks. Natural Language Processing (NLP), a branch of AI, can scan regulatory documents, automatically flagging relevant updates and identifying potential gaps in a company's current policies.</p>
-                                <p>Furthermore, AI can automate the collection and analysis of data for compliance reporting, significantly reducing the administrative burden on EHS professionals. This frees up their time to focus on more strategic, high-value tasks that enhance workplace safety and environmental stewardship.</p>
-
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Man and Machine: The New EHS Partnership</h3>
-                                <p>While AI offers powerful tools, it is not a replacement for human expertise. The successful implementation of AI in EHS requires a thoughtful, human-centric approach. EHS professionals are crucial for interpreting AI-driven insights, making final decisions, and ensuring that the technology is used responsibly and ethically. The quality of the data fed into AI systems is also paramount; inaccurate or biased data will lead to flawed conclusions.</p>
-                                
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead for AI in EHS</h3>
-                                <p>The adoption of AI in EHS is not without its challenges. High implementation costs, the need for clean and structured data, and concerns about data privacy are all significant hurdles. Moreover, managing change and ensuring user adoption requires clear communication and comprehensive training.</p>
-                                <p>Despite these challenges, the trajectory is clear. AI is no longer a futuristic concept but a practical tool that is delivering tangible improvements in safety and environmental performance. As the technology continues to evolve and become more accessible, its role as a cornerstone of modern EHS strategy will only grow, creating safer, more compliant, and more sustainable workplaces for everyone.</p>
+                                <p>For decades, the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive. An incident occurs, an investigation follows, and new protocols are implemented to prevent a recurrence. But what if we could shift from reacting to predicting? Welcome to the age of proactive safety, powered by Artificial Intelligence.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics</h3>
+                                <p>AI is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets—from IoT sensor readings on machinery and historical incident reports to employee work patterns and even weather forecasts—machine learning algorithms can identify hidden correlations that elude human analysis. These models can flag high-risk scenarios with astonishing accuracy, predicting equipment failures before they happen or identifying employees who may be at higher risk of injury due to fatigue.</p>
+                                <blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Computer Vision: The Watchful Eye</h3>
+                                <p>Beyond crunching numbers, AI-powered computer vision is transforming workplace monitoring. Smart cameras can now automatically detect if workers are wearing the correct Personal Protective Equipment (PPE), identify unsafe conditions like spills or blocked exits, and even analyze worker movements to flag poor ergonomic practices that could lead to long-term injuries. This provides a constant, non-intrusive layer of oversight that helps enforce safety protocols in real-time.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Challenges and the Human Element</h3>
+                                <p>The transition isn't without its challenges. High implementation costs, the need for clean and comprehensive data, and addressing employee privacy concerns are significant hurdles. However, it's crucial to remember that AI is a tool, not a replacement for human expertise. EHS professionals are essential for interpreting AI-driven insights, making informed decisions, and managing the ethical considerations of this new technology. The result is not just a safer workplace, but a more efficient, resilient, and sustainable operation. The AI revolution isn't coming to EHS—it's already here.</p>
+                            </div>
+                        </article>
+                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Circular economy diagram" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Circular+Economy';">
+                            <span class="article-category text-xs font-bold uppercase text-blue-700 mb-2">EHS</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Circular Economy: A Blueprint for a Waste-Free Future</h4>
+                            <p class="text-gray-600 text-sm mb-4">Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...</p>
+                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">October 3, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>Our global economy has long operated on a linear model: we extract resources, manufacture products, use them, and then dispose of them as waste. This "take-make-dispose" system is pushing our planet to its limits, leading to resource depletion, pollution, and a growing climate crisis. The circular economy offers a radical and necessary alternative: a system where waste is designed out, materials are kept in use for as long as possible, and natural systems are regenerated.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Core Principles of Circularity</h3>
+                                <p>This model is built on three core principles. First, eliminate waste and pollution from the very beginning through better design. Second, circulate products and materials at their highest value, through strategies like repair, reuse, remanufacturing, and recycling. Third, regenerate nature by returning valuable nutrients to the soil and other ecosystems. It's a fundamental shift in perspective that sees all materials as valuable resources rather than disposable trash.</p>
+                                <blockquote>"The circular economy is not just about recycling more. It's about a complete redesign of our industrial and economic systems to work with nature, not against it."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Circularity in Action</h3>
+                                <p>Companies and governments are beginning to embrace this concept, recognizing that it not only reduces environmental impact but also drives innovation and creates new economic opportunities. Examples include "product-as-a-service" models where customers lease products like lighting or carpets instead of owning them, advanced recycling technologies that can break down complex plastics, and the use of regenerative agricultural practices that rebuild soil health. By decoupling economic growth from resource consumption, the circular economy provides a tangible blueprint for a prosperous and sustainable future.</p>
                             </div>
                         </article>
                     </div>
@@ -372,23 +353,48 @@ Companies at the forefront are using AI to predict equipment failures, identify 
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Eco Science</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                          <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="Sci.avif" alt="Diagram of a fusion reactor" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Fusion';">
+                            <span class="article-category text-xs font-bold uppercase text-sky-600 mb-2">Eco Science</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Fusion Energy Breakthrough: The Ultimate Clean Power Source?</h4>
+                            <p class="text-gray-600 text-sm mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy...</p>
+                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                            <div class="article-meta hidden">
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">October 5, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
+                            </div>
+                            <div class="article-full-content hidden">
+                                <p>In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is not just a theoretical possibility but an achievable reality.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">What is Fusion Energy?</h3>
+                                <p>Unlike nuclear fission, which powers today's nuclear plants by splitting heavy atoms, fusion does the opposite: it combines light atomic nuclei, such as hydrogen, to form a heavier nucleus, releasing an immense amount of energy in the process. It's the same reaction that powers our sun. The primary fuel, derived from water and lithium, is abundant, and the process produces no long-lived radioactive waste and carries no risk of meltdown.</p>
+                                <blockquote>"This is a landmark achievement and a testament to decades of collective scientific innovation. We took a star and held it in our hands for a moment."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The "Net Energy Gain" Milestone</h3>
+                                <p>For decades, the challenge has been to get more energy out of the reaction than is required to start it. In the groundbreaking experiment, lasers were used to create temperatures and pressures hotter than the center of the sun, causing hydrogen atoms to fuse and release a tremendous amount of energy—significantly more than was delivered by the lasers. This is the first time in history that a controlled fusion reaction has crossed this critical threshold.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead</h3>
+                                <p>While this is a monumental scientific breakthrough, commercial fusion power plants are still likely decades away. Engineers now face the challenge of turning this proof-of-concept into a reliable, cost-effective power source that can be connected to the grid. However, this achievement removes a fundamental scientific barrier and injects a massive wave of optimism into the fight against climate change. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world in an unprecedented way.</p>
+                            </div>
+                        </article>
+                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
                             <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Drought-resistant crops in a dry field" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
                             <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Eco Science</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Drought-Resistant Crops: An Answer to Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">With CRISPR-Cas9, scientists are developing crops that can thrive in a warming world...</p>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Gene-Edited Crops: An Answer to Climate Change?</h4>
+                            <p class="text-gray-600 text-sm mb-4">Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
                                 <img src="Passport_Photograph.jpg" alt="Author's photo">
                                 <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">September 25, 2025</span>
+                                <span class="article-date">September 28, 2025</span>
                                 <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
                                <div class="article-full-content hidden">
-The specter of climate change poses a dire threat to food security. Scientists, however, believe they have a powerful tool in their arsenal: CRISPR-Cas9 gene editing.
-Unlike traditional GMOs, CRISPR allows for precise edits to a plant's own DNA. This can be used to enhance desirable traits, such as making wheat resistant to drought, rice more nutritious, or tomatoes less susceptible to disease.
-"We can now do in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."
-Regulatory hurdles and public perception remain significant challenges. However, many scientists argue that the potential benefits—feeding more people with fewer resources on a volatile planet—are too great to ignore.
-                                </div>
+                                <p>The specter of climate change—marked by rising temperatures, prolonged droughts, and unpredictable weather—poses a dire threat to global food security. As traditional crops struggle to adapt, scientists believe they have a powerful tool in their arsenal: CRISPR-Cas9, a revolutionary gene-editing technology.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Precision Breeding for a New Era</h3>
+                                <p>Unlike traditional Genetically Modified Organisms (GMOs), which often involve inserting foreign DNA, CRISPR allows for incredibly precise edits to a plant's own genetic code. It works like a pair of molecular scissors, allowing scientists to snip out, replace, or silence specific genes. This can be used to enhance naturally occurring, desirable traits—such as making wheat more resistant to drought by improving its water retention, making rice more tolerant of salty soil, or boosting a tomato's natural resistance to disease. The process essentially mimics and accelerates natural genetic mutation, which has been the basis of selective breeding for millennia.</p>
+                                <blockquote>"We can now achieve in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Navigating the Debate</h3>
+                                <p>Despite its promise, the technology is not without controversy. Regulatory hurdles, public perception shaped by the GMO debate, and ethical questions remain significant challenges. Proponents argue that since CRISPR often introduces no foreign DNA, it should be regulated differently from traditional GMOs. They contend that the potential benefits—feeding a growing population with fewer resources on an increasingly volatile planet—are too great to ignore. As our climate continues to change, gene-edited crops may become an indispensable tool in ensuring a resilient and secure food supply.</p>
+                               </div>
                         </article>
                     </div>
                 </section>
@@ -405,33 +411,37 @@ Regulatory hurdles and public perception remain significant challenges. However,
                             <div class="article-meta hidden">
                                 <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
                                 <span class="article-author">Jane Doe</span>
-                                <span class="article-date">October 7, 2025</span>
+                                <span class="article-date">October 6, 2025</span>
                                 <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
                             </div>
                             <div class="article-full-content hidden">
-As cities expand and populations grow, traditional agriculture faces unprecedented challenges from land scarcity to climate change. A promising solution is sprouting in warehouses and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often indoors, is revolutionizing urban agriculture.
-By controlling light, temperature, and nutrients in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, regardless of external weather conditions. These farms use up to 95% less water than traditional agriculture and, by being located within cities, drastically reduce transportation costs and carbon emissions.
-"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."
-However, the technology is not without its hurdles. The primary challenge is the high energy consumption required for artificial lighting and climate control. As renewable energy sources become cheaper and LED technology more efficient, the economic and environmental viability of vertical farming continues to improve, positioning it as a cornerstone of future food security.
+                                <p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3>
+                                <p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p>
+                                <blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3>
+                                <p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>
                             </div>
                         </article>
-                       <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1629813291088-5fed1490216b?q=80&w=2070&auto=format&fit=crop" alt="Direct air capture facility" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Green+Tech';">
-                            <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Direct Air Capture: Can We Reverse Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">New technologies aim to pull CO2 directly from the atmosphere. But is it a viable solution?...</p>
+                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="Mycelium material close-up" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
+                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">Green Tech</span>
+                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium: Can Fungus Replace Plastic Packaging?</h4>
+                            <p class="text-gray-600 text-sm mb-4">Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...</p>
                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
                             <div class="article-meta hidden">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
-                                <span class="article-author">John Smith</span>
-                                <span class="article-date">September 24, 2025</span>
-                                <span class="article-author-bio">John Smith is a climate policy analyst who tracks the evolution of green technologies. He writes about the intersection of innovation, policy, and environmental impact.</span>
+                                <img src="Passport_Photograph.jpg" alt="Author's photo">
+                                <span class="article-author">Devansh Singh Rawal</span>
+                                <span class="article-date">October 1, 2025</span>
+                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
                             </div>
-                               <div class="article-full-content hidden">
-While reducing emissions is critical, many scientists agree that we also need to remove existing carbon dioxide from the atmosphere. This is where Direct Air Capture (DAC) comes in.
-DAC technologies use large fans to pull in ambient air and pass it over chemical filters that bind with CO2. The captured CO2 can then be stored permanently underground or used to create products like carbon-neutral fuels.
-"DAC is not a silver bullet, but it may be a necessary tool in our climate toolbox to address historical emissions and hard-to-abate sectors."
-The technology is still in its early stages and faces challenges of cost and scale. However, with increasing investment and innovation, DAC could play a crucial role in helping the world achieve its net-zero emissions goals.
+                                <div class="article-full-content hidden">
+                                <p>The world is drowning in plastic waste, with single-use packaging being a primary culprit. In the search for sustainable alternatives, innovators are looking to an unexpected source: the kingdom of fungi. Enter mycelium, the intricate, fibrous root network of mushrooms. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and home-compostable.</p>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">From Farm Waste to Functional Material</h3>
+                                <p>The process is as ingenious as it is eco-friendly. Companies like Ecovative Design are pioneering this technology by taking agricultural waste, such as hemp hurds or corn husks, and inoculating it with mycelium spores. In the dark, the mycelium grows, feeding on the waste and weaving a dense network of fibers throughout it. After a few days, the resulting composite is placed into a mold and then heated to stop the growth, resulting in a solid, lightweight, and surprisingly durable material that can replace Styrofoam, plastics, and other harmful packaging materials.</p>
+                                <blockquote>"Nature has already figured out how to create high-performance materials through billions of years of R&D. We just need to learn how to partner with it."</blockquote>
+                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">A Truly Circular Solution</h3>
+                                <p>Unlike bioplastics that often require industrial composting facilities, mycelium packaging breaks down in a typical backyard compost pile in a matter of weeks, returning nutrients to the soil. While challenges in scaling production to compete with the low cost of plastic remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment at the end of their lifecycle.</p>
                                 </div>
                         </article>
                     </div>
@@ -500,9 +510,47 @@ The technology is still in its early stages and faces challenges of cost and sca
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Privacy Policy</h2>
                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
                         <p><strong>Last Updated: October 7, 2025</strong></p>
-                        <p>Derawvibes ("us", "we", or "our") operates the Derawvibes website (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
-                        <h3>Information Collection and Use</h3>
-                        <p>We collect several different types of information for various purposes to provide and improve our Service to you. This may include, but is not limited to, your email address when you subscribe to our newsletter or submit an article.</p>
+                        <p>Welcome to Derawvibes. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
+
+                        <h3>1. Important Information and Who We Are</h3>
+                        <p>Derawvibes ("we", "us", or "our") is the controller and responsible for your personal data. This website is not intended for children and we do not knowingly collect data relating to children.</p>
+
+                        <h3>2. The Data We Collect About You</h3>
+                        <p>Personal data, or personal information, means any information about an individual from which that person can be identified. We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+                        <ul>
+                            <li><strong>Identity Data</strong> includes first name and last name, which you may provide when submitting an article or contacting us.</li>
+                            <li><strong>Contact Data</strong> includes email address, which you may provide when subscribing to our newsletter, submitting an article, or contacting us.</li>
+                            <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
+                            <li><strong>Usage Data</strong> includes information about how you use our website and which articles you read.</li>
+                        </ul>
+
+                        <h3>3. How Is Your Personal Data Collected?</h3>
+                        <p>We use different methods to collect data from and about you including through:</p>
+                        <ul>
+                            <li><strong>Direct interactions.</strong> You may give us your Identity and Contact Data by filling in forms (e.g., our contact, submission, or newsletter forms).</li>
+                            <li><strong>Automated technologies or interactions.</strong> As you interact with our website, we will automatically collect Technical Data about your equipment, browsing actions and patterns.</li>
+                        </ul>
+
+                        <h3>4. How We Use Your Personal Data</h3>
+                        <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+                        <ul>
+                            <li>To respond to your inquiries or submissions.</li>
+                            <li>To send you our newsletter if you have subscribed.</li>
+                            <li>To administer and protect our business and this website (including troubleshooting, data analysis, testing, system maintenance, support, reporting and hosting of data).</li>
+                            <li>To use data analytics to improve our website, content, and user experiences.</li>
+                        </ul>
+
+                        <h3>5. Data Security</h3>
+                        <p>We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. However, no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+
+                        <h3>6. Your Legal Rights</h3>
+                        <p>You have rights under data protection laws in relation to your personal data, including the right to request access, correction, erasure, or to withdraw consent. If you wish to exercise any of these rights, please contact us.</p>
+                        
+                        <h3>7. Changes to the Privacy Policy</h3>
+                        <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page. You are advised to review this privacy policy periodically for any changes.</p>
+
+                        <h3>8. Contact Us</h3>
+                        <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:derawvibes@gmail.com">derawvibes@gmail.com</a>.</p>
                     </div>
                 </section>
                 
@@ -510,9 +558,46 @@ The technology is still in its early stages and faces challenges of cost and sca
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Terms of Service</h2>
                                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
                                  <p><strong>Last Updated: October 7, 2025</strong></p>
-                                 <p>Please read these Terms of Service ("Terms") carefully before using the Derawvibes website (the "Service") operated by Derawvibes ("us", "we", or "our"). Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms.</p>
-                                 <h3>Intellectual Property</h3>
-                                 <p>The Service and its original content, features and functionality are and will remain the exclusive property of Derawvibes and its licensors.</p>
+                                 <h3>1. Agreement to Terms</h3>
+                                 <p>By accessing or using the Derawvibes website (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, then you may not access the Service.</p>
+                                 
+                                 <h3>2. Intellectual Property Rights</h3>
+                                 <p>Unless otherwise indicated, the Service is our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (collectively, the “Content”) and the trademarks, service marks, and logos contained therein (the “Marks”) are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws.</p>
+
+                                 <h3>3. User Representations</h3>
+                                 <p>By using the Service, you represent and warrant that: (1) all registration information you submit will be true, accurate, current, and complete; (2) you will maintain the accuracy of such information and promptly update such registration information as necessary; (3) you have the legal capacity and you agree to comply with these Terms of Service; and (4) your use of the Service will not violate any applicable law or regulation.</p>
+
+                                 <h3>4. Prohibited Activities</h3>
+                                 <p>You may not access or use the Service for any purpose other than that for which we make the Service available. As a user of the Service, you agree not to:</p>
+                                 <ul>
+                                    <li>Systematically retrieve data or other content from the Service to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
+                                    <li>Use the Service to advertise or offer to sell goods and services.</li>
+                                    <li>Engage in unauthorized framing of or linking to the Service.</li>
+                                    <li>Attempt to impersonate another user or person.</li>
+                                    <li>Use any information obtained from the Service in order to harass, abuse, or harm another person.</li>
+                                    <li>Use the Service as part of any effort to compete with us.</li>
+                                 </ul>
+
+                                 <h3>5. User Generated Contributions</h3>
+                                 <p>The Service provides you with an opportunity to submit articles for consideration ("Contributions"). You understand and agree that your Contributions may be viewed by other users of the Service and that we do not guarantee any confidentiality with respect to any Contributions. By posting Contributions, you automatically grant to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions for any purpose.</p>
+                                 
+                                 <h3>6. Submissions</h3>
+                                 <p>You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Service ("Submissions") provided by you to us are non-confidential and shall become our sole property.</p>
+
+                                 <h3>7. Term and Termination</h3>
+                                 <p>These Terms of Service shall remain in full force and effect while you use the Service. WITHOUT LIMITING ANY OTHER PROVISION OF THESE TERMS OF SERVICE, WE RESERVE THE RIGHT TO, IN OUR SOLE DISCRETION AND WITHOUT NOTICE OR LIABILITY, DENY ACCESS TO AND USE OF THE SERVICE (INCLUDING BLOCKING CERTAIN IP ADDRESSES), TO ANY PERSON FOR ANY REASON OR FOR NO REASON.</p>
+
+                                 <h3>8. Modifications and Interruptions</h3>
+                                 <p>We reserve the right to change, modify, or remove the contents of the Service at any time or for any reason at our sole discretion without notice. We will not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Service.</p>
+
+                                 <h3>9. Governing Law</h3>
+                                 <p>These Terms shall be governed by and defined following the laws of India. Derawvibes and yourself irrevocably consent that the courts of India shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.</p>
+                                 
+                                 <h3>10. Disclaimer</h3>
+                                 <p>THE SERVICE IS PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICE WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICE AND YOUR USE THEREOF, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+                                 <h3>11. Contact Us</h3>
+                                 <p>In order to resolve a complaint regarding the Service or to receive further information regarding use of the Service, please contact us at: <a href="mailto:derawvibes@gmail.com">derawvibes@gmail.com</a>.</p>
                                 </div>
                 </section>
 
@@ -567,7 +652,7 @@ The technology is still in its early stages and faces challenges of cost and sca
 
             <footer id="contact" class="bg-slate-900 text-white mt-12">
                          <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-                               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                                      <div class="md:col-span-2 lg:col-span-1">
                                          <h5 class="text-3xl font-black tracking-widest uppercase">Derawvibes</h5>
                                          <p class="text-slate-400 mt-4 text-sm leading-relaxed">
@@ -602,8 +687,8 @@ The technology is still in its early stages and faces challenges of cost and sca
                                          </form>
                                      </div>
                                  </div>
-                               <div class="border-t border-slate-800"></div>
-                               <div class="flex flex-col md:flex-row items-center justify-between mt-8">
+                                <div class="border-t border-slate-800"></div>
+                                <div class="flex flex-col md:flex-row items-center justify-between mt-8">
                                    <p class="text-slate-500 text-sm text-center md:text-left">
                                        &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
                                    </p>
@@ -614,7 +699,7 @@ The technology is still in its early stages and faces challenges of cost and sca
                                    </div>
                                </div>
                              </div>
-                    </footer>
+                     </footer>
         </div>
     </div>
 
@@ -642,10 +727,6 @@ The technology is still in its early stages and faces challenges of cost and sca
                 <button id="back-to-main-btn" class="flex items-center text-gray-700 hover:text-black font-semibold transition-colors duration-300 rounded-lg px-3 py-2 -ml-3 hover:bg-gray-200">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                     Back to Articles
-                </button>
-                <button id="close-article-btn" class="text-gray-600 hover:text-black rounded-full p-2 hover:bg-gray-200">
-                    <span class="sr-only">Close article</span>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
              </div>
         </div>
@@ -714,7 +795,6 @@ The technology is still in its early stages and faces challenges of cost and sca
             const submissionForm = document.getElementById('submission-form');
             
             const articleViewer = document.getElementById('article-viewer');
-            const closeArticleBtn = document.getElementById('close-article-btn');
             const backToMainBtn = document.getElementById('back-to-main-btn');
             const articleCards = document.querySelectorAll('.article-card');
             const articleViewerCategory = document.getElementById('article-viewer-category');
@@ -913,22 +993,30 @@ The technology is still in its early stages and faces challenges of cost and sca
                 });
             });
 
-            closeArticleBtn.addEventListener('click', () => history.back());
             backToMainBtn.addEventListener('click', () => history.back());
             
             copyLinkBtn.addEventListener('click', () => {
                 const slug = history.state.articleSlug;
                 const url = `${window.location.origin}${window.location.pathname}#article/${slug}`;
-                navigator.clipboard.writeText(url).then(() => {
-                    const originalContent = copyLinkBtn.innerHTML;
-                    const originalBg = copyLinkBtn.style.backgroundColor;
+                
+                const textArea = document.createElement("textarea");
+                textArea.value = url;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                     const originalContent = copyLinkBtn.innerHTML;
                     copyLinkBtn.innerHTML = `<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
                     copyLinkBtn.classList.add('bg-green-500');
                     setTimeout(() => {
                         copyLinkBtn.innerHTML = originalContent;
                         copyLinkBtn.classList.remove('bg-green-500');
                     }, 2000);
-                });
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
+                document.body.removeChild(textArea);
             });
 
             window.addEventListener('popstate', (event) => {
@@ -1017,3 +1105,4 @@ The technology is still in its early stages and faces challenges of cost and sca
     </script>
 </body>
 </html>
+
