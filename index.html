@@ -9,7 +9,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0;400;0;700;1,400&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -36,14 +36,10 @@
             line-height: 1.7;
         }
 
-        /* --- NEW: Enhanced Viewer & Animation Styles --- */
-
-        /* Reduced eye strain background */
+        /* --- Enhanced Viewer & Animation Styles --- */
         #article-viewer {
              background-color: #f8fafc; /* bg-slate-50 */
         }
-
-        /* Parallax header image styling */
         #article-viewer-image-parallax {
             background-size: cover;
             background-position: center;
@@ -51,16 +47,11 @@
             border-radius: 0 0 1rem 1rem;
             box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-
-        /* Stylish drop-cap for first paragraph */
         #article-viewer-content .prose > p:first-of-type::first-letter {
-            font-size: 4.5em; /* Larger size */
-            font-weight: 700;
-            float: left;
-            line-height: 0.8; /* Tighter line height */
+            font-size: 4.5em; font-weight: 700;
+            float: left; line-height: 0.8;
             margin: 0.05em 0.1em 0 0;
-            font-family: 'Lora', serif;
-            color: #1f2937; /* Darker text */
+            font-family: 'Lora', serif; color: #1f2937;
         }
         
         @keyframes fadeInScaleUp {
@@ -79,40 +70,48 @@
             transform: scale(1.15) rotate(-5deg);
         }
 
-        /* Floating Share Bar - initially hidden */
         #floating-share-bar { display: none; }
         
-        /* Desktop: Floating bar appears left of content */
         @media (min-width: 1200px) {
             #floating-share-bar.is-active {
-                display: flex;
-                flex-direction: column;
-                gap: 0.75rem;
-                position: fixed;
-                top: 50%;
-                left: calc(50% - 28rem); /* Position left of the 3xl article text */
-                transform: translateY(-50%);
-                z-index: 55;
+                display: flex; flex-direction: column;
+                gap: 0.75rem; position: fixed;
+                top: 50%; left: calc(50% - 28rem);
+                transform: translateY(-50%); z-index: 55;
             }
         }
-        /* Mobile: Sticky bar appears at the bottom */
         @media (max-width: 1199px) {
             #floating-share-bar.is-active {
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                padding: 0.75rem;
-                background: rgba(248, 250, 252, 0.85);
-                backdrop-filter: blur(8px);
-                border-top: 1px solid #e5e7eb;
+                display: flex; align-items: center;
+                justify-content: space-around; position: fixed;
+                bottom: 0; left: 0; right: 0;
+                padding: 0.75rem; background: rgba(248, 250, 252, 0.85);
+                backdrop-filter: blur(8px); border-top: 1px solid #e5e7eb;
                 z-index: 55;
             }
         }
 
+        /* --- NEW STYLES for Search, Modals, etc. --- */
+        .search-overlay {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .search-box {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-button {
+            background-color: #14b8a6; /* teal-500 */
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: #0f766e; /* teal-700 */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #back-to-top {
+            transition: opacity 0.3s, transform 0.3s;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -133,70 +132,21 @@
                     <li><a href="#page-ehs" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">EHS</a></li>
                     <li><a href="#page-eco-science" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Eco Science</a></li>
                     <li><a href="#page-green-tech" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Green Tech</a></li>
-                    <li><a href="#page-submit" class="nav-item inline-block hover:text-teal-600 transition-colors duration-300 px-3 py-1 rounded-full">Submit Article</a></li>
+                    <li><a href="#page-submit" class="nav-item inline-block nav-button px-4 py-2 rounded-full text-xs sm:text-sm">Submit Article</a></li>
                     <li><a href="#page-about" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">About</a></li>
                     <li><a href="#page-contact" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Contact</a></li>
+                    <li>
+                        <button id="search-icon" class="hover:bg-gray-200 p-2 rounded-full transition-colors duration-300" aria-label="Search articles">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                    </li>
                 </ul>
             </nav>
             <main>
                 
                 <section id="page-home" class="page-section py-12">
-                    <article class="article-card grid grid-cols-1 lg:grid-cols-5 gap-8 items-center mb-12">
-                        <div class="lg:col-span-3">
-                            <img src="EHSS.avif" alt="Futuristic green cityscape focused on sustainability" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
-                        </div>
-                        <div class="lg:col-span-2">
-                            <span class="article-category text-xs font-bold uppercase text-red-600">Featured Story</span>
-                            <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h2>
-                            <p class="text-gray-600 mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen, analyze ergonomic risks in real-time, and ensure PPE compliance automatically...</p>
-                            <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 7, 2025</p>
-                            <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 7, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>For decades, the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive. An incident occurs, an investigation follows, and new protocols are implemented to prevent a recurrence. But what if we could shift from reacting to predicting? Welcome to the age of proactive safety, powered by Artificial Intelligence.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics</h3>
-                                <p>AI is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets—from IoT sensor readings on machinery and historical incident reports to employee work patterns and even weather forecasts—machine learning algorithms can identify hidden correlations that elude human analysis. These models can flag high-risk scenarios with astonishing accuracy, predicting equipment failures before they happen or identifying employees who may be at higher risk of injury due to fatigue.</p>
-                                <blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Computer Vision: The Watchful Eye</h3>
-                                <p>Beyond crunching numbers, AI-powered computer vision is transforming workplace monitoring. Smart cameras can now automatically detect if workers are wearing the correct Personal Protective Equipment (PPE), identify unsafe conditions like spills or blocked exits, and even analyze worker movements to flag poor ergonomic practices that could lead to long-term injuries. This provides a constant, non-intrusive layer of oversight that helps enforce safety protocols in real-time.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Challenges and the Human Element</h3>
-                                <p>The transition isn't without its challenges. High implementation costs, the need for clean and comprehensive data, and addressing employee privacy concerns are significant hurdles. However, it's crucial to remember that AI is a tool, not a replacement for human expertise. EHS professionals are essential for interpreting AI-driven insights, making informed decisions, and managing the ethical considerations of this new technology. The result is not just a safer workplace, but a more efficient, resilient, and sustainable operation. The AI revolution isn't coming to EHS—it's already here.</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="article-card grid grid-cols-1 lg:grid-cols-5 gap-8 items-center mb-12">
-                        <div class="lg:col-span-3">
-                            <img src="Sci.avif" alt="Diagram of a fusion reactor" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
-                        </div>
-                        <div class="lg:col-span-2">
-                            <span class="article-category text-xs font-bold uppercase text-sky-600">Eco Science</span>
-                            <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">Fusion Energy Breakthrough: The Ultimate Clean Power Source?</h2>
-                            <p class="text-gray-600 mb-4">In a landmark achievement, scientists have achieved a net energy gain from a fusion reaction, a monumental step towards the dream of limitless, carbon-free energy...</p>
-                            <p class="text-sm text-gray-500 mb-4">By Devansh Singh Rawal | Published on October 5, 2025</p>
-                            <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 5, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is not just a theoretical possibility but an achievable reality.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">What is Fusion Energy?</h3>
-                                <p>Unlike nuclear fission, which powers today's nuclear plants by splitting heavy atoms, fusion does the opposite: it combines light atomic nuclei, such as hydrogen, to form a heavier nucleus, releasing an immense amount of energy in the process. It's the same reaction that powers our sun. The primary fuel, derived from water and lithium, is abundant, and the process produces no long-lived radioactive waste and carries no risk of meltdown.</p>
-                                <blockquote>"This is a landmark achievement and a testament to decades of collective scientific innovation. We took a star and held it in our hands for a moment."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The "Net Energy Gain" Milestone</h3>
-                                <p>For decades, the challenge has been to get more energy out of the reaction than is required to start it. In the groundbreaking experiment, lasers were used to create temperatures and pressures hotter than the center of the sun, causing hydrogen atoms to fuse and release a tremendous amount of energy—significantly more than was delivered by the lasers. This is the first time in history that a controlled fusion reaction has crossed this critical threshold.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead</h3>
-                                <p>While this is a monumental scientific breakthrough, commercial fusion power plants are still likely decades away. Engineers now face the challenge of turning this proof-of-concept into a reliable, cost-effective power source that can be connected to the grid. However, this achievement removes a fundamental scientific barrier and injects a massive wave of optimism into the fight against climate change. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world in an unprecedented way.</p>
-                            </div>
-                        </div>
-                    </article>
+                     <!-- Featured Articles will be injected here by JS -->
+                    <div id="featured-articles-container" class="space-y-12"></div>
 
                     <section class="my-12 bg-gradient-to-r from-slate-50 to-gray-100 p-8 sm:p-12 rounded-lg shadow-lg border-t-4 border-teal-600">
                         <div class="max-w-4xl mx-auto text-center">
@@ -208,245 +158,34 @@
                     </section>
                 <hr class="my-12 border-gray-200">
                     <h3 class="text-2xl font-bold mb-8 text-center uppercase tracking-wider">Latest Articles</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                        <!-- NEW ARTICLE ADDED HERE -->
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1622321893963-c28373327b2d?q=80&w=2070&auto=format&fit=crop" alt="A modern vertical farm with rows of leafy greens under purple LED lights" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Vertical+Farming';">
-                            <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Vertical Farming: The Future of Urban Agriculture?</h4>
-                            <p class="text-gray-600 text-sm mb-4">As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally, but is it a scalable solution for global food security?...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
-                                <span class="article-author">Jane Doe</span>
-                                <span class="article-date">October 6, 2025</span>
-                                <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3>
-                                <p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p>
-                                <blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3>
-                                <p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>
-                            </div>
-                        </article>
-                        <!-- END NEW ARTICLE -->
-
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Circular economy diagram" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Circular+Economy';">
-                            <span class="article-category text-xs font-bold uppercase text-blue-700 mb-2">EHS</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Circular Economy: A Blueprint for a Waste-Free Future</h4>
-                            <p class="text-gray-600 text-sm mb-4">Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 3, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>Our global economy has long operated on a linear model: we extract resources, manufacture products, use them, and then dispose of them as waste. This "take-make-dispose" system is pushing our planet to its limits, leading to resource depletion, pollution, and a growing climate crisis. The circular economy offers a radical and necessary alternative: a system where waste is designed out, materials are kept in use for as long as possible, and natural systems are regenerated.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Core Principles of Circularity</h3>
-                                <p>This model is built on three core principles. First, eliminate waste and pollution from the very beginning through better design. Second, circulate products and materials at their highest value, through strategies like repair, reuse, remanufacturing, and recycling. Third, regenerate nature by returning valuable nutrients to the soil and other ecosystems. It's a fundamental shift in perspective that sees all materials as valuable resources rather than disposable trash.</p>
-                                <blockquote>"The circular economy is not just about recycling more. It's about a complete redesign of our industrial and economic systems to work with nature, not against it."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Circularity in Action</h3>
-                                <p>Companies and governments are beginning to embrace this concept, recognizing that it not only reduces environmental impact but also drives innovation and creates new economic opportunities. Examples include "product-as-a-service" models where customers lease products like lighting or carpets instead of owning them, advanced recycling technologies that can break down complex plastics, and the use of regenerative agricultural practices that rebuild soil health. By decoupling economic growth from resource consumption, the circular economy provides a tangible blueprint for a prosperous and sustainable future.</p>
-                            </div>
-                        </article>
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="Mycelium material close-up" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
-                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">Green Tech</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium: Can Fungus Replace Plastic Packaging?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 1, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                                <div class="article-full-content hidden">
-                                <p>The world is drowning in plastic waste, with single-use packaging being a primary culprit. In the search for sustainable alternatives, innovators are looking to an unexpected source: the kingdom of fungi. Enter mycelium, the intricate, fibrous root network of mushrooms. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and home-compostable.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">From Farm Waste to Functional Material</h3>
-                                <p>The process is as ingenious as it is eco-friendly. Companies like Ecovative Design are pioneering this technology by taking agricultural waste, such as hemp hurds or corn husks, and inoculating it with mycelium spores. In the dark, the mycelium grows, feeding on the waste and weaving a dense network of fibers throughout it. After a few days, the resulting composite is placed into a mold and then heated to stop the growth, resulting in a solid, lightweight, and surprisingly durable material that can replace Styrofoam, plastics, and other harmful packaging materials.</p>
-                                <blockquote>"Nature has already figured out how to create high-performance materials through billions of years of R&D. We just need to learn how to partner with it."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">A Truly Circular Solution</h3>
-                                <p>Unlike bioplastics that often require industrial composting facilities, mycelium packaging breaks down in a typical backyard compost pile in a matter of weeks, returning nutrients to the soil. While challenges in scaling production to compete with the low cost of plastic remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment at the end of their lifecycle.</p>
-                                </div>
-                        </article>
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Drought-resistant crops in a dry field" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
-                            <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Eco Science</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Gene-Edited Crops: An Answer to Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">September 28, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                               <div class="article-full-content hidden">
-                                <p>The specter of climate change—marked by rising temperatures, prolonged droughts, and unpredictable weather—poses a dire threat to global food security. As traditional crops struggle to adapt, scientists believe they have a powerful tool in their arsenal: CRISPR-Cas9, a revolutionary gene-editing technology.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Precision Breeding for a New Era</h3>
-                                <p>Unlike traditional Genetically Modified Organisms (GMOs), which often involve inserting foreign DNA, CRISPR allows for incredibly precise edits to a plant's own genetic code. It works like a pair of molecular scissors, allowing scientists to snip out, replace, or silence specific genes. This can be used to enhance naturally occurring, desirable traits—such as making wheat more resistant to drought by improving its water retention, making rice more tolerant of salty soil, or boosting a tomato's natural resistance to disease. The process essentially mimics and accelerates natural genetic mutation, which has been the basis of selective breeding for millennia.</p>
-                                <blockquote>"We can now achieve in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Navigating the Debate</h3>
-                                <p>Despite its promise, the technology is not without controversy. Regulatory hurdles, public perception shaped by the GMO debate, and ethical questions remain significant challenges. Proponents argue that since CRISPR often introduces no foreign DNA, it should be regulated differently from traditional GMOs. They contend that the potential benefits—feeding a growing population with fewer resources on an increasingly volatile planet—are too great to ignore. As our climate continues to change, gene-edited crops may become an indispensable tool in ensuring a resilient and secure food supply.</p>
-                               </div>
-                        </article>
-                    </div>
+                    <!-- Latest Articles grid will be injected here by JS -->
+                    <div id="latest-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"></div>
                 </section>
                 
                 <section id="page-ehs" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Environmental, Health & Safety</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="EHSS.avif" alt="EHS professional at a worksite" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=AI in EHS';">
-                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">EHS</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The AI Revolution in EHS: Predictive Analytics is Changing the Game</h4>
-                            <p class="text-gray-600 text-sm mb-4">Forget reactive safety measures. New AI models can now predict workplace accidents before they happen...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 7, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>For decades, the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive. An incident occurs, an investigation follows, and new protocols are implemented to prevent a recurrence. But what if we could shift from reacting to predicting? Welcome to the age of proactive safety, powered by Artificial Intelligence.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics</h3>
-                                <p>AI is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets—from IoT sensor readings on machinery and historical incident reports to employee work patterns and even weather forecasts—machine learning algorithms can identify hidden correlations that elude human analysis. These models can flag high-risk scenarios with astonishing accuracy, predicting equipment failures before they happen or identifying employees who may be at higher risk of injury due to fatigue.</p>
-                                <blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Computer Vision: The Watchful Eye</h3>
-                                <p>Beyond crunching numbers, AI-powered computer vision is transforming workplace monitoring. Smart cameras can now automatically detect if workers are wearing the correct Personal Protective Equipment (PPE), identify unsafe conditions like spills or blocked exits, and even analyze worker movements to flag poor ergonomic practices that could lead to long-term injuries. This provides a constant, non-intrusive layer of oversight that helps enforce safety protocols in real-time.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Challenges and the Human Element</h3>
-                                <p>The transition isn't without its challenges. High implementation costs, the need for clean and comprehensive data, and addressing employee privacy concerns are significant hurdles. However, it's crucial to remember that AI is a tool, not a replacement for human expertise. EHS professionals are essential for interpreting AI-driven insights, making informed decisions, and managing the ethical considerations of this new technology. The result is not just a safer workplace, but a more efficient, resilient, and sustainable operation. The AI revolution isn't coming to EHS—it's already here.</p>
-                            </div>
-                        </article>
-                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop" alt="Circular economy diagram" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Circular+Economy';">
-                            <span class="article-category text-xs font-bold uppercase text-blue-700 mb-2">EHS</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Circular Economy: A Blueprint for a Waste-Free Future</h4>
-                            <p class="text-gray-600 text-sm mb-4">Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 3, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>Our global economy has long operated on a linear model: we extract resources, manufacture products, use them, and then dispose of them as waste. This "take-make-dispose" system is pushing our planet to its limits, leading to resource depletion, pollution, and a growing climate crisis. The circular economy offers a radical and necessary alternative: a system where waste is designed out, materials are kept in use for as long as possible, and natural systems are regenerated.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Core Principles of Circularity</h3>
-                                <p>This model is built on three core principles. First, eliminate waste and pollution from the very beginning through better design. Second, circulate products and materials at their highest value, through strategies like repair, reuse, remanufacturing, and recycling. Third, regenerate nature by returning valuable nutrients to the soil and other ecosystems. It's a fundamental shift in perspective that sees all materials as valuable resources rather than disposable trash.</p>
-                                <blockquote>"The circular economy is not just about recycling more. It's about a complete redesign of our industrial and economic systems to work with nature, not against it."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Circularity in Action</h3>
-                                <p>Companies and governments are beginning to embrace this concept, recognizing that it not only reduces environmental impact but also drives innovation and creates new economic opportunities. Examples include "product-as-a-service" models where customers lease products like lighting or carpets instead of owning them, advanced recycling technologies that can break down complex plastics, and the use of regenerative agricultural practices that rebuild soil health. By decoupling economic growth from resource consumption, the circular economy provides a tangible blueprint for a prosperous and sustainable future.</p>
-                            </div>
-                        </article>
-                    </div>
+                    <!-- EHS articles grid will be injected here by JS -->
+                    <div id="ehs-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
                 </section>
 
                 <section id="page-eco-science" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Eco Science</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="Sci.avif" alt="Diagram of a fusion reactor" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Fusion';">
-                            <span class="article-category text-xs font-bold uppercase text-sky-600 mb-2">Eco Science</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Fusion Energy Breakthrough: The Ultimate Clean Power Source?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Scientists have achieved a net energy gain, a monumental step towards limitless, carbon-free energy...</p>
-                             <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 5, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is not just a theoretical possibility but an achievable reality.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">What is Fusion Energy?</h3>
-                                <p>Unlike nuclear fission, which powers today's nuclear plants by splitting heavy atoms, fusion does the opposite: it combines light atomic nuclei, such as hydrogen, to form a heavier nucleus, releasing an immense amount of energy in the process. It's the same reaction that powers our sun. The primary fuel, derived from water and lithium, is abundant, and the process produces no long-lived radioactive waste and carries no risk of meltdown.</p>
-                                <blockquote>"This is a landmark achievement and a testament to decades of collective scientific innovation. We took a star and held it in our hands for a moment."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The "Net Energy Gain" Milestone</h3>
-                                <p>For decades, the challenge has been to get more energy out of the reaction than is required to start it. In the groundbreaking experiment, lasers were used to create temperatures and pressures hotter than the center of the sun, causing hydrogen atoms to fuse and release a tremendous amount of energy—significantly more than was delivered by the lasers. This is the first time in history that a controlled fusion reaction has crossed this critical threshold.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead</h3>
-                                <p>While this is a monumental scientific breakthrough, commercial fusion power plants are still likely decades away. Engineers now face the challenge of turning this proof-of-concept into a reliable, cost-effective power source that can be connected to the grid. However, this achievement removes a fundamental scientific barrier and injects a massive wave of optimism into the fight against climate change. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world in an unprecedented way.</p>
-                            </div>
-                        </article>
-                         <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop" alt="Drought-resistant crops in a dry field" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=CRISPR';">
-                            <span class="article-category text-xs font-bold uppercase text-sky-700 mb-2">Eco Science</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Gene-Edited Crops: An Answer to Climate Change?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">September 28, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                               <div class="article-full-content hidden">
-                                <p>The specter of climate change—marked by rising temperatures, prolonged droughts, and unpredictable weather—poses a dire threat to global food security. As traditional crops struggle to adapt, scientists believe they have a powerful tool in their arsenal: CRISPR-Cas9, a revolutionary gene-editing technology.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Precision Breeding for a New Era</h3>
-                                <p>Unlike traditional Genetically Modified Organisms (GMOs), which often involve inserting foreign DNA, CRISPR allows for incredibly precise edits to a plant's own genetic code. It works like a pair of molecular scissors, allowing scientists to snip out, replace, or silence specific genes. This can be used to enhance naturally occurring, desirable traits—such as making wheat more resistant to drought by improving its water retention, making rice more tolerant of salty soil, or boosting a tomato's natural resistance to disease. The process essentially mimics and accelerates natural genetic mutation, which has been the basis of selective breeding for millennia.</p>
-                                <blockquote>"We can now achieve in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Navigating the Debate</h3>
-                                <p>Despite its promise, the technology is not without controversy. Regulatory hurdles, public perception shaped by the GMO debate, and ethical questions remain significant challenges. Proponents argue that since CRISPR often introduces no foreign DNA, it should be regulated differently from traditional GMOs. They contend that the potential benefits—feeding a growing population with fewer resources on an increasingly volatile planet—are too great to ignore. As our climate continues to change, gene-edited crops may become an indispensable tool in ensuring a resilient and secure food supply.</p>
-                               </div>
-                        </article>
-                    </div>
+                     <!-- Eco Science articles grid will be injected here by JS -->
+                    <div id="eco-science-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
                 </section>
 
                 <section id="page-green-tech" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Green Tech</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                       <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1622321893963-c28373327b2d?q=80&w=2070&auto=format&fit=crop" alt="A modern vertical farm with rows of leafy greens under purple LED lights" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Vertical+Farming';">
-                            <span class="article-category text-xs font-bold uppercase text-green-700 mb-2">Green Tech</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">Vertical Farming: The Future of Urban Agriculture?</h4>
-                            <p class="text-gray-600 text-sm mb-4">As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop" alt="Author's photo">
-                                <span class="article-author">Jane Doe</span>
-                                <span class="article-date">October 6, 2025</span>
-                                <span class="article-author-bio">Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.</span>
-                            </div>
-                            <div class="article-full-content hidden">
-                                <p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3>
-                                <p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p>
-                                <blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3>
-                                <p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>
-                            </div>
-                        </article>
-                        <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                            <img src="https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop" alt="Mycelium material close-up" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Mycelium';">
-                            <span class="article-category text-xs font-bold uppercase text-red-700 mb-2">Green Tech</span>
-                            <h4 class="article-title text-xl font-bold mb-2 flex-grow">The Rise of Mycelium: Can Fungus Replace Plastic Packaging?</h4>
-                            <p class="text-gray-600 text-sm mb-4">Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...</p>
-                            <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
-                            <div class="article-meta hidden">
-                                <img src="Passport_Photograph.jpg" alt="Author's photo">
-                                <span class="article-author">Devansh Singh Rawal</span>
-                                <span class="article-date">October 1, 2025</span>
-                                <span class="article-author-bio">Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.</span>
-                            </div>
-                                <div class="article-full-content hidden">
-                                <p>The world is drowning in plastic waste, with single-use packaging being a primary culprit. In the search for sustainable alternatives, innovators are looking to an unexpected source: the kingdom of fungi. Enter mycelium, the intricate, fibrous root network of mushrooms. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and home-compostable.</p>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">From Farm Waste to Functional Material</h3>
-                                <p>The process is as ingenious as it is eco-friendly. Companies like Ecovative Design are pioneering this technology by taking agricultural waste, such as hemp hurds or corn husks, and inoculating it with mycelium spores. In the dark, the mycelium grows, feeding on the waste and weaving a dense network of fibers throughout it. After a few days, the resulting composite is placed into a mold and then heated to stop the growth, resulting in a solid, lightweight, and surprisingly durable material that can replace Styrofoam, plastics, and other harmful packaging materials.</p>
-                                <blockquote>"Nature has already figured out how to create high-performance materials through billions of years of R&D. We just need to learn how to partner with it."</blockquote>
-                                <h3 class="text-2xl font-lora font-bold mt-8 mb-4">A Truly Circular Solution</h3>
-                                <p>Unlike bioplastics that often require industrial composting facilities, mycelium packaging breaks down in a typical backyard compost pile in a matter of weeks, returning nutrients to the soil. While challenges in scaling production to compete with the low cost of plastic remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment at the end of their lifecycle.</p>
-                                </div>
-                        </article>
-                    </div>
+                    <!-- Green Tech articles grid will be injected here by JS -->
+                    <div id="green-tech-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
                 </section>
                 
+                <section id="page-search-results" class="page-section hidden py-12">
+                    <h2 id="search-results-title" class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Search Results</h2>
+                    <div id="search-results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+                    <p id="no-search-results" class="hidden text-center text-gray-500 mt-8">No articles found matching your search. Try another keyword.</p>
+                </section>
+
                 <section id="page-submit" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Submit Your Article</h2>
                                 <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
@@ -509,7 +248,7 @@
                 <section id="page-privacy-policy" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Privacy Policy</h2>
                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                        <p><strong>Last Updated: October 7, 2025</strong></p>
+                        <p><strong>Last Updated: October 10, 2025</strong></p>
                         <p>Welcome to Derawvibes. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
 
                         <h3>1. Important Information and Who We Are</h3>
@@ -557,7 +296,7 @@
                 <section id="page-terms-of-service" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Terms of Service</h2>
                                 <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                                 <p><strong>Last Updated: October 7, 2025</strong></p>
+                                 <p><strong>Last Updated: October 10, 2025</strong></p>
                                  <h3>1. Agreement to Terms</h3>
                                  <p>By accessing or using the Derawvibes website (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, then you may not access the Service.</p>
                                  
@@ -570,12 +309,12 @@
                                  <h3>4. Prohibited Activities</h3>
                                  <p>You may not access or use the Service for any purpose other than that for which we make the Service available. As a user of the Service, you agree not to:</p>
                                  <ul>
-                                    <li>Systematically retrieve data or other content from the Service to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
-                                    <li>Use the Service to advertise or offer to sell goods and services.</li>
-                                    <li>Engage in unauthorized framing of or linking to the Service.</li>
-                                    <li>Attempt to impersonate another user or person.</li>
-                                    <li>Use any information obtained from the Service in order to harass, abuse, or harm another person.</li>
-                                    <li>Use the Service as part of any effort to compete with us.</li>
+                                     <li>Systematically retrieve data or other content from the Service to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
+                                     <li>Use the Service to advertise or offer to sell goods and services.</li>
+                                     <li>Engage in unauthorized framing of or linking to the Service.</li>
+                                     <li>Attempt to impersonate another user or person.</li>
+                                     <li>Use any information obtained from the Service in order to harass, abuse, or harm another person.</li>
+                                     <li>Use the Service as part of any effort to compete with us.</li>
                                  </ul>
 
                                  <h3>5. User Generated Contributions</h3>
@@ -652,7 +391,7 @@
 
             <footer id="contact" class="bg-slate-900 text-white mt-12">
                          <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                                      <div class="md:col-span-2 lg:col-span-1">
                                          <h5 class="text-3xl font-black tracking-widest uppercase">Derawvibes</h5>
                                          <p class="text-slate-400 mt-4 text-sm leading-relaxed">
@@ -687,19 +426,19 @@
                                          </form>
                                      </div>
                                  </div>
-                                <div class="border-t border-slate-800"></div>
-                                <div class="flex flex-col md:flex-row items-center justify-between mt-8">
-                                   <p class="text-slate-500 text-sm text-center md:text-left">
-                                       &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
-                                   </p>
-                                   <div class="flex items-center space-x-4 mt-4 md:mt-0">
-                                       <a href="https://x.com/devrawal09?s=21" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                                       <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
-                                       <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
-                                   </div>
+                                 <div class="border-t border-slate-800"></div>
+                                 <div class="flex flex-col md:flex-row items-center justify-between mt-8">
+                                  <p class="text-slate-500 text-sm text-center md:text-left">
+                                      &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
+                                  </p>
+                                  <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                      <a href="https://x.com/devrawal09?s=21" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                                      <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
+                                      <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+                                  </div>
+                                 </div>
                                </div>
-                             </div>
-                     </footer>
+            </footer>
         </div>
     </div>
 
@@ -764,11 +503,17 @@
                 </div>
             </div>
 
-            <div id="up-next-section" class="mt-16 pt-8 border-t-2 border-dashed border-gray-300">
+            <!-- Enhanced "Related Articles" section -->
+            <div id="related-articles-section" class="mt-16 pt-8 border-t-2 border-dashed border-gray-300">
+                 <h3 class="text-xl font-bold uppercase text-gray-700 tracking-wider mb-6 text-center">Related Articles</h3>
+                 <div id="related-articles-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Related articles will be injected here -->
+                 </div>
             </div>
         </article>
     </div>
 
+    <!-- Success Message Overlay -->
     <div id="success-overlay" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[99] opacity-0 transition-opacity duration-300">
         <div id="success-box" class="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-sm mx-auto transform scale-95 transition-all duration-300">
             <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100 mb-6">
@@ -778,14 +523,228 @@
             <p id="success-message-text" class="text-gray-600">Your message has been sent successfully.</p>
         </div>
     </div>
+    
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] p-4 opacity-0">
+        <div class="relative w-full max-w-2xl mx-auto mt-[10vh]">
+            <div class="search-box transform -translate-y-10">
+                <input type="search" id="search-input" placeholder="Search for articles..." class="w-full text-lg sm:text-2xl font-lora p-4 pr-12 rounded-lg border-2 border-gray-300 focus:ring-4 focus:ring-teal-400 focus:border-teal-500 outline-none">
+                <button id="search-close-btn" class="absolute top-0 right-0 h-full px-4 text-gray-500 hover:text-black transition-colors" aria-label="Close search">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back to Top button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-teal-600 text-white p-3 rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 opacity-0 transform translate-y-4 z-40" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // URLs for Google Apps Script
-            const contactFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
-            const newsletterFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
-            const submissionFormScriptURL = 'https://script.google.com/macros/s/AKfycbzvJpJrngVozkg6JGFM8UA4o3yZcJYKOd8-pjqP3DmjZZvZ8iMU1yNQxRW4exFsQSAo/exec';
 
+            // --- DATA STORE ---
+            // Storing all article data in a single array of objects for easier management.
+            const articlesData = [
+                {
+                    title: "The AI Revolution in EHS: Predictive Analytics is Changing the Game",
+                    category: "EHS",
+                    categoryColor: "red",
+                    image: "EHSS.avif",
+                    imageAlt: "Futuristic green cityscape focused on sustainability",
+                    summary: "Forget reactive safety measures. New AI models can now predict workplace accidents before they happen, analyze ergonomic risks in real-time, and ensure PPE compliance automatically...",
+                    author: "Devansh Singh Rawal",
+                    authorPhoto: "Passport_Photograph.jpg",
+                    authorBio: "Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.",
+                    date: "October 7, 2025",
+                    isFeatured: true,
+                    fullContent: `
+                        <p>For decades, the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive. An incident occurs, an investigation follows, and new protocols are implemented to prevent a recurrence. But what if we could shift from reacting to predicting? Welcome to the age of proactive safety, powered by Artificial Intelligence.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics</h3>
+                        <p>AI is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets—from IoT sensor readings on machinery and historical incident reports to employee work patterns and even weather forecasts—machine learning algorithms can identify hidden correlations that elude human analysis. These models can flag high-risk scenarios with astonishing accuracy, predicting equipment failures before they happen or identifying employees who may be at higher risk of injury due to fatigue.</p>
+                        <blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Computer Vision: The Watchful Eye</h3>
+                        <p>Beyond crunching numbers, AI-powered computer vision is transforming workplace monitoring. Smart cameras can now automatically detect if workers are wearing the correct Personal Protective Equipment (PPE), identify unsafe conditions like spills or blocked exits, and even analyze worker movements to flag poor ergonomic practices that could lead to long-term injuries. This provides a constant, non-intrusive layer of oversight that helps enforce safety protocols in real-time.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Challenges and the Human Element</h3>
+                        <p>The transition isn't without its challenges. High implementation costs, the need for clean and comprehensive data, and addressing employee privacy concerns are significant hurdles. However, it's crucial to remember that AI is a tool, not a replacement for human expertise. EHS professionals are essential for interpreting AI-driven insights, making informed decisions, and managing the ethical considerations of this new technology. The result is not just a safer workplace, but a more efficient, resilient, and sustainable operation. The AI revolution isn't coming to EHS—it's already here.</p>
+                    `
+                },
+                {
+                    title: "Fusion Energy Breakthrough: The Ultimate Clean Power Source?",
+                    category: "Eco Science",
+                    categoryColor: "sky",
+                    image: "Sci.avif",
+                    imageAlt: "Diagram of a fusion reactor",
+                    summary: "In a landmark achievement, scientists have achieved a net energy gain from a fusion reaction, a monumental step towards the dream of limitless, carbon-free energy...",
+                    author: "Devansh Singh Rawal",
+                    authorPhoto: "Passport_Photograph.jpg",
+                    authorBio: "Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.",
+                    date: "October 5, 2025",
+                    isFeatured: true,
+                    fullContent: `
+                        <p>In a historic announcement that has sent shockwaves through the scientific community, researchers have successfully produced a nuclear fusion reaction that resulted in a net energy gain. This long-sought goal, often described as the "holy grail" of clean energy, proves that harnessing the power of the stars on Earth is not just a theoretical possibility but an achievable reality.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">What is Fusion Energy?</h3>
+                        <p>Unlike nuclear fission, which powers today's nuclear plants by splitting heavy atoms, fusion does the opposite: it combines light atomic nuclei, such as hydrogen, to form a heavier nucleus, releasing an immense amount of energy in the process. It's the same reaction that powers our sun. The primary fuel, derived from water and lithium, is abundant, and the process produces no long-lived radioactive waste and carries no risk of meltdown.</p>
+                        <blockquote>"This is a landmark achievement and a testament to decades of collective scientific innovation. We took a star and held it in our hands for a moment."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The "Net Energy Gain" Milestone</h3>
+                        <p>For decades, the challenge has been to get more energy out of the reaction than is required to start it. In the groundbreaking experiment, lasers were used to create temperatures and pressures hotter than the center of the sun, causing hydrogen atoms to fuse and release a tremendous amount of energy—significantly more than was delivered by the lasers. This is the first time in history that a controlled fusion reaction has crossed this critical threshold.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Road Ahead</h3>
+                        <p>While this is a monumental scientific breakthrough, commercial fusion power plants are still likely decades away. Engineers now face the challenge of turning this proof-of-concept into a reliable, cost-effective power source that can be connected to the grid. However, this achievement removes a fundamental scientific barrier and injects a massive wave of optimism into the fight against climate change. It paves the way for a future powered by clean, safe, and virtually limitless energy, promising to revolutionize our world in an unprecedented way.</p>
+                    `
+                },
+                {
+                    title: "Vertical Farming: The Future of Urban Agriculture?",
+                    category: "Green Tech",
+                    categoryColor: "green",
+                    image: "https://images.unsplash.com/photo-1622321893963-c28373327b2d?q=80&w=2070&auto=format&fit=crop",
+                    imageAlt: "A modern vertical farm with rows of leafy greens under purple LED lights",
+                    summary: "As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally, but is it a scalable solution for global food security?...",
+                    author: "Jane Doe",
+                    authorPhoto: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=387&auto=format&fit=crop",
+                    authorBio: "Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.",
+                    date: "October 6, 2025",
+                    isFeatured: false,
+                    fullContent: `
+                        <p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3>
+                        <p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p>
+                        <blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3>
+                        <p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>
+                    `
+                },
+                {
+                    title: "The Circular Economy: A Blueprint for a Waste-Free Future",
+                    category: "EHS",
+                    categoryColor: "blue",
+                    image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop",
+                    imageAlt: "Circular economy diagram",
+                    summary: "Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...",
+                    author: "Devansh Singh Rawal",
+                    authorPhoto: "Passport_Photograph.jpg",
+                    authorBio: "Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.",
+                    date: "October 3, 2025",
+                    isFeatured: false,
+                    fullContent: `
+                        <p>Our global economy has long operated on a linear model: we extract resources, manufacture products, use them, and then dispose of them as waste. This "take-make-dispose" system is pushing our planet to its limits, leading to resource depletion, pollution, and a growing climate crisis. The circular economy offers a radical and necessary alternative: a system where waste is designed out, materials are kept in use for as long as possible, and natural systems are regenerated.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Core Principles of Circularity</h3>
+                        <p>This model is built on three core principles. First, eliminate waste and pollution from the very beginning through better design. Second, circulate products and materials at their highest value, through strategies like repair, reuse, remanufacturing, and recycling. Third, regenerate nature by returning valuable nutrients to the soil and other ecosystems. It's a fundamental shift in perspective that sees all materials as valuable resources rather than disposable trash.</p>
+                        <blockquote>"The circular economy is not just about recycling more. It's about a complete redesign of our industrial and economic systems to work with nature, not against it."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Circularity in Action</h3>
+                        <p>Companies and governments are beginning to embrace this concept, recognizing that it not only reduces environmental impact but also drives innovation and creates new economic opportunities. Examples include "product-as-a-service" models where customers lease products like lighting or carpets instead of owning them, advanced recycling technologies that can break down complex plastics, and the use of regenerative agricultural practices that rebuild soil health. By decoupling economic growth from resource consumption, the circular economy provides a tangible blueprint for a prosperous and sustainable future.</p>
+                    `
+                },
+                {
+                    title: "The Rise of Mycelium: Can Fungus Replace Plastic Packaging?",
+                    category: "Green Tech",
+                    categoryColor: "red",
+                    image: "https://images.unsplash.com/photo-1582573752194-27988a44c74a?q=80&w=2070&auto=format&fit=crop",
+                    imageAlt: "Mycelium material close-up",
+                    summary: "Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...",
+                    author: "Devansh Singh Rawal",
+                    authorPhoto: "Passport_Photograph.jpg",
+                    authorBio: "Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.",
+                    date: "October 1, 2025",
+                    isFeatured: false,
+                    fullContent: `
+                        <p>The world is drowning in plastic waste, with single-use packaging being a primary culprit. In the search for sustainable alternatives, innovators are looking to an unexpected source: the kingdom of fungi. Enter mycelium, the intricate, fibrous root network of mushrooms. This remarkable biological material can be grown into custom shapes, creating packaging that is 100% biodegradable and home-compostable.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">From Farm Waste to Functional Material</h3>
+                        <p>The process is as ingenious as it is eco-friendly. Companies like Ecovative Design are pioneering this technology by taking agricultural waste, such as hemp hurds or corn husks, and inoculating it with mycelium spores. In the dark, the mycelium grows, feeding on the waste and weaving a dense network of fibers throughout it. After a few days, the resulting composite is placed into a mold and then heated to stop the growth, resulting in a solid, lightweight, and surprisingly durable material that can replace Styrofoam, plastics, and other harmful packaging materials.</p>
+                        <blockquote>"Nature has already figured out how to create high-performance materials through billions of years of R&D. We just need to learn how to partner with it."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">A Truly Circular Solution</h3>
+                        <p>Unlike bioplastics that often require industrial composting facilities, mycelium packaging breaks down in a typical backyard compost pile in a matter of weeks, returning nutrients to the soil. While challenges in scaling production to compete with the low cost of plastic remain, mycelium represents a paradigm shift in our approach to materials science. It's not just about creating a less harmful product; it's about creating products that are actively beneficial to the environment at the end of their lifecycle.</p>
+                    `
+                },
+                {
+                    title: "Gene-Edited Crops: An Answer to Climate Change?",
+                    category: "Eco Science",
+                    categoryColor: "sky",
+                    image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1974&auto=format&fit=crop",
+                    imageAlt: "Drought-resistant crops in a dry field",
+                    summary: "Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...",
+                    author: "Devansh Singh Rawal",
+                    authorPhoto: "Passport_Photograph.jpg",
+                    authorBio: "Devansh is a leading EHS consultant with over a decade of experience in industrial safety and environmental compliance. He specializes in leveraging technology to create safer, more sustainable workplaces.",
+                    date: "September 28, 2025",
+                    isFeatured: false,
+                    fullContent: `
+                        <p>The specter of climate change—marked by rising temperatures, prolonged droughts, and unpredictable weather—poses a dire threat to global food security. As traditional crops struggle to adapt, scientists believe they have a powerful tool in their arsenal: CRISPR-Cas9, a revolutionary gene-editing technology.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Precision Breeding for a New Era</h3>
+                        <p>Unlike traditional Genetically Modified Organisms (GMOs), which often involve inserting foreign DNA, CRISPR allows for incredibly precise edits to a plant's own genetic code. It works like a pair of molecular scissors, allowing scientists to snip out, replace, or silence specific genes. This can be used to enhance naturally occurring, desirable traits—such as making wheat more resistant to drought by improving its water retention, making rice more tolerant of salty soil, or boosting a tomato's natural resistance to disease. The process essentially mimics and accelerates natural genetic mutation, which has been the basis of selective breeding for millennia.</p>
+                        <blockquote>"We can now achieve in months what used to take decades of selective breeding. This technology is crucial for adapting our agriculture to a rapidly changing world."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Navigating the Debate</h3>
+                        <p>Despite its promise, the technology is not without controversy. Regulatory hurdles, public perception shaped by the GMO debate, and ethical questions remain significant challenges. Proponents argue that since CRISPR often introduces no foreign DNA, it should be regulated differently from traditional GMOs. They contend that the potential benefits—feeding a growing population with fewer resources on an increasingly volatile planet—are too great to ignore. As our climate continues to change, gene-edited crops may become an indispensable tool in ensuring a resilient and secure food supply.</p>
+                    `
+                },
+                {
+                    title: "Next-Gen Solar Panels: Perovskite Crystals Promise Higher Efficiency",
+                    category: "Green Tech",
+                    categoryColor: "green",
+                    image: "https://images.unsplash.com/photo-1508554746328-5a4153a146a7?q=80&w=2070&auto=format&fit=crop",
+                    imageAlt: "Close-up of a new generation solar panel",
+                    summary: "A new class of materials, perovskite crystals, is set to shatter the efficiency limits of traditional silicon-based solar cells, potentially making solar power cheaper and more accessible than ever before.",
+                    author: "Dr. Aris Thorne",
+                    authorPhoto: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=387&auto=format&fit=crop",
+                    authorBio: "Dr. Aris Thorne is a materials scientist and a leading researcher in photovoltaic technologies. He is dedicated to finding the next breakthrough in renewable energy.",
+                    date: "October 9, 2025",
+                    isFeatured: false,
+                    fullContent: `
+                        <p>For decades, silicon has been the undisputed king of solar panels, but its reign may be coming to an end. Scientists are incredibly excited about a class of synthetic crystalline materials known as perovskites. These remarkable materials can absorb a broader spectrum of light and convert it into electricity more efficiently than silicon, promising a new era for solar energy.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Efficiency Breakthrough</h3>
+                        <p>Tandem solar cells, which layer a thin film of perovskite on top of a traditional silicon cell, have already broken efficiency records in laboratory settings, surpassing the theoretical limits of silicon alone. Because perovskites can be formulated as a liquid "ink," they can be printed onto surfaces, opening the door for flexible, lightweight, and even transparent solar panels that could be integrated into windows, vehicles, and clothing.</p>
+                        <blockquote>"Perovskites are the most exciting development in solar technology in the last 20 years. They have the potential to make solar energy ubiquitous."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Durability Challenge</h3>
+                        <p>The primary obstacle holding back commercialization is durability. Early perovskite cells degraded quickly when exposed to moisture and oxygen. However, recent breakthroughs in chemical engineering and encapsulation techniques have dramatically improved their stability, bringing them closer to the 25-year lifespan expected of commercial solar panels. As researchers solve these final engineering hurdles, perovskite technology is poised to supercharge the global transition to renewable energy.</p>
+                    `
+                },
+                {
+                    title: "Rewilding: How Letting Nature Take Over Can Restore Ecosystems",
+                    category: "Eco Science",
+                    categoryColor: "sky",
+                    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop",
+                    imageAlt: "A lush, wild forest with a river flowing through it",
+                    summary: "Rewilding is a progressive approach to conservation that involves stepping back and allowing natural processes to repair damaged ecosystems and restore landscapes.",
+                    author: "Isla Moreau",
+                    authorPhoto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=387&auto=format&fit=crop",
+                    authorBio: "Isla Moreau is an ecologist and conservation biologist who has worked on rewilding projects across Europe and North America. She is an advocate for large-scale ecosystem restoration.",
+                    date: "October 8, 2025",
+                    isFeatured: false,
+                    fullContent: `
+                        <p>For centuries, conservation has been about managing nature. We build fences, control populations, and actively maintain habitats. But a new, more radical idea is gaining traction: rewilding. The core concept is to restore ecosystems to a point where nature itself can take the lead, reducing the need for human intervention. It often involves reintroducing keystone species—like wolves in Yellowstone or beavers in the UK—that have a disproportionately large effect on their environment.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Role of Keystone Species</h3>
+                        <p>The reintroduction of wolves to Yellowstone National Park is a classic example. The wolves preyed on elk, which had overgrazed the valleys. With fewer elk, trees and shrubs like aspen and willow rebounded along riverbanks. This stabilized the soil, provided food and habitat for beavers, and even changed the course of rivers. The return of one species created a cascade of positive changes, restoring the health and complexity of the entire ecosystem.</p>
+                        <blockquote>"Rewilding is about ceding control. It's about having the humility to admit that nature often knows best how to heal itself."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Beyond Parks and Reserves</h3>
+                        <p>Rewilding isn't just for national parks. It can happen in abandoned farmland, industrial sites, and even urban areas. By removing dams, reforesting land, and connecting fragmented habitats with wildlife corridors, we can create resilient, self-sustaining ecosystems. This approach not only increases biodiversity but also enhances natural services like carbon sequestration, flood control, and water purification, making it a powerful tool in the fight against climate change and ecological collapse.</p>
+                    `
+                },
+                {
+                    title: "India's New ESG Reporting Mandate: What EHS Leaders Need to Know",
+                    category: "EHS",
+                    categoryColor: "blue",
+                    image: "https://images.unsplash.com/photo-1599139857593-500a20a45b14?q=80&w=2070&auto=format&fit=crop",
+                    imageAlt: "A business professional analyzing environmental data on a tablet",
+                    summary: "SEBI's new Business Responsibility and Sustainability Reporting (BRSR) framework is now mandatory. We break down the key environmental metrics EHS managers must now track and disclose.",
+                    author: "Priya Sharma",
+                    authorPhoto: "https://images.unsplash.com/photo-1491349174775-aaafddd81942?q=80&w=387&auto=format&fit=crop",
+                    authorBio: "Priya Sharma is a Chartered Accountant and a certified sustainability professional based in Mumbai, specializing in ESG frameworks and corporate compliance in the Indian market.",
+                    date: "October 10, 2025",
+                    isFeatured: true,
+                    fullContent: `
+                        <p>The regulatory landscape for corporate sustainability in India has taken a monumental leap forward. The Securities and Exchange Board of India (SEBI) has mandated the Business Responsibility and Sustainability Reporting (BRSR) for the top 1000 listed companies by market capitalization. This move replaces the erstwhile Business Responsibility Report (BRR) and signals a decisive shift towards more transparent, standardized, and comprehensive ESG (Environmental, Social, and Governance) disclosures.</p>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">From 'Why' to 'How': The Core of BRSR</h3>
+                        <p>Unlike the BRR, which was more qualitative, the BRSR framework is granular and data-centric, especially on the environmental front. For EHS leaders, this means the scope of data collection and reporting has expanded significantly. The mandate requires detailed disclosures on greenhouse gas (GHG) emissions (Scope 1, 2, and 3), water consumption and withdrawal, waste management practices, and energy consumption patterns. The emphasis is on quantifiable metrics, forcing companies to move from vague sustainability statements to hard data.</p>
+                        <blockquote>"BRSR is a game-changer. It aligns Indian corporate reporting with global standards like GRI and TCFD, making companies more accountable and transparent to investors and the public."</blockquote>
+                        <h3 class="text-2xl font-lora font-bold mt-8 mb-4">Key Action Points for EHS Professionals</h3>
+                        <p>To comply with the BRSR, EHS departments must act swiftly. Key steps include: <strong>1) Establishing Robust Data Collection Systems:</strong> Manual data collection will no longer suffice. Implementing digital EHS platforms is crucial for accurately tracking energy, water, waste, and emissions data across all operations. <strong>2) Expanding GHG Accounting:</strong> Companies must now measure and report Scope 3 emissions, which includes the entire value chain—from suppliers to end-of-life treatment of products. This requires unprecedented collaboration with procurement and logistics teams. <strong>3) Water Positivity and Waste Management:</strong> The report demands details on water footprint, recycling efforts, and initiatives towards becoming 'water positive'. Similarly, detailed breakdowns of total waste generated, including hazardous and plastic waste, and its disposal method are required.</p>
+                        <p>While the BRSR presents a compliance challenge, it is also a strategic opportunity. By embedding these rigorous tracking and reporting mechanisms, companies can identify inefficiencies, mitigate environmental risks, and build a more resilient and sustainable business model that appeals to a growing cohort of conscious investors.</p>
+                    `
+                }
+            ];
+
+            // --- DOM Elements ---
             const allPageLinks = document.querySelectorAll('nav a, header a, footer a, .page-section a[href^="#page-"]');
             const mainNavLinks = document.querySelectorAll('nav ul a.nav-item');
             const pageSections = document.querySelectorAll('.page-section');
@@ -796,7 +755,6 @@
             
             const articleViewer = document.getElementById('article-viewer');
             const backToMainBtn = document.getElementById('back-to-main-btn');
-            const articleCards = document.querySelectorAll('.article-card');
             const articleViewerCategory = document.getElementById('article-viewer-category');
             const articleViewerTitle = document.getElementById('article-viewer-title');
             const articleViewerImageParallax = document.getElementById('article-viewer-image-parallax');
@@ -804,26 +762,41 @@
             const articleViewerAuthor = document.getElementById('article-viewer-author');
             const articleViewerDate = document.getElementById('article-viewer-date');
             const articleViewerAuthorPhoto = document.getElementById('article-viewer-author-photo');
-
-            const progressBar = document.getElementById('progress-bar');
             const articleViewerReadTime = document.getElementById('article-viewer-read-time').querySelector('span');
+            
+            const progressBar = document.getElementById('progress-bar');
             const floatingShareBar = document.getElementById('floating-share-bar');
             const shareXBtn = document.getElementById('share-x');
             const shareLinkedinBtn = document.getElementById('share-linkedin');
             const copyLinkBtn = document.getElementById('copy-link-btn');
+            
+            const authorBioSection = document.getElementById('author-bio-section');
             const authorBioPhoto = document.getElementById('author-bio-photo');
             const authorBioName = document.getElementById('author-bio-name');
             const authorBioText = document.getElementById('author-bio-text');
-            const upNextSection = document.getElementById('up-next-section');
+            const relatedArticlesContainer = document.getElementById('related-articles-container');
 
             const successOverlay = document.getElementById('success-overlay');
             const successBox = document.getElementById('success-box');
             const successMessageText = document.getElementById('success-message-text');
+
+            const searchIcon = document.getElementById('search-icon');
+            const searchOverlay = document.getElementById('search-overlay');
+            const searchBox = searchOverlay.querySelector('.search-box');
+            const searchInput = document.getElementById('search-input');
+            const searchCloseBtn = document.getElementById('search-close-btn');
+
+            const backToTopBtn = document.getElementById('back-to-top');
             
+            // --- State ---
             let isViewerOpen = false;
-            const articleCardsArray = Array.from(articleCards);
 
+            // --- URLs for Google Apps Script ---
+            const contactFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
+            const newsletterFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
+            const submissionFormScriptURL = 'https://script.google.com/macros/s/AKfycbzvJpJrngVozkg6JGFM8UA4o3yZcJYKOd8-pjqP3DmjZZvZ8iMU1yNQxRW4exFsQSAo/exec';
 
+            // --- UTILITY FUNCTIONS ---
             const slugify = (text) => {
                 if (!text) return '';
                 return text.toString().toLowerCase().trim()
@@ -834,6 +807,13 @@
                     .replace(/-+$/, '');
             };
 
+            const calculateReadTime = (content) => {
+                const wordCount = content.split(/\s+/).length;
+                const readTime = Math.ceil(wordCount / 225);
+                articleViewerReadTime.textContent = `${readTime} min read`;
+            };
+
+            // --- UI FUNCTIONS ---
             const showSuccessMessage = (message) => {
                 successMessageText.textContent = message;
                 successOverlay.classList.remove('hidden');
@@ -849,36 +829,6 @@
                 }, 3000);
             };
 
-            const showPage = (targetId) => {
-                pageSections.forEach(section => section.classList.add('hidden'));
-                const targetPage = document.querySelector(targetId);
-                if (targetPage) targetPage.classList.remove('hidden');
-                
-                mainNavLinks.forEach(navLink => {
-                    navLink.classList.toggle('active-nav-link', navLink.getAttribute('href') === targetId);
-                });
-                window.scrollTo(0, 0);
-            };
-
-            allPageLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    const href = link.getAttribute('href');
-                    if (href && href.startsWith('#page-')) {
-                        e.preventDefault();
-                        history.pushState({ page: href }, '', href);
-                        showPage(href);
-                    }
-                });
-            });
-            
-            const calculateReadTime = (content) => {
-                if (!content) return;
-                const text = content.textContent || content.innerText;
-                const wordCount = text.split(/\s+/).length;
-                const readTime = Math.ceil(wordCount / 225);
-                articleViewerReadTime.textContent = `${readTime} min read`;
-            };
-
             const updateProgressBar = () => {
                 const { scrollTop, scrollHeight, clientHeight } = articleViewer;
                 const scrollableHeight = scrollHeight - clientHeight;
@@ -890,76 +840,138 @@
                 progressBar.style.width = `${scrollPercent}%`;
             };
 
-            const setupShareLinks = (title, slug) => {
+             const setupShareLinks = (title, slug) => {
                 const url = `${window.location.origin}${window.location.pathname}#article/${slug}`;
                 const encodedTitle = encodeURIComponent(title);
                 const encodedUrl = encodeURIComponent(url);
                 shareXBtn.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
                 shareLinkedinBtn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
             };
-            
-            const populateUpNext = (currentCard) => {
-                const currentIndex = articleCardsArray.indexOf(currentCard);
-                const nextIndex = (currentIndex + 1) % articleCardsArray.length;
-                const nextCard = articleCardsArray[nextIndex];
-                
-                const title = nextCard.querySelector('.article-title').textContent;
-                const category = nextCard.querySelector('.article-category').textContent;
-                const categoryClasses = nextCard.querySelector('.article-category').className;
-                const imageSrc = nextCard.querySelector('img').src;
 
-                upNextSection.innerHTML = `
-                    <h3 class="text-sm font-bold uppercase text-gray-500 tracking-wider mb-4">Up Next</h3>
-                    <div class="next-article-card article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center gap-6" data-slug="${nextCard.dataset.slug}">
-                        <img src="${imageSrc}" class="w-24 h-24 object-cover rounded-md flex-shrink-0" alt="Next article image">
-                        <div>
-                            <span class="${categoryClasses.replace('mb-2', 'mb-1')}">${category}</span>
-                            <h4 class="text-xl font-bold">${title}</h4>
+            const createFeaturedArticleCard = (article) => {
+                const colorMap = { 'red': 'red-600', 'sky': 'sky-600', 'blue': 'blue-600' };
+                const textColor = `text-${colorMap[article.categoryColor]}`;
+                return `
+                    <article class="article-card grid grid-cols-1 lg:grid-cols-5 gap-8 items-center" data-slug="${article.slug}">
+                        <div class="lg:col-span-3">
+                            <img src="${article.image}" alt="${article.imageAlt}" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
                         </div>
-                    </div>
+                        <div class="lg:col-span-2">
+                            <span class="article-category text-xs font-bold uppercase ${textColor}">${article.isFeatured ? 'Featured Story' : article.category}</span>
+                            <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">${article.title}</h2>
+                            <p class="text-gray-600 mb-4">${article.summary}</p>
+                            <p class="text-sm text-gray-500 mb-4">By ${article.author} | Published on ${article.date}</p>
+                            <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
+                        </div>
+                    </article>
                 `;
+            };
+
+            const createLatestArticleCard = (article) => {
+                 const colorMap = { 'red': 'red-700', 'sky': 'sky-700', 'blue': 'blue-700', 'green': 'green-700' };
+                 const textColor = `text-${colorMap[article.categoryColor]}`;
+                return `
+                    <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col" data-slug="${article.slug}">
+                        <img src="${article.image}" alt="${article.imageAlt}" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Derawvibes';">
+                        <span class="article-category text-xs font-bold uppercase ${textColor} mb-2">${article.category}</span>
+                        <h4 class="article-title text-xl font-bold mb-2 flex-grow">${article.title}</h4>
+                        <p class="text-gray-600 text-sm mb-4">${article.summary}</p>
+                        <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                    </article>
+                `;
+            };
+
+            const renderArticles = () => {
+                // Add slug to each article
+                articlesData.forEach(article => article.slug = slugify(article.title));
+
+                const featuredContainer = document.getElementById('featured-articles-container');
+                const latestContainer = document.getElementById('latest-articles-container');
+                const ehsContainer = document.getElementById('ehs-articles-container');
+                const ecoScienceContainer = document.getElementById('eco-science-articles-container');
+                const greenTechContainer = document.getElementById('green-tech-articles-container');
+
+                featuredContainer.innerHTML = '';
+                latestContainer.innerHTML = '';
+                ehsContainer.innerHTML = '';
+                ecoScienceContainer.innerHTML = '';
+                greenTechContainer.innerHTML = '';
                 
-                upNextSection.querySelector('.next-article-card').addEventListener('click', (e) => {
-                    e.preventDefault();
-                    openArticle(nextCard, true); // Open next article and push to history
+                // Sort articles by date for latest articles section
+                const sortedArticles = [...articlesData].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                sortedArticles.forEach(article => {
+                    if (article.isFeatured) {
+                        featuredContainer.innerHTML += createFeaturedArticleCard(article);
+                    }
+                    latestContainer.innerHTML += createLatestArticleCard(article);
+
+                    if (article.category === 'EHS') {
+                        ehsContainer.innerHTML += createLatestArticleCard(article);
+                    } else if (article.category === 'Eco Science') {
+                        ecoScienceContainer.innerHTML += createLatestArticleCard(article);
+                    } else if (article.category === 'Green Tech') {
+                        greenTechContainer.innerHTML += createLatestArticleCard(article);
+                    }
+                });
+
+                // Re-add event listeners to all newly created article cards
+                 document.querySelectorAll('.article-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (e.target.closest('a')) e.preventDefault();
+                        const slug = card.dataset.slug;
+                        const articleData = articlesData.find(a => a.slug === slug);
+                        if (articleData) openArticle(articleData, true);
+                    });
                 });
             };
 
-            const openArticle = (card, shouldPushState) => {
-                const categoryElement = card.querySelector('.article-category');
-                const titleElement = card.querySelector('.article-title');
-                const imageElement = card.querySelector('img');
-                const contentElement = card.querySelector('.article-full-content');
-                const authorElement = card.querySelector('.article-author');
-                const dateElement = card.querySelector('.article-date');
-                const authorImgTag = card.querySelector('.article-meta img');
-                const authorBioElement = card.querySelector('.article-author-bio');
+            const openArticle = (articleData, shouldPushState) => {
+                const { category, title, image, author, date, authorPhoto, authorBio, fullContent, slug, categoryColor } = articleData;
+                
+                const colorMap = { 'red': 'red-600', 'sky': 'sky-600', 'blue': 'blue-600', 'green': 'green-600' };
+                const textColor = `text-${colorMap[categoryColor] || 'teal-600'}`;
 
-                articleViewerCategory.textContent = categoryElement.textContent;
-                articleViewerTitle.textContent = titleElement.textContent;
-                articleViewerImageParallax.style.backgroundImage = `url(${imageElement.src})`;
-                articleViewerAuthor.textContent = authorElement ? authorElement.textContent : "Derawvibes Staff";
-                articleViewerDate.textContent = dateElement ? "Published on " + dateElement.textContent : "Published recently";
-                articleViewerAuthorPhoto.src = authorImgTag && authorImgTag.src ? authorImgTag.src : 'https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';
+                articleViewerCategory.textContent = category;
+                articleViewerCategory.className = `text-sm font-bold uppercase ${textColor}`;
+                articleViewerTitle.textContent = title;
+                articleViewerImageParallax.style.backgroundImage = `url(${image})`;
+                articleViewerAuthor.textContent = author;
+                articleViewerDate.textContent = `Published on ${date}`;
+                articleViewerAuthorPhoto.src = authorPhoto;
+                articleViewerContent.innerHTML = fullContent;
                 
-                articleViewerContent.innerHTML = contentElement ? contentElement.innerHTML : "<p>Article content could not be loaded.</p>";
+                calculateReadTime(fullContent);
+                setupShareLinks(title, slug);
                 
-                calculateReadTime(contentElement);
-                setupShareLinks(titleElement.textContent, card.dataset.slug);
-                
-                if (authorElement && authorBioElement) {
-                    authorBioPhoto.src = articleViewerAuthorPhoto.src;
-                    authorBioName.textContent = authorElement.textContent;
-                    authorBioText.textContent = authorBioElement.textContent;
-                } else {
-                    authorBioPhoto.src = 'https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';
-                    authorBioName.textContent = "Derawvibes Staff";
-                    authorBioText.textContent = "This article was written by the editorial team at Derawvibes.";
-                }
+                authorBioPhoto.src = authorPhoto;
+                authorBioName.textContent = author;
+                authorBioText.textContent = authorBio;
 
-                articleViewerCategory.className = categoryElement.className.replace('mb-2', '');
+                // Populate related articles
+                const relatedArticles = articlesData
+                    .filter(a => a.category === category && a.slug !== slug)
+                    .slice(0, 2); // Show up to 2 related articles
                 
-                populateUpNext(card);
+                relatedArticlesContainer.innerHTML = relatedArticles.map(related => {
+                     const relatedColorClass = `text-${colorMap[related.categoryColor] || 'gray-500'}`;
+                     return `
+                        <div class="related-article-card article-card" data-slug="${related.slug}">
+                           <img src="${related.image}" alt="${related.imageAlt}" class="rounded-lg mb-3 w-full h-40 object-cover">
+                           <span class="text-xs font-bold uppercase ${relatedColorClass}">${related.category}</span>
+                           <h4 class="font-bold text-lg mt-1">${related.title}</h4>
+                        </div>
+                    `;
+                }).join('');
+
+                // Add click listeners for related articles
+                relatedArticlesContainer.querySelectorAll('.related-article-card').forEach(card => {
+                     card.addEventListener('click', (e) => {
+                        const newSlug = card.dataset.slug;
+                        const newArticleData = articlesData.find(a => a.slug === newSlug);
+                        if (newArticleData) openArticle(newArticleData, true);
+                    });
+                });
 
                 articleViewer.classList.add('viewer-fade-in');
                 articleViewer.classList.remove('hidden');
@@ -971,10 +983,10 @@
                 isViewerOpen = true;
 
                 if (shouldPushState) {
-                    history.pushState({ articleSlug: card.dataset.slug }, '', `#article/${card.dataset.slug}`);
+                    history.pushState({ articleSlug: slug }, '', `#article/${slug}`);
                 }
             };
-
+            
             const closeArticle = () => {
                 if (!isViewerOpen) return;
                 
@@ -986,13 +998,30 @@
                 isViewerOpen = false;
             };
 
-            articleCards.forEach(card => {
-                card.addEventListener('click', (e) => {
-                    if (e.target.closest('a')) e.preventDefault();
-                    openArticle(card, true);
+             // --- PAGE ROUTING ---
+            const showPage = (targetId) => {
+                pageSections.forEach(section => section.classList.add('hidden'));
+                const targetPage = document.querySelector(targetId);
+                if (targetPage) targetPage.classList.remove('hidden');
+                
+                mainNavLinks.forEach(navLink => {
+                    navLink.classList.toggle('active-nav-link', navLink.getAttribute('href') === targetId);
+                });
+                window.scrollTo(0, 0);
+            };
+
+            // --- EVENT LISTENERS ---
+            allPageLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#page-')) {
+                        e.preventDefault();
+                        history.pushState({ page: href }, '', href);
+                        showPage(href);
+                    }
                 });
             });
-
+            
             backToMainBtn.addEventListener('click', () => history.back());
             
             copyLinkBtn.addEventListener('click', () => {
@@ -1019,41 +1048,81 @@
                 document.body.removeChild(textArea);
             });
 
-            window.addEventListener('popstate', (event) => {
-                const hash = window.location.hash;
-                if (hash.startsWith('#article/')) {
-                    const slug = hash.substring(9);
-                    const cardToOpen = document.querySelector(`.article-card[data-slug='${slug}']`);
-                    if (cardToOpen && !isViewerOpen) {
-                        openArticle(cardToOpen, false);
+            // --- SEARCH FUNCTIONALITY ---
+            searchIcon.addEventListener('click', () => {
+                searchOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    searchOverlay.classList.remove('opacity-0');
+                    searchBox.classList.remove('-translate-y-10');
+                    searchInput.focus();
+                }, 10);
+            });
+
+            const closeSearch = () => {
+                searchOverlay.classList.add('opacity-0');
+                searchBox.classList.add('-translate-y-10');
+                setTimeout(() => searchOverlay.classList.add('hidden'), 300);
+            };
+
+            searchCloseBtn.addEventListener('click', closeSearch);
+            searchOverlay.addEventListener('click', (e) => {
+                if(e.target === searchOverlay) closeSearch();
+            });
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                
+                if (searchTerm.length < 2) {
+                    if (window.location.hash.startsWith('#page-search-results')) {
+                         history.back(); // Go back if search is cleared
                     }
+                    return;
+                }
+
+                const results = articlesData.filter(article => 
+                    article.title.toLowerCase().includes(searchTerm) ||
+                    article.summary.toLowerCase().includes(searchTerm) ||
+                    article.category.toLowerCase().includes(searchTerm) ||
+                    article.fullContent.toLowerCase().includes(searchTerm)
+                );
+                
+                const resultsContainer = document.getElementById('search-results-container');
+                const noResultsEl = document.getElementById('no-search-results');
+                document.getElementById('search-results-title').textContent = `Search Results for "${searchTerm}"`;
+
+                resultsContainer.innerHTML = '';
+                if(results.length > 0) {
+                    noResultsEl.classList.add('hidden');
+                    results.forEach(article => {
+                        resultsContainer.innerHTML += createLatestArticleCard(article);
+                    });
+                    // Re-add listeners for search results
+                    resultsContainer.querySelectorAll('.article-card').forEach(card => {
+                        card.addEventListener('click', (e) => {
+                            if (e.target.closest('a')) e.preventDefault();
+                            const slug = card.dataset.slug;
+                            const articleData = articlesData.find(a => a.slug === slug);
+                            if (articleData) openArticle(articleData, true);
+                        });
+                    });
                 } else {
-                    if (isViewerOpen) {
-                        closeArticle();
-                    }
-                    showPage(hash || '#page-home');
+                    noResultsEl.classList.remove('hidden');
+                }
+                
+                if (!window.location.hash.startsWith('#page-search-results')) {
+                    history.pushState({ page: '#page-search-results' }, '', '#page-search-results');
+                }
+                showPage('#page-search-results');
+            });
+
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter' && searchInput.value.length > 1) {
+                    closeSearch();
                 }
             });
 
-            const handleInitialLoad = () => {
-                articleCards.forEach(card => {
-                    const title = card.querySelector('.article-title').textContent;
-                    card.dataset.slug = slugify(title);
-                });
 
-                const hash = window.location.hash;
-                if (hash.startsWith('#article/')) {
-                    const slug = hash.substring(9);
-                    const cardToOpen = document.querySelector(`.article-card[data-slug='${slug}']`);
-                    showPage('#page-home'); 
-                    if (cardToOpen) {
-                        setTimeout(() => openArticle(cardToOpen, false), 50);
-                    }
-                } else {
-                    showPage(hash || '#page-home');
-                }
-            };
-            
+            // --- FORM HANDLING ---
             const handleFormSubmit = (form, url, button, successMessage) => {
                 const originalText = button.textContent;
                 button.textContent = 'Submitting...';
@@ -1081,7 +1150,6 @@
                         }, 500);
                     });
             };
-
             const setupFormListener = (form, url, successMessage) => {
                 if (!form) return;
                 const btn = form.querySelector('button[type="submit"]');
@@ -1095,6 +1163,51 @@
                 });
             };
 
+            // --- INITIALIZATION ---
+            const handleInitialLoad = () => {
+                renderArticles();
+                const hash = window.location.hash;
+                if (hash.startsWith('#article/')) {
+                    const slug = hash.substring(9);
+                    const articleToOpen = articlesData.find(a => a.slug === slug);
+                    showPage('#page-home'); 
+                    if (articleToOpen) {
+                        setTimeout(() => openArticle(articleToOpen, false), 50);
+                    }
+                } else {
+                    showPage(hash || '#page-home');
+                }
+            };
+            
+            window.addEventListener('popstate', (event) => {
+                const hash = window.location.hash;
+                if (hash.startsWith('#article/')) {
+                    const slug = hash.substring(9);
+                    const articleToOpen = articlesData.find(a => a.slug === slug);
+                    if (articleToOpen && !isViewerOpen) {
+                        openArticle(articleToOpen, false);
+                    }
+                } else {
+                    if (isViewerOpen) {
+                        closeArticle();
+                    }
+                    showPage(hash || '#page-home');
+                }
+            });
+
+            // Back to top button logic
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'translate-y-4');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'translate-y-4');
+                }
+            });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // --- STARTUP ---
             setupFormListener(newsletterForm, newsletterFormScriptURL, 'You are now subscribed!');
             setupFormListener(contactForm, contactFormScriptURL, 'Your message has been sent!');
             setupFormListener(submissionForm, submissionFormScriptURL, 'Your article has been received!');
