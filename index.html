@@ -42,6 +42,24 @@
             font-family: 'Lora', serif; color: #1f2937;
         }
         
+        /* --- In-Article Image Styling --- */
+        .article-image {
+            margin: 2.5rem 0; /* Adds space above and below the image */
+            text-align: center;
+        }
+        .article-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* Nice shadow effect */
+        }
+        .article-image figcaption {
+            margin-top: 0.75rem; /* Space between image and caption */
+            font-size: 0.9em;
+            color: #6b7280; /* Gray color for the caption text */
+            font-style: italic;
+        }
+
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes fadeInScaleUp {
             from { opacity: 0; transform: scale(0.98); }
@@ -85,6 +103,17 @@
             background-color: #0f766e; transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+
+        /* Active Navigation Link Highlight */
+        .nav-item.active-nav-link {
+            background-color: #14b8a6;
+            color: white;
+            font-weight: 700;
+        }
+        .nav-item.active-nav-link:hover {
+            color: white; /* Keep text color white on hover for active link */
+        }
+
 
         #back-to-top { transition: opacity 0.3s, transform 0.3s; }
         .filter-btn { transition: all 0.3s ease; }
@@ -190,9 +219,9 @@
                         </div>
                     </section>
 
-                    <div id="featured-articles-section" class="space-y-12">
-                         <h3 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider text-gray-800 border-b-2 border-teal-500 pb-2 inline-block animate-on-scroll">Featured Stories</h3>
-                         <div id="featured-articles-container" class="space-y-12"></div>
+                    <div id="featured-articles-section" class="space-y-12 text-center">
+                         <h3 class="text-3xl font-bold mb-8 uppercase tracking-wider text-gray-800 border-b-2 border-teal-500 pb-2 inline-block animate-on-scroll">Featured Stories</h3>
+                         <div id="featured-articles-container" class="space-y-12 text-left"></div>
                     </div>
 
                     <section class="my-12 bg-gradient-to-r from-slate-50 to-gray-100 p-8 sm:p-12 rounded-lg shadow-lg border-t-4 border-teal-600 animate-on-scroll">
@@ -285,7 +314,8 @@
                 <section id="page-about" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">About Derawvibes</h2>
                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1542601906-823816b49b67?q=80&w=1932&auto=format&fit=crop" alt="Hands holding a young plant" class="rounded-lg w-full h-64 object-cover mb-8" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=About+Us';">
+                        <!-- TODO: Replace "images/about-banner.jpg" with the path to your image. Create an 'images' folder. -->
+                        <img src="images/about.avif" alt="Hands holding a young plant" class="rounded-lg w-full h-64 object-cover mb-8" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=About+Us';">
                         <div class="text-lg text-gray-700 leading-relaxed space-y-4">
                             <p><strong class="font-lora text-2xl text-black">Derawvibes</strong> is your anchor for clarity in a world buzzing with environmental news and data. We are a curated space dedicated to exploring the critical forces that shape a sustainable future.</p>
                             <p>Our mission is to cut through the noise. We dive deep into the complex, fascinating intersections of Environmental Health & Safety (EHS), Eco Science, and Green Technology. We don't just report the news; we connect the dots, break down the jargon, and explore the real-world implications of the green transition.</p>
@@ -297,7 +327,7 @@
                 <section id="page-privacy-policy" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Privacy Policy</h2>
                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                        <p><strong>Last Updated: October 11, 2025</strong></p>
+                        <p><strong>Last Updated: October 12, 2025</strong></p>
                         <p>Welcome to Derawvibes. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
                         <h3>1. Important Information and Who We Are</h3>
                         <p>Derawvibes ("we", "us", "our") is the controller and responsible for your personal data. This website is not intended for children and we do not knowingly collect data relating to children.</p>
@@ -337,7 +367,7 @@
                 <section id="page-terms-of-service" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Terms of Service</h2>
                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                       <p><strong>Last Updated: October 11, 2025</strong></p>
+                       <p><strong>Last Updated: October 12, 2025</strong></p>
                        <h3>1. Agreement to Terms</h3>
                        <p>By accessing or using the Derawvibes website (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, then you may not access the Service.</p>
                        <h3>2. Intellectual Property Rights</h3>
@@ -410,7 +440,7 @@
                                     <h4 class="font-bold text-gray-800">Follow Us</h4>
                                     <div class="flex items-center space-x-4 mt-2">
                                         <a href="https://x.com/devrawal09?s=21" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                                        <a href="https://www.instagram.com/derawvibes/" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
+                                        <a href="https://www.instagram.com/derawvibes/" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593-.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
                                         <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
                                     </div>
                                 </div>
@@ -464,11 +494,11 @@
                        </p>
                        <div class="flex items-center space-x-4 mt-4 md:mt-0">
                            <a href="https://x.com/devrawal09?s=21" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                           <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
+                           <a href="https://www.instagram.com/derawvibes/" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593-.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
                            <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
                        </div>
                     </div>
-                 </div>
+                   </div>
             </footer>
         </div>
     </div>
@@ -488,7 +518,7 @@
 
     <div id="article-viewer" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-50">
          <div class="fixed top-0 left-0 w-full h-1.5 z-[60]">
-             <div id="progress-bar" class="h-full bg-teal-500 transition-all duration-150 ease-linear" style="width: 0%;"></div>
+              <div id="progress-bar" class="h-full bg-teal-500 transition-all duration-150 ease-linear" style="width: 0%;"></div>
          </div>
          <div class="fixed top-0 left-0 right-0 bg-slate-50/80 backdrop-blur-sm z-50 shadow-sm">
              <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
@@ -566,34 +596,16 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-
-            // =================================================================================
-            // ---  ARTICLES DATA
-            // =================================================================================
             const articlesData = [
-                {
-                    title: "The AI Revolution in EHS: Predictive Analytics is Changing the Game",
-                    category: "EHS",
-                    categoryColor: "red",
-                    image: "https://images.unsplash.com/photo-1674027444485-a940e8e33527?q=80&w=1770&auto=format&fit=crop", 
-                    imageAlt: "Futuristic dashboard showing predictive safety analytics",
-                    summary: "Forget reactive safety measures. New AI models can now predict workplace accidents before they happen, analyze ergonomic risks in real-time, and ensure PPE compliance automatically...",
-                    author: "Devansh Singh Rawal",
-                    authorPhoto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1587&auto=format&fit=crop",
-                    authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
-                    date: "October 7, 2025",
-                    isFeatured: true,
-                    fullContent: `<p>For decades, the field of Environmental, Health, and Safety (EHS) has been fundamentally reactive. An incident occurs, an investigation follows, and new protocols are implemented to prevent a recurrence. But what if we could shift from reacting to predicting? Welcome to the age of proactive safety, powered by Artificial Intelligence.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Crystal Ball of Safety: Predictive Analytics</h3><p>AI is no longer the stuff of science fiction; it's a powerful tool being deployed in factories, construction sites, and laboratories worldwide. By analyzing vast datasets—from IoT sensor readings on machinery and historical incident reports to employee work patterns and even weather forecasts—machine learning algorithms can identify hidden correlations that elude human analysis. These models can flag high-risk scenarios with astonishing accuracy, predicting equipment failures before they happen or identifying employees who may be at higher risk of injury due to fatigue.</p><blockquote>"We're moving from a culture of compliance to a culture of prediction. This is the single biggest leap forward for workplace safety in a generation."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">Computer Vision: The Watchful Eye</h3><p>Beyond crunching numbers, AI-powered computer vision is transforming workplace monitoring. Smart cameras can now automatically detect if workers are wearing the correct Personal Protective Equipment (PPE), identify unsafe conditions like spills or blocked exits, and even analyze worker movements to flag poor ergonomic practices that could lead to long-term injuries. This provides a constant, non-intrusive layer of oversight that helps enforce safety protocols in real-time.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">Challenges and the Human Element</h3><p>The transition isn't without its challenges. High implementation costs, the need for clean and comprehensive data, and addressing employee privacy concerns are significant hurdles. However, it's crucial to remember that AI is a tool, not a replacement for human expertise. EHS professionals are essential for interpreting AI-driven insights, making informed decisions, and managing the ethical considerations of this new technology. The result is not just a safer workplace, but a more efficient, resilient, and sustainable operation. The AI revolution isn't coming to EHS—it's already here.</p>`
-                },
                 {
                     title: "Fusion Energy Breakthrough: The Ultimate Clean Power Source?",
                     category: "Eco Science",
                     categoryColor: "sky",
-                    image: "https://images.unsplash.com/photo-1639922557343-6927a058c49e?q=80&w=1812&auto=format&fit=crop", 
+                    image: "images/articles/Fusion.avif", // <-- TODO: Add your image here
                     imageAlt: "Glowing core of a tokamak fusion reactor",
                     summary: "In a landmark achievement, scientists have achieved a net energy gain from a fusion reaction, a monumental step towards the dream of limitless, carbon-free energy...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1587&auto=format&fit=crop",
+                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "October 5, 2025",
                     isFeatured: true,
@@ -603,13 +615,11 @@
                     title: "India's New ESG Mandate: What EHS Leaders Need to Know",
                     category: "EHS",
                     categoryColor: "blue",
-                    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop", 
+                    image: "images/articles/ehh.avif", // <-- TODO: Add your image here
                     imageAlt: "A business professional analyzing environmental data on a tablet",
                     summary: "SEBI's new Business Responsibility and Sustainability Reporting (BRSR) framework is now mandatory. We break down the key metrics EHS managers must now track.",
-                    author: "Priya Sharma",
-                    authorPhoto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1587&auto=format&fit=crop",
-                    authorBio: "Priya Sharma is a Chartered Accountant and a certified sustainability professional based in Mumbai, specializing in ESG frameworks and corporate compliance in the Indian market.",
-                    date: "October 10, 2025",
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 10, 2025",
                     isFeatured: true,
                     fullContent: `<p>The regulatory landscape for corporate sustainability in India has taken a monumental leap forward. The Securities and Exchange Board of India (SEBI) has mandated the Business Responsibility and Sustainability Reporting (BRSR) for the top 1000 listed companies by market capitalization. This move replaces the erstwhile Business Responsibility Report (BRR) and signals a decisive shift towards more transparent, standardized, and comprehensive ESG (Environmental, Social, and Governance) disclosures.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">From 'Why' to 'How': The Core of BRSR</h3><p>Unlike the BRR, which was more qualitative, the BRSR framework is granular and data-centric, especially on the environmental front. For EHS leaders, this means the scope of data collection and reporting has expanded significantly. The mandate requires detailed disclosures on greenhouse gas (GHG) emissions (Scope 1, 2, and 3), water consumption and withdrawal, waste management practices, and energy consumption patterns. The emphasis is on quantifiable metrics, forcing companies to move from vague sustainability statements to hard data.</p><blockquote>"BRSR is a game-changer. It aligns Indian corporate reporting with global standards like GRI and TCFD, making companies more accountable and transparent to investors and the public."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">Key Action Points for EHS Professionals</h3><p>To comply with the BRSR, EHS departments must act swiftly. Key steps include: <strong>1) Establishing Robust Data Collection Systems:</strong> Manual data collection will no longer suffice. Implementing digital EHS platforms is crucial for accurately tracking energy, water, waste, and emissions data across all operations. <strong>2) Expanding GHG Accounting:</strong> Companies must now measure and report Scope 3 emissions, which includes the entire value chain—from suppliers to end-of-life treatment of products. This requires unprecedented collaboration with procurement and logistics teams. <strong>3) Water Positivity and Waste Management:</strong> The report demands details on water footprint, recycling efforts, and initiatives towards becoming 'water positive'. Similarly, detailed breakdowns of total waste generated, including hazardous and plastic waste, and its disposal method are required.</p><p>While the BRSR presents a compliance challenge, it is also a strategic opportunity. By embedding these rigorous tracking and reporting mechanisms, companies can identify inefficiencies, mitigate environmental risks, and build a more resilient and sustainable business model that appeals to a growing cohort of conscious investors.</p>`
                 },
@@ -617,13 +627,11 @@
                     title: "Vertical Farming: The Future of Urban Agriculture?",
                     category: "Green Tech",
                     categoryColor: "green",
-                    image: "https://images.unsplash.com/photo-1622363967188-8ab39a89c729?q=80&w=1770&auto=format&fit=crop", 
+                    image: "images/articles/ver.avif", // <-- TODO: Add your image here
                     imageAlt: "A modern vertical farm with rows of leafy greens under purple LED lights",
                     summary: "As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally, but is it a scalable solution for global food security?...",
-                    author: "Jane Doe",
-                    authorPhoto: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=1770&auto=format&fit=crop",
-                    authorBio: "Jane Doe is a science journalist with a passion for renewable energy and sustainable development. Her work focuses on making complex scientific breakthroughs accessible to a broad audience.",
-                    date: "October 6, 2025",
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 6, 2025",
                     isFeatured: false,
                     fullContent: `<p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3><p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p><blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3><p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>`
                 },
@@ -631,11 +639,11 @@
                     title: "The Circular Economy: A Blueprint for a Waste-Free Future",
                     category: "EHS",
                     categoryColor: "blue",
-                    image: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?q=80&w=1770&auto=format&fit=crop", 
+                    image: "images/articles/bin.avif", // <-- TODO: Add your image here
                     imageAlt: "Diagram illustrating the loops of a circular economy",
                     summary: "Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1587&auto=format&fit=crop",
+                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "October 3, 2025",
                     isFeatured: false,
@@ -645,11 +653,11 @@
                     title: "The Rise of Mycelium: Can Fungus Replace Plastic Packaging?",
                     category: "Green Tech",
                     categoryColor: "red",
-                    image: "https://images.unsplash.com/photo-1621921132203-4554f3b6c593?q=80&w=1770&auto=format&fit=crop", 
+                    image: "images/articles/mi.avif", // <-- TODO: Add your image here
                     imageAlt: "A biodegradable packaging material made from mushroom mycelium",
                     summary: "Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1587&auto=format&fit=crop",
+                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "October 1, 2025",
                     isFeatured: false,
@@ -659,11 +667,11 @@
                     title: "Gene-Edited Crops: An Answer to Climate Change?",
                     category: "Eco Science",
                     categoryColor: "sky",
-                    image: "https://images.unsplash.com/photo-1588523330388-a612a9756185?q=80&w=1770&auto=format&fit=crop",
+                    image: "images/articles/gene.avif", // <-- TODO: Add your image here
                     imageAlt: "Scientist in a lab observing plant samples for gene editing",
                     summary: "Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1587&auto=format&fit=crop",
+                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "September 28, 2025",
                     isFeatured: false,
@@ -673,13 +681,11 @@
                     title: "Next-Gen Solar Panels: Perovskite Crystals Promise Higher Efficiency",
                     category: "Green Tech",
                     categoryColor: "green",
-                    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9c?q=80&w=1770&auto=format&fit=crop", 
+                    image: "images/articles/solar.avif", // <-- TODO: Add your image here
                     imageAlt: "Futuristic flexible solar panel reflecting a blue sky",
                     summary: "A new class of materials, perovskite crystals, is set to shatter the efficiency limits of traditional silicon-based solar cells, potentially making solar power cheaper and more accessible than ever before.",
-                    author: "Dr. Aris Thorne",
-                    authorPhoto: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1587&auto=format&fit=crop",
-                    authorBio: "Dr. Aris Thorne is a materials scientist and a leading researcher in photovoltaic technologies. He is dedicated to finding the next breakthrough in renewable energy.",
-                    date: "October 9, 2025",
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 9, 2025",
                     isFeatured: false,
                     fullContent: `<p>For decades, silicon has been the undisputed king of solar panels, but its reign may be coming to an end. Scientists are incredibly excited about a class of synthetic crystalline materials known as perovskites. These remarkable materials can absorb a broader spectrum of light and convert it into electricity more efficiently than silicon, promising a new era for solar energy.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Efficiency Breakthrough</h3><p>Tandem solar cells, which layer a thin film of perovskite on top of a traditional silicon cell, have already broken efficiency records in laboratory settings, surpassing the theoretical limits of silicon alone. Because perovskites can be formulated as a liquid "ink," they can be printed onto surfaces, opening the door for flexible, lightweight, and even transparent solar panels that could be integrated into windows, vehicles, and clothing.</p><blockquote>"Perovskites are the most exciting development in solar technology in the last 20 years. They have the potential to make solar energy ubiquitous."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Durability Challenge</h3><p>The primary obstacle holding back commercialization is durability. Early perovskite cells degraded quickly when exposed to moisture and oxygen. However, recent breakthroughs in chemical engineering and encapsulation techniques have dramatically improved their stability, bringing them closer to the 25-year lifespan expected of commercial solar panels. As researchers solve these final engineering hurdles, perovskite technology is poised to supercharge the global transition to renewable energy.</p>`
                 },
@@ -687,13 +693,11 @@
                     title: "Rewilding: How Letting Nature Take Over Can Restore Ecosystems",
                     category: "Eco Science",
                     categoryColor: "sky",
-                    image: "https://images.unsplash.com/photo-1567300135378-9369e4905391?q=80&w=1770&auto=format&fit=crop", 
+                    image: "images/articles/nat.avif", // <-- TODO: Add your image here
                     imageAlt: "A majestic wolf standing in a lush, wild forest",
                     summary: "Rewilding is a progressive approach to conservation that involves stepping back and allowing natural processes to repair damaged ecosystems and restore landscapes.",
-                    author: "Isla Moreau",
-                    authorPhoto: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1661&auto=format&fit=crop",
-                    authorBio: "Isla Moreau is an ecologist and conservation biologist who has worked on rewilding projects across Europe and North America. She is an advocate for large-scale ecosystem restoration.",
-                    date: "October 8, 2025",
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 8, 2025",
                     isFeatured: false,
                     fullContent: `<p>For centuries, conservation has been about managing nature. We build fences, control populations, and actively maintain habitats. But a new, more radical idea is gaining traction: rewilding. The core concept is to restore ecosystems to a point where nature itself can take the lead, reducing the need for human intervention. It often involves reintroducing keystone species—like wolves in Yellowstone or beavers in the UK—that have a disproportionately large effect on their environment.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Role of Keystone Species</h3><p>The reintroduction of wolves to Yellowstone National Park is a classic example. The wolves preyed on elk, which had overgrazed the valleys. With fewer elk, trees and shrubs like aspen and willow rebounded along riverbanks. This stabilized the soil, provided food and habitat for beavers, and even changed the course of rivers. The return of one species created a cascade of positive changes, restoring the health and complexity of the entire ecosystem.</p><blockquote>"Rewilding is about ceding control. It's about having the humility to admit that nature often knows best how to heal itself."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">Beyond Parks and Reserves</h3><p>Rewilding isn't just for national parks. It can happen in abandoned farmland, industrial sites, and even urban areas. By removing dams, reforesting land, and connecting fragmented habitats with wildlife corridors, we can create resilient, self-sustaining ecosystems. This approach not only increases biodiversity but also enhances natural services like carbon sequestration, flood control, and water purification, making it a powerful tool in the fight against climate change and ecological collapse.</p>`
                 }
@@ -926,7 +930,12 @@
                 }
                 
                 mainNavLinks.forEach(navLink => {
-                    navLink.classList.toggle('active-nav-link', navLink.getAttribute('href') === targetId);
+                    let isActive = navLink.getAttribute('href') === targetId;
+                    // Special case for home link to be active when no other page is selected
+                    if (targetId === '#page-home' || !targetId.startsWith('#page-')) {
+                        if(navLink.getAttribute('href') === '#page-home') isActive = true;
+                    }
+                    navLink.classList.toggle('active-nav-link', isActive);
                 });
                 window.scrollTo(0, 0);
             };
@@ -1129,7 +1138,7 @@
                         this.y = Math.random() * height;
                         this.vx = (Math.random() - 0.5) * 0.5;
                         this.vy = (Math.random() - 0.5) * 0.5;
-                        this.baseRadius = Math.random() * 1.5 + 1;
+                        this.baseRadius = Math.random() * 2 + 1.5; // Increased size
                         this.radius = this.baseRadius;
                         this.density = (Math.random() * 30) + 1;
                     }
@@ -1137,7 +1146,7 @@
                     draw() {
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(13, 148, 136, 0.8)`;
+                        ctx.fillStyle = `rgba(20, 184, 166, 0.8)`; // Brighter teal
                         ctx.closePath();
                         ctx.fill();
                     }
@@ -1167,7 +1176,7 @@
 
                 function initParticles() {
                     particles = [];
-                    const particleCount = Math.floor((width * height) / 10000);
+                    const particleCount = Math.floor((width * height) / 9000); // Increased density
                     for (let i = 0; i < particleCount; i++) {
                         particles.push(new Particle());
                     }
@@ -1183,7 +1192,7 @@
 
                             if (distance < 100) {
                                 opacityValue = 1 - (distance / 100);
-                                ctx.strokeStyle = `rgba(13, 148, 136, ${opacityValue * 0.5})`;
+                                ctx.strokeStyle = `rgba(20, 184, 166, ${opacityValue * 0.6})`; // Brighter lines, more opaque
                                 ctx.lineWidth = 1;
                                 ctx.beginPath();
                                 ctx.moveTo(particles[a].x, particles[a].y);
