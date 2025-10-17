@@ -12,20 +12,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0;400;0;700;1,400&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
+        :root {
+            --bg-primary: #f8fafc; /* slate-50 */
+            --bg-secondary: #ffffff;
+            --bg-secondary-accent: #f1f5f9; /* slate-100 */
+            --bg-tertiary: #f0f9ff; /* sky-50 for hero */
+            --bg-accent: #14b8a6; /* teal-500 */
+            --bg-accent-hover: #0f766e; /* teal-700 */
+            --bg-overlay: rgba(248, 250, 252, 0.85); /* slate-50/80 */
+            --bg-footer: #0f172a; /* slate-900 */
+            
+            --text-primary: #1f2937; /* gray-800 */
+            --text-secondary: #4b5563; /* gray-600 */
+            --text-muted: #6b7280; /* gray-500 */
+            --text-inverted: #ffffff;
+            --text-accent: #14b8a6; /* teal-600 */
+
+            --border-primary: #e5e7eb; /* gray-200 */
+            --border-secondary: #cbd5e1; /* gray-300 */
+            --border-footer: #1e293b; /* slate-800 */
+        }
+
+        html.dark {
+            --bg-primary: #0f172a; /* slate-900 */
+            --bg-secondary: #1e293b; /* slate-800 */
+            --bg-secondary-accent: #334155; /* slate-700 */
+            --bg-tertiary: #0c1525; /* Custom dark for hero */
+            --bg-accent: #14b8a6; /* teal-500 */
+            --bg-accent-hover: #0d9488; /* teal-600 */
+            --bg-overlay: rgba(30, 41, 59, 0.85); /* slate-800/80 */
+            --bg-footer: #020617; /* slate-950 */
+
+            --text-primary: #f1f5f9; /* slate-100 */
+            --text-secondary: #94a3b8; /* slate-400 */
+            --text-muted: #64748b; /* slate-500 */
+            --text-inverted: #0f172a;
+            --text-accent: #2dd4bf; /* teal-400 */
+            
+            --border-primary: #334155; /* slate-700 */
+            --border-secondary: #475569; /* slate-600 */
+            --border-footer: #1e293b; /* slate-800 */
+        }
+
         /* --- CORE STYLES --- */
-        body { font-family: 'Inter', sans-serif; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
         h1, h2, h3, h4, h5, h6, .font-lora { font-family: 'Lora', serif; }
         .masthead { font-family: 'Inter', sans-serif; font-weight: 900; }
         html { scroll-behavior: smooth; }
 
         /* Custom scrollbar for the article viewer */
         #article-viewer::-webkit-scrollbar { width: 8px; }
-        #article-viewer::-webkit-scrollbar-track { background: #f1f1f1; }
+        #article-viewer::-webkit-scrollbar-track { background: var(--bg-secondary-accent); }
         #article-viewer::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
         #article-viewer::-webkit-scrollbar-thumb:hover { background: #555; }
 
         .article-card { cursor: pointer; }
         article p, .prose p { text-align: justify; line-height: 1.7; }
+
+        html.dark .prose {
+            --tw-prose-body: var(--text-primary);
+            --tw-prose-headings: var(--text-primary);
+            --tw-prose-lead: var(--text-secondary);
+            --tw-prose-links: var(--text-accent);
+            --tw-prose-bold: var(--text-primary);
+            --tw-prose-counters: var(--text-secondary);
+            --tw-prose-bullets: var(--border-secondary);
+            --tw-prose-hr: var(--border-primary);
+            --tw-prose-quotes: var(--text-primary);
+            --tw-prose-quote-borders: var(--border-primary);
+            --tw-prose-captions: var(--text-secondary);
+            --tw-prose-code: #e2e8f0;
+            --tw-prose-pre-code: #e2e8f0;
+            --tw-prose-pre-bg: #1e293b;
+            --tw-prose-th-borders: var(--border-secondary);
+            --tw-prose-td-borders: var(--border-primary);
+        }
 
         /* --- Enhanced Viewer & Animation Styles --- */
         #article-viewer-image-parallax {
@@ -39,24 +105,19 @@
             font-size: 4.5em; font-weight: 700;
             float: left; line-height: 0.8;
             margin: 0.05em 0.1em 0 0;
-            font-family: 'Lora', serif; color: #1f2937;
+            font-family: 'Lora', serif; 
+            color: var(--text-primary);
         }
         
         /* --- In-Article Image Styling --- */
-        .article-image {
-            margin: 2.5rem 0; /* Adds space above and below the image */
-            text-align: center;
-        }
+        .article-image { margin: 2.5rem 0; text-align: center; }
         .article-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.75rem; /* Rounded corners */
-            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* Nice shadow effect */
+            max-width: 100%; height: auto; border-radius: 0.75rem; 
+            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
         .article-image figcaption {
-            margin-top: 0.75rem; /* Space between image and caption */
-            font-size: 0.9em;
-            color: #6b7280; /* Gray color for the caption text */
+            margin-top: 0.75rem; font-size: 0.9em;
+            color: var(--text-muted);
             font-style: italic;
         }
 
@@ -85,8 +146,8 @@
                 display: flex; align-items: center;
                 justify-content: space-around; position: fixed;
                 bottom: 0; left: 0; right: 0;
-                padding: 0.75rem; background: rgba(248, 250, 252, 0.85);
-                backdrop-filter: blur(8px); border-top: 1px solid #e5e7eb;
+                padding: 0.75rem; background: var(--bg-overlay);
+                backdrop-filter: blur(8px); border-top: 1px solid var(--border-primary);
                 z-index: 55;
             }
         }
@@ -106,7 +167,7 @@
 
         /* Active Navigation Link Highlight */
         .nav-item.active-nav-link {
-            background-color: #14b8a6;
+            background-color: var(--bg-accent);
             color: white;
             font-weight: 700;
         }
@@ -118,7 +179,7 @@
         #back-to-top { transition: opacity 0.3s, transform 0.3s; }
         .filter-btn { transition: all 0.3s ease; }
         .filter-btn.active {
-            background-color: #14b8a6; color: white;
+            background-color: var(--bg-accent); color: white;
             box-shadow: 0 4px 14px 0 rgba(20, 184, 166, 0.39);
         }
 
@@ -126,52 +187,49 @@
         #hero-canvas {
             position: absolute; width: 100%; height: 100%;
             top: 0; left: 0; z-index: 1;
-            /* background is now for the section, not the canvas */
         }
-        .hero-section { background: #f0f9ff; }
+        .hero-section { background-color: var(--bg-tertiary); }
         .hero-content { position: relative; z-index: 2; }
 
         /* --- PAGE & SCROLL ANIMATIONS --- */
-        .page-section {
-            animation: fadeIn 0.5s ease-in-out;
-        }
+        .page-section { animation: fadeIn 0.5s ease-in-out; }
         .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
+            opacity: 0; transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
             transition-delay: var(--delay, 0s);
         }
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
 
         /* --- PRELOADER --- */
         #preloader {
-            position: fixed;
-            top: 0; left: 0;
+            position: fixed; top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: #f8fafc;
+            background-color: var(--bg-primary);
             z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: opacity 0.5s ease-out;
         }
         .spinner {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             border: 5px solid rgba(20, 184, 166, 0.2);
             border-top-color: #14b8a6;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
+    <script>
+        // Prevents FOUC (Flash of Unstyled Content) for dark mode
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
 </head>
-<body class="bg-slate-50 text-gray-800">
+<body>
 
     <div id="preloader">
         <div class="spinner"></div>
@@ -180,25 +238,31 @@
     <div id="main-content">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
 
-            <header class="py-8 text-center border-b-2 border-gray-200">
+            <header class="py-8 text-center border-b-2 border-[var(--border-primary)]">
                 <a href="#page-home" class="home-link cursor-pointer">
-                    <h1 class="masthead text-black text-4xl sm:text-5xl md:text-6xl font-black tracking-widest uppercase">Derawvibes</h1>
+                    <h1 class="masthead text-[var(--text-primary)] text-4xl sm:text-5xl md:text-6xl font-black tracking-widest uppercase">Derawvibes</h1>
                 </a>
-                <p class="text-gray-500 mt-2">Your Hub for Environmental, Health, and Safety Insights.</p>
+                <p class="text-[var(--text-muted)] mt-2">Your Hub for Environmental, Health, and Safety Insights.</p>
             </header>
 
-            <nav class="py-4 border-b border-gray-200 sticky top-0 bg-slate-50/80 backdrop-blur-md z-20">
-                <ul class="flex justify-center flex-wrap items-center gap-y-2 gap-x-2 sm:gap-x-4 text-sm sm:text-base font-medium uppercase tracking-wider text-gray-600">
-                    <li><a href="#page-home" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Home</a></li>
-                    <li><a href="#page-ehs" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">EHS</a></li>
-                    <li><a href="#page-eco-science" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Eco Science</a></li>
-                    <li><a href="#page-green-tech" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Green Tech</a></li>
-                    <li><a href="#page-submit" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Submit Article</a></li>
-                    <li><a href="#page-about" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">About</a></li>
-                    <li><a href="#page-contact" class="nav-item inline-block hover:text-black transition-colors duration-300 px-3 py-1 rounded-full">Contact</a></li>
+            <nav class="py-4 border-b border-[var(--border-primary)] sticky top-0 bg-[var(--bg-overlay)] backdrop-blur-md z-20">
+                <ul class="flex justify-center flex-wrap items-center gap-y-2 gap-x-2 sm:gap-x-4 text-sm sm:text-base font-medium uppercase tracking-wider text-[var(--text-secondary)]">
+                    <li><a href="#page-home" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">Home</a></li>
+                    <li><a href="#page-ehs" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">EHS</a></li>
+                    <li><a href="#page-eco-science" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">Eco Science</a></li>
+                    <li><a href="#page-green-tech" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">Green Tech</a></li>
+                    <li><a href="#page-submit" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">Submit Article</a></li>
+                    <li><a href="#page-about" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">About</a></li>
+                    <li><a href="#page-contact" class="nav-item inline-block hover:text-[var(--text-primary)] transition-colors duration-300 px-3 py-1 rounded-full">Contact</a></li>
                     <li>
-                        <button id="search-icon" class="hover:bg-gray-200 p-2 rounded-full transition-colors duration-300" aria-label="Search articles">
+                        <button id="search-icon" class="hover:bg-[var(--bg-secondary-accent)] p-2 rounded-full transition-colors duration-300" aria-label="Search articles">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </button>
+                    </li>
+                    <li>
+                        <button id="theme-toggle" class="hover:bg-[var(--bg-secondary-accent)] p-2 rounded-full transition-colors duration-300" aria-label="Toggle theme">
+                            <svg id="theme-icon-sun" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.706-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zm11.95.293a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707z"></path></svg>
+                            <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                         </button>
                     </li>
                 </ul>
@@ -206,11 +270,11 @@
 
             <main>
                 <section id="page-home" class="page-section">
-                        <section class="hero-section relative py-20 md:py-32 text-center overflow-hidden my-8 rounded-lg animate-on-scroll">
+                    <section class="hero-section relative py-20 md:py-32 text-center overflow-hidden my-8 rounded-lg animate-on-scroll">
                         <canvas id="hero-canvas"></canvas>
                         <div class="hero-content">
-                            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 leading-tight">Innovating for a Greener Tomorrow</h2>
-                            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                            <h2 class="text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] mb-4 leading-tight">Innovating for a Greener Tomorrow</h2>
+                            <p class="text-lg md:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto mb-8">
                                 Dive into the latest insights on sustainability, technology, and environmental science
                             </p>
                             <a href="#latest-articles-header" class="explore-btn inline-block bg-teal-600 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
@@ -220,27 +284,27 @@
                     </section>
 
                     <div id="featured-articles-section" class="space-y-12 text-center">
-                         <h3 class="text-3xl font-bold mb-8 uppercase tracking-wider text-gray-800 border-b-2 border-teal-500 pb-2 inline-block animate-on-scroll">Featured Stories</h3>
+                         <h3 class="text-3xl font-bold mb-8 uppercase tracking-wider text-[var(--text-primary)] border-b-2 border-teal-500 pb-2 inline-block animate-on-scroll">Featured Stories</h3>
                          <div id="featured-articles-container" class="space-y-12 text-left"></div>
                     </div>
 
-                    <section class="my-12 bg-gradient-to-r from-slate-50 to-gray-100 p-8 sm:p-12 rounded-lg shadow-lg border-t-4 border-teal-600 animate-on-scroll">
+                    <section class="my-12 bg-gradient-to-r from-[var(--bg-primary)] to-[var(--bg-secondary-accent)] p-8 sm:p-12 rounded-lg shadow-lg border-t-4 border-teal-600 animate-on-scroll">
                         <div class="max-w-4xl mx-auto text-center">
                             <h2 class="text-3xl md:text-4xl font-bold mb-4">A SUSTAINABLE FUTURE</h2>
-                            <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                                We explore the critical intersection of <a href="#page-ehs" class="text-red-600 font-semibold hover:underline">Environmental, Health & Safety (EHS)</a>, groundbreaking <a href="#page-eco-science" class="text-sky-600 font-semibold hover:underline">Eco Science</a>, and sustainable <a href="#page-green-tech" class="text-green-600 font-semibold hover:underline">Green Technology</a>.
+                            <p class="text-lg text-[var(--text-secondary)] leading-relaxed max-w-3xl mx-auto">
+                                We explore the critical intersection of <a href="#page-ehs" class="text-red-600 dark:text-red-400 font-semibold hover:underline">Environmental, Health & Safety (EHS)</a>, groundbreaking <a href="#page-eco-science" class="text-sky-600 dark:text-sky-400 font-semibold hover:underline">Eco Science</a>, and sustainable <a href="#page-green-tech" class="text-green-600 dark:text-green-400 font-semibold hover:underline">Green Technology</a>.
                             </p>
                         </div>
                     </section>
                     
-                    <hr class="my-12 border-gray-200">
+                    <hr class="my-12 border-[var(--border-primary)]">
                     <h3 id="latest-articles-header" class="text-2xl font-bold mb-8 text-center uppercase tracking-wider animate-on-scroll">Latest Articles</h3>
                     
                     <div id="category-filters" class="flex justify-center flex-wrap gap-2 sm:gap-4 mb-8 animate-on-scroll">
-                        <button class="filter-btn active font-semibold px-4 py-2 rounded-full border border-gray-300" data-category="all">All</button>
-                        <button class="filter-btn font-semibold px-4 py-2 rounded-full border border-gray-300" data-category="EHS">EHS</button>
-                        <button class="filter-btn font-semibold px-4 py-2 rounded-full border border-gray-300" data-category="Eco Science">Eco Science</button>
-                        <button class="filter-btn font-semibold px-4 py-2 rounded-full border border-gray-300" data-category="Green Tech">Green Tech</button>
+                        <button class="filter-btn active font-semibold px-4 py-2 rounded-full border border-[var(--border-secondary)]" data-category="all">All</button>
+                        <button class="filter-btn font-semibold px-4 py-2 rounded-full border border-[var(--border-secondary)]" data-category="EHS">EHS</button>
+                        <button class="filter-btn font-semibold px-4 py-2 rounded-full border border-[var(--border-secondary)]" data-category="Eco Science">Eco Science</button>
+                        <button class="filter-btn font-semibold px-4 py-2 rounded-full border border-[var(--border-secondary)]" data-category="Green Tech">Green Tech</button>
                     </div>
 
                     <div id="latest-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"></div>
@@ -262,35 +326,35 @@
                 <section id="page-search-results" class="page-section hidden py-12">
                     <h2 id="search-results-title" class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Search Results</h2>
                     <div id="search-results-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
-                    <p id="no-search-results" class="hidden text-center text-gray-500 mt-8">No articles found matching your search. Try another keyword.</p>
+                    <p id="no-search-results" class="hidden text-center text-[var(--text-muted)] mt-8">No articles found matching your search. Try another keyword.</p>
                 </section>
 
                 <section id="page-submit" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Submit Your Article</h2>
-                    <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
+                    <div class="max-w-4xl mx-auto bg-[var(--bg-secondary)] p-8 sm:p-12 rounded-lg shadow-lg">
                         <div class="text-center mb-8">
                             <h3 class="text-2xl font-bold mb-2">Become a Contributor</h3>
-                            <p class="text-gray-600">Have an idea or a story that fits our new focus on EHS and the environment? We'd love to read it. Fill out the form below to submit your article for consideration.</p>
+                            <p class="text-[var(--text-secondary)]">Have an idea or a story that fits our new focus on EHS and the environment? We'd love to read it. Fill out the form below to submit your article for consideration.</p>
                         </div>
                         <form id="submission-form" novalidate>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label for="author-name" class="block text-gray-700 font-bold mb-2">Your Name</label>
-                                    <input type="text" id="author-name" name="author-name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                    <label for="author-name" class="block text-[var(--text-secondary)] font-bold mb-2">Your Name</label>
+                                    <input type="text" id="author-name" name="author-name" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent">
                                 </div>
                                 <div>
-                                    <label for="author-email" class="block text-gray-700 font-bold mb-2">Your Email</label>
-                                    <input type="email" id="author-email" name="author-email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                    <label for="author-email" class="block text-[var(--text-secondary)] font-bold mb-2">Your Email</label>
+                                    <input type="email" id="author-email" name="author-email" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent">
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
-                                    <label for="article-title-submit" class="block text-gray-700 font-bold mb-2">Article Title</label>
-                                    <input type="text" id="article-title-submit" name="article-title" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                    <label for="article-title-submit" class="block text-[var(--text-secondary)] font-bold mb-2">Article Title</label>
+                                    <input type="text" id="article-title-submit" name="article-title" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent">
                                 </div>
                                 <div>
-                                    <label for="article-category-submit" class="block text-gray-700 font-bold mb-2">Category</label>
-                                    <select id="article-category-submit" name="article-category" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-white">
+                                    <label for="article-category-submit" class="block text-[var(--text-secondary)] font-bold mb-2">Category</label>
+                                    <select id="article-category-submit" name="article-category" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-[var(--bg-secondary)]">
                                         <option value="" disabled selected>Select a category</option>
                                         <option value="EHS">EHS</option>
                                         <option value="Eco Science">Eco Science</option>
@@ -299,8 +363,8 @@
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="article-content-submit" class="block text-gray-700 font-bold mb-2">Article Content</label>
-                                <textarea id="article-content-submit" name="article-content" rows="12" required placeholder="Paste your full article content here..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300"></textarea>
+                                <label for="article-content-submit" class="block text-[var(--text-secondary)] font-bold mb-2">Article Content</label>
+                                <textarea id="article-content-submit" name="article-content" rows="12" required placeholder="Paste your full article content here..." class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent"></textarea>
                             </div>
                             <div>
                                 <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300 text-lg">
@@ -313,10 +377,10 @@
 
                 <section id="page-about" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">About Derawvibes</h2>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <div class="max-w-4xl mx-auto bg-[var(--bg-secondary)] p-8 rounded-lg shadow-lg">
                         <img src="images/about.avif" alt="Hands holding a young plant" class="rounded-lg w-full h-64 object-cover mb-8" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=About+Us';">
-                        <div class="text-lg text-gray-700 leading-relaxed space-y-4">
-                            <p><strong class="font-lora text-2xl text-black">Derawvibes</strong> is your anchor for clarity in a world buzzing with environmental news and data. We are a curated space dedicated to exploring the critical forces that shape a sustainable future.</p>
+                        <div class="text-lg text-[var(--text-secondary)] leading-relaxed space-y-4">
+                            <p><strong class="font-lora text-2xl text-[var(--text-primary)]">Derawvibes</strong> is your anchor for clarity in a world buzzing with environmental news and data. We are a curated space dedicated to exploring the critical forces that shape a sustainable future.</p>
                             <p>Our mission is to cut through the noise. We dive deep into the complex, fascinating intersections of Environmental Health & Safety (EHS), Eco Science, and Green Technology. We don't just report the news; we connect the dots, break down the jargon, and explore the real-world implications of the green transition.</p>
                             <p>Derawvibes is for the intellectually curious—the EHS professionals, the students, the policy makers, and anyone who believes that understanding our planet is the first step to protecting it. Welcome to the conversation.</p>
                         </div>
@@ -325,15 +389,15 @@
 
                 <section id="page-privacy-policy" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Privacy Policy</h2>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                        <p><strong>Last Updated: October 12, 2025</strong></p>
+                    <div class="max-w-4xl mx-auto bg-[var(--bg-secondary)] p-8 rounded-lg shadow-lg prose lg:prose-lg">
+                        <p><strong>Last Updated: October 15, 2025</strong></p>
                         <p>Welcome to Derawvibes. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.</p>
                         <h3>1. Important Information and Who We Are</h3>
                         <p>Derawvibes ("we", "us", "our") is the controller and responsible for your personal data. This website is not intended for children and we do not knowingly collect data relating to children.</p>
                         <h3>2. The Data We Collect About You</h3>
                         <p>Personal data, or personal information, means any information about an individual from which that person can be identified. We may collect, use, store and transfer different kinds of personal data about you which we have grouped together as follows:</p>
                         <ul>
-                            <li><strong>Identity Data</strong> includes first name and last name, which you may provide when submitting an article or contacting us.</li>
+                            <li><strong>Identity Data</strong> includes first name and last name, which you may provide when submitting an article, commenting, or contacting us.</li>
                             <li><strong>Contact Data</strong> includes email address, which you may provide when subscribing to our newsletter, submitting an article, or contacting us.</li>
                             <li><strong>Technical Data</strong> includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access this website.</li>
                             <li><strong>Usage Data</strong> includes information about how you use our website and which articles you read.</li>
@@ -341,13 +405,14 @@
                         <h3>3. How Is Your Personal Data Collected?</h3>
                         <p>We use different methods to collect data from and about you including through:</p>
                         <ul>
-                            <li><strong>Direct interactions.</strong> You may give us your Identity and Contact Data by filling in forms (e.g., our contact, submission, or newsletter forms).</li>
+                            <li><strong>Direct interactions.</strong> You may give us your Identity and Contact Data by filling in forms (e.g., our contact, submission, comment, or newsletter forms).</li>
                             <li><strong>Automated technologies or interactions.</strong> As you interact with our website, we will automatically collect Technical Data about your equipment, browsing actions and patterns.</li>
                         </ul>
                         <h3>4. How We Use Your Personal Data</h3>
                         <p>We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
                         <ul>
                             <li>To respond to your inquiries or submissions.</li>
+                            <li>To display your comments on articles.</li>
                             <li>To send you our newsletter if you have subscribed.</li>
                             <li>To administer and protect our business and this website (including troubleshooting, data analysis, testing, system maintenance, support, reporting and hosting of data).</li>
                             <li>To use data analytics to improve our website, content, and user experiences.</li>
@@ -365,8 +430,8 @@
                 
                 <section id="page-terms-of-service" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Terms of Service</h2>
-                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg prose lg:prose-lg">
-                       <p><strong>Last Updated: October 12, 2025</strong></p>
+                    <div class="max-w-4xl mx-auto bg-[var(--bg-secondary)] p-8 rounded-lg shadow-lg prose lg:prose-lg">
+                       <p><strong>Last Updated: October 15, 2025</strong></p>
                        <h3>1. Agreement to Terms</h3>
                        <p>By accessing or using the Derawvibes website (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of the terms, then you may not access the Service.</p>
                        <h3>2. Intellectual Property Rights</h3>
@@ -384,7 +449,7 @@
                            <li>Use the Service as part of any effort to compete with us.</li>
                        </ul>
                        <h3>5. User Generated Contributions</h3>
-                       <p>The Service provides you with an opportunity to submit articles for consideration ("Contributions"). You understand and agree that your Contributions may be viewed by other users of the Service and that we do not guarantee any confidentiality with respect to any Contributions. By posting Contributions, you automatically grant to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions for any purpose.</p>
+                       <p>The Service may invite you to comment on articles or submit your own articles for consideration ("Contributions"). You understand and agree that your Contributions may be viewed by other users of the Service and that we do not guarantee any confidentiality with respect to any Contributions. By posting Contributions, you automatically grant to us an unrestricted, unlimited, irrevocable, perpetual, non-exclusive, transferable, royalty-free, fully-paid, worldwide right, and license to host, use, copy, reproduce, disclose, sell, resell, publish, broadcast, retitle, archive, store, cache, publicly perform, publicly display, reformat, translate, transmit, excerpt (in whole or in part), and distribute such Contributions for any purpose.</p>
                        <h3>6. Submissions</h3>
                        <p>You acknowledge and agree that any questions, comments, suggestions, ideas, feedback, or other information regarding the Service ("Submissions") provided by you to us are non-confidential and shall become our sole property.</p>
                        <h3>7. Term and Termination</h3>
@@ -402,25 +467,25 @@
 
                 <section id="page-contact" class="page-section hidden py-12">
                     <h2 class="text-3xl font-bold mb-8 text-center uppercase tracking-wider">Contact Us</h2>
-                    <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 rounded-lg shadow-lg">
+                    <div class="max-w-4xl mx-auto bg-[var(--bg-secondary)] p-8 sm:p-12 rounded-lg shadow-lg">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div>
                                 <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
                                 <form id="contact-form" novalidate>
                                     <div class="mb-4">
-                                        <label for="contact-name" class="block text-gray-700 font-bold mb-2">Name</label>
-                                        <input type="text" id="contact-name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                        <label for="contact-name" class="block text-[var(--text-secondary)] font-bold mb-2">Name</label>
+                                        <input type="text" id="contact-name" name="name" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent">
                                     </div>
                                     <div class="mb-4">
-                                        <label for="contact-email" class="block text-gray-700 font-bold mb-2">Email</label>
-                                        <input type="email" id="contact-email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300">
+                                        <label for="contact-email" class="block text-[var(--text-secondary)] font-bold mb-2">Email</label>
+                                        <input type="email" id="contact-email" name="email" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent">
                                     </div>
                                     <div class="mb-6">
-                                        <label for="contact-message" class="block text-gray-700 font-bold mb-2">Message</label>
-                                        <textarea id="contact-message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300"></textarea>
+                                        <label for="contact-message" class="block text-[var(--text-secondary)] font-bold mb-2">Message</label>
+                                        <textarea id="contact-message" name="message" rows="5" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent"></textarea>
                                     </div>
                                     <div>
-                                        <button type="submit" class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-md transition-colors duration-300">
+                                        <button type="submit" class="w-full bg-black dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white text-white font-bold py-3 px-4 rounded-md transition-colors duration-300">
                                             Submit Form
                                         </button>
                                     </div>
@@ -428,19 +493,19 @@
                             </div>
                             <div class="space-y-6">
                                 <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
-                                <p class="text-gray-600 leading-relaxed">
+                                <p class="text-[var(--text-secondary)] leading-relaxed">
                                     Have a story idea, a correction, or just want to share your thoughts? We'd love to hear from you. Use the form or reach out through one of the channels below.
                                 </p>
                                 <div>
-                                    <h4 class="font-bold text-gray-800">Email</h4>
-                                    <a href="https://mail.google.com/mail/?view=cm&to=derawvibes@gmail.com" class="text-teal-600 hover:underline">derawvibes@gmail.com</a>
+                                    <h4 class="font-bold text-[var(--text-primary)]">Email</h4>
+                                    <a href="https://mail.google.com/mail/?view=cm&to=derawvibes@gmail.com" class="text-teal-600 dark:text-teal-400 hover:underline">derawvibes@gmail.com</a>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-gray-800">Follow Us</h4>
+                                    <h4 class="font-bold text-[var(--text-primary)]">Follow Us</h4>
                                     <div class="flex items-center space-x-4 mt-2">
-                                        <a href="https://x.com/devrawal09?s=21" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
-                                        <a href="https://www.instagram.com/derawvibes/" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593-.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
-                                        <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-500 hover:text-black transition-all duration-300" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+                                        <a href="https://x.com/devrawal09?s=21" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300" aria-label="Follow us on X"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                                        <a href="https://www.instagram.com/derawvibes/" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300" aria-label="Follow us on Instagram"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593-.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg></a>
+                                        <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-all duration-300" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
                                     </div>
                                 </div>
                             </div>
@@ -449,35 +514,35 @@
                 </section>
             </main>
 
-            <footer id="contact" class="bg-slate-900 text-white mt-12">
+            <footer id="contact" class="bg-[var(--bg-footer)] text-white mt-12">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                         <div class="md:col-span-2 lg:col-span-1">
                             <h5 class="text-3xl font-black tracking-widest uppercase">Derawvibes</h5>
-                            <p class="text-slate-400 mt-4 text-sm leading-relaxed">
+                            <p class="text-[var(--text-secondary)] mt-4 text-sm leading-relaxed">
                                 Exploring the intersection of environment, health, and safety to build a sustainable future.
                             </p>
                         </div>
                         <div>
                             <h6 class="font-bold uppercase tracking-wider text-slate-300">Content</h6>
                             <ul class="mt-4 space-y-2">
-                                <li><a href="#page-ehs" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">EHS</a></li>
-                                <li><a href="#page-eco-science" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Eco Science</a></li>
-                                <li><a href="#page-green-tech" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Green Tech</a></li>
+                                <li><a href="#page-ehs" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">EHS</a></li>
+                                <li><a href="#page-eco-science" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">Eco Science</a></li>
+                                <li><a href="#page-green-tech" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">Green Tech</a></li>
                             </ul>
                         </div>
                         <div>
                             <h6 class="font-bold uppercase tracking-wider text-slate-300">Company</h6>
                             <ul class="mt-4 space-y-2">
-                                <li><a href="#page-about" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">About Us</a></li>
-                                <li><a href="#page-contact" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Contact</a></li>
-                                <li><a href="#page-privacy-policy" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Privacy Policy</a></li>
-                                <li><a href="#page-terms-of-service" class="text-slate-400 hover:text-white hover:underline transition-colors duration-300">Terms of Service</a></li>
+                                <li><a href="#page-about" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">About Us</a></li>
+                                <li><a href="#page-contact" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">Contact</a></li>
+                                <li><a href="#page-privacy-policy" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">Privacy Policy</a></li>
+                                <li><a href="#page-terms-of-service" class="text-[var(--text-secondary)] hover:text-white hover:underline transition-colors duration-300">Terms of Service</a></li>
                             </ul>
                         </div>
                         <div>
                             <h6 class="font-bold uppercase tracking-wider text-slate-300">Stay Updated</h6>
-                            <p class="text-slate-400 mt-4 text-sm">Subscribe to our newsletter for the latest updates.</p>
+                            <p class="text-[var(--text-secondary)] mt-4 text-sm">Subscribe to our newsletter for the latest updates.</p>
                             <form id="newsletter-form" class="mt-4 flex flex-col sm:flex-row items-center w-full max-w-sm" novalidate>
                                 <input name="email" type="email" placeholder="Your email address" required class="form-input w-full px-4 py-2 rounded-md bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-teal-500 transition duration-300" aria-label="Email Address">
                                 <button type="submit" class="form-button w-full sm:w-auto mt-2 sm:mt-0 sm:ml-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-300" aria-label="Subscribe to newsletter">
@@ -486,7 +551,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="border-t border-slate-800"></div>
+                    <div class="border-t border-[var(--border-footer)]"></div>
                     <div class="flex flex-col md:flex-row items-center justify-between mt-8">
                        <p class="text-slate-500 text-sm text-center md:text-left">
                            &copy; <span id="current-year">2025</span> Derawvibes. All Rights Reserved.
@@ -497,13 +562,13 @@
                            <a href="https://www.linkedin.com/in/devansh-singh-rawal-219838356?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-slate-500 hover:text-white transition-all duration-300 hover:scale-110" aria-label="Follow us on LinkedIn"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
                        </div>
                     </div>
-                   </div>
+                </div>
             </footer>
         </div>
     </div>
 
     <div id="floating-share-bar" class="">
-        <h4 class="hidden md:block font-bold text-lg text-center mb-2 text-gray-700">Share</h4>
+        <h4 class="hidden md:block font-bold text-lg text-center mb-2 text-gray-700 dark:text-gray-300">Share</h4>
         <a id="share-x" href="#" target="_blank" class="bouncy-hover w-12 h-12 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-black transition-colors duration-300" aria-label="Share on X">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
         </a>
@@ -516,18 +581,18 @@
         <a id="share-instagram" href="#" target="_blank" class="bouncy-hover w-12 h-12 flex items-center justify-center bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-500 text-white rounded-full hover:opacity-90 transition-opacity duration-300" aria-label="Share on Instagram">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.442c-3.141 0-3.51.012-4.734.068-2.694.123-3.832 1.26-3.955 3.955-.056 1.223-.068 1.593-.068 4.734s.012 3.51.068 4.734c.123 2.694 1.26 3.832 3.955 3.955 1.224.056 1.593.068 4.734.068s3.51-.012 4.734-.068c2.694-.123 3.832-1.26 3.955-3.955.056-1.223.068-1.593-.068-4.734s-.012-3.51-.068-4.734c-.123-2.694-1.26-3.832-3.955-3.955-1.224-.056-1.593-.068-4.734-.068z" clip-rule="evenodd"></path><path d="M12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.882a3.72 3.72 0 110-7.44 3.72 3.72 0 010 7.44z"></path><path d="M16.949 6.855a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"></path></svg>
         </a>
-        <button id="copy-link-btn" class="bouncy-hover w-12 h-12 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition-all duration-300" aria-label="Copy article link">
+        <button id="copy-link-btn" class="bouncy-hover w-12 h-12 flex items-center justify-center bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600 transition-all duration-300" aria-label="Copy article link">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
         </button>
     </div>
 
-    <div id="article-viewer" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-50">
+    <div id="article-viewer" class="hidden fixed inset-0 z-50 overflow-y-auto bg-[var(--bg-primary)]">
          <div class="fixed top-0 left-0 w-full h-1.5 z-[60]">
              <div id="progress-bar" class="h-full bg-teal-500 transition-all duration-150 ease-linear" style="width: 0%;"></div>
          </div>
-         <div class="fixed top-0 left-0 right-0 bg-slate-50/80 backdrop-blur-sm z-50 shadow-sm">
+         <div class="fixed top-0 left-0 right-0 bg-[var(--bg-overlay)] backdrop-blur-sm z-50 shadow-sm">
              <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-                 <button id="back-to-main-btn" class="flex items-center text-gray-700 hover:text-black font-semibold transition-colors duration-300 rounded-lg px-3 py-2 -ml-3 hover:bg-gray-200">
+                 <button id="back-to-main-btn" class="flex items-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] font-semibold transition-colors duration-300 rounded-lg px-3 py-2 -ml-3 hover:bg-[var(--bg-secondary-accent)]">
                      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                      Back to Articles
                  </button>
@@ -536,14 +601,14 @@
         
          <div id="article-viewer-image-parallax" class="w-full h-[40vh] md:h-[50vh]"></div>
 
-         <article class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 bg-slate-50 -mt-16 rounded-t-2xl z-10">
+         <article class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 bg-[var(--bg-primary)] -mt-16 rounded-t-2xl z-10">
              <header class="mb-8 text-center">
                  <span id="article-viewer-category" class="text-sm font-bold uppercase text-teal-600">Category</span>
                  <h1 id="article-viewer-title" class="text-4xl md:text-5xl font-lora font-bold my-4 leading-tight">Article Title</h1>
-                 <div class="flex flex-wrap items-center justify-center text-sm text-gray-500 mt-4 gap-x-4 gap-y-2">
+                 <div class="flex flex-wrap items-center justify-center text-sm text-[var(--text-muted)] mt-4 gap-x-4 gap-y-2">
                      <div class="flex items-center">
                          <img id="article-viewer-author-photo" src="" alt="Author's photo" class="w-10 h-10 rounded-full mr-3 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';">
-                         <span id="article-viewer-author" class="font-semibold text-gray-800">Devansh Singh Rawal</span>
+                         <span id="article-viewer-author" class="font-semibold text-[var(--text-primary)]">Devansh Singh Rawal</span>
                      </div>
                      <span class="hidden sm:inline-block">•</span>
                      <span id="article-viewer-date">Published on October 1, 2025</span>
@@ -552,43 +617,77 @@
                          <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                          <span>5 min read</span>
                      </span>
+                      <span class="hidden sm:inline-block">•</span>
+                     <button id="like-btn" class="flex items-center text-gray-500 hover:text-red-500 transition-colors duration-300 disabled:opacity-50 disabled:hover:text-gray-500">
+                        <svg id="like-icon" class="w-6 h-6 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"></path>
+                        </svg>
+                        <span id="like-count">0</span>
+                    </button>
                  </div>
              </header>
             
-             <div id="article-viewer-content" class="prose lg:prose-xl max-w-none mx-auto text-gray-800"></div>
+             <div id="article-viewer-content" class="prose lg:prose-xl max-w-none mx-auto"></div>
 
-             <div id="author-bio-section" class="mt-16 p-6 bg-gray-100 rounded-lg flex items-start space-x-6 border-t-2 border-gray-200">
+             <div id="author-bio-section" class="mt-16 p-6 bg-[var(--bg-secondary-accent)] rounded-lg flex items-start space-x-6 border-t-2 border-[var(--border-primary)]">
                  <img id="author-bio-photo" src="" alt="Author's photo" class="w-20 h-20 rounded-full object-cover flex-shrink-0" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EFEFEF/AAAAAA?text=...';">
                  <div>
-                     <h4 class="text-xs uppercase font-bold text-gray-500 tracking-wider">Written By</h4>
+                     <h4 class="text-xs uppercase font-bold text-[var(--text-muted)] tracking-wider">Written By</h4>
                      <h3 id="author-bio-name" class="text-2xl font-lora font-bold mt-1 mb-2">Author Name</h3>
-                     <p id="author-bio-text" class="text-gray-600 sm:text-justify">A short bio about the author will appear here.</p>
+                     <p id="author-bio-text" class="text-[var(--text-secondary)] sm:text-justify">A short bio about the author will appear here.</p>
                  </div>
              </div>
 
-             <div id="related-articles-section" class="mt-16 pt-8 border-t-2 border-dashed border-gray-300">
-                 <h3 class="text-xl font-bold uppercase text-gray-700 tracking-wider mb-6 text-center">Related Articles</h3>
+             <div id="related-articles-section" class="mt-16 pt-8 border-t-2 border-dashed border-[var(--border-secondary)]">
+                 <h3 class="text-xl font-bold uppercase text-[var(--text-secondary)] tracking-wider mb-6 text-center">Related Articles</h3>
                  <div id="related-articles-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                  </div>
+             </div>
+
+             <!-- NEW: Comments Section -->
+             <div id="comments-section" class="mt-16 pt-8 border-t-2 border-dashed border-[var(--border-secondary)]">
+                <h3 class="text-xl font-bold uppercase text-[var(--text-secondary)] tracking-wider mb-6 text-center">Join the Conversation</h3>
+                
+                <div class="max-w-2xl mx-auto bg-[var(--bg-secondary)] p-6 rounded-lg shadow-sm border border-[var(--border-primary)]">
+                    <form id="comment-form" novalidate>
+                        <div class="mb-4">
+                            <label for="comment-author" class="block text-[var(--text-secondary)] font-semibold mb-2">Your Name</label>
+                            <input type="text" id="comment-author" name="author" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent" placeholder="e.g. Jane Doe">
+                        </div>
+                        <div class="mb-4">
+                            <label for="comment-text" class="block text-[var(--text-secondary)] font-semibold mb-2">Your Comment</label>
+                            <textarea id="comment-text" name="text" rows="4" required class="w-full px-4 py-2 border border-[var(--border-secondary)] rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 transition duration-300 bg-transparent" placeholder="Share your thoughts..."></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-md transition-colors duration-300">
+                                Post Comment
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="comments-list" class="mt-8 space-y-6 max-w-2xl mx-auto">
+                    <!-- Comments will be dynamically inserted here -->
+                </div>
              </div>
          </article>
     </div>
 
     <div id="success-overlay" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[99] opacity-0 transition-opacity duration-300">
-        <div id="success-box" class="bg-white rounded-2xl shadow-2xl p-8 text-center max-w-sm mx-auto transform scale-95 transition-all duration-300">
+        <div id="success-box" class="bg-[var(--bg-secondary)] rounded-2xl shadow-2xl p-8 text-center max-w-sm mx-auto transform scale-95 transition-all duration-300">
             <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-green-100 mb-6">
                 <svg class="h-12 w-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
             <h3 class="text-2xl font-bold font-lora mb-2">Thank You!</h3>
-            <p id="success-message-text" class="text-gray-600">Your message has been sent successfully.</p>
+            <p id="success-message-text" class="text-[var(--text-secondary)]">Your message has been sent successfully.</p>
         </div>
     </div>
     
     <div id="search-overlay" class="search-overlay hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] p-4 opacity-0">
         <div class="relative w-full max-w-2xl mx-auto mt-[10vh]">
             <div class="search-box transform -translate-y-10">
-                <input type="search" id="search-input" placeholder="Search for articles..." class="w-full text-lg sm:text-2xl font-lora p-4 pr-12 rounded-lg border-2 border-gray-300 focus:ring-4 focus:ring-teal-400 focus:border-teal-500 outline-none">
-                <button id="search-close-btn" class="absolute top-0 right-0 h-full px-4 text-gray-500 hover:text-black transition-colors" aria-label="Close search">
+                <input type="search" id="search-input" placeholder="Search for articles..." class="w-full text-lg sm:text-2xl font-lora p-4 pr-12 rounded-lg border-2 border-[var(--border-secondary)] focus:ring-4 focus:ring-teal-400 focus:border-teal-500 outline-none bg-[var(--bg-secondary)] text-[var(--text-primary)]">
+                <button id="search-close-btn" class="absolute top-0 right-0 h-full px-4 text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors" aria-label="Close search">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
@@ -599,18 +698,24 @@
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
     </button>
     
-    <script>
+    <script type="module">
+        // Import Firebase modules from the CDN
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, updateDoc, onSnapshot, arrayUnion, serverTimestamp, setLogLevel, increment } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+    
         document.addEventListener('DOMContentLoaded', () => {
             const articlesData = [
                 {
                     title: "Fusion Energy Breakthrough: The Ultimate Clean Power Source?",
                     category: "Eco Science",
                     categoryColor: "sky",
-                    image: "images/articles/Fusion.avif", // <-- TODO: Add your image here
+                    image: "images/articles/Fusion.avif",
                     imageAlt: "Glowing core of a tokamak fusion reactor",
                     summary: "In a landmark achievement, scientists have achieved a net energy gain from a fusion reaction, a monumental step towards the dream of limitless, carbon-free energy...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "October 5, 2025",
                     isFeatured: true,
@@ -620,10 +725,10 @@
                     title: "India's New ESG Mandate: What EHS Leaders Need to Know",
                     category: "EHS",
                     categoryColor: "blue",
-                    image: "images/articles/ehh.avif", // <-- TODO: Add your image here
+                    image: "images/articles/ehh.avif",
                     imageAlt: "A business professional analyzing environmental data on a tablet",
                     summary: "SEBI's new Business Responsibility and Sustainability Reporting (BRSR) framework is now mandatory. We break down the key metrics EHS managers must now track.",
-                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 10, 2025",
                     isFeatured: true,
                     fullContent: `<p>The regulatory landscape for corporate sustainability in India has taken a monumental leap forward. The Securities and Exchange Board of India (SEBI) has mandated the Business Responsibility and Sustainability Reporting (BRSR) for the top 1000 listed companies by market capitalization. This move replaces the erstwhile Business Responsibility Report (BRR) and signals a decisive shift towards more transparent, standardized, and comprehensive ESG (Environmental, Social, and Governance) disclosures.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">From 'Why' to 'How': The Core of BRSR</h3><p>Unlike the BRR, which was more qualitative, the BRSR framework is granular and data-centric, especially on the environmental front. For EHS leaders, this means the scope of data collection and reporting has expanded significantly. The mandate requires detailed disclosures on greenhouse gas (GHG) emissions (Scope 1, 2, and 3), water consumption and withdrawal, waste management practices, and energy consumption patterns. The emphasis is on quantifiable metrics, forcing companies to move from vague sustainability statements to hard data.</p><blockquote>"BRSR is a game-changer. It aligns Indian corporate reporting with global standards like GRI and TCFD, making companies more accountable and transparent to investors and the public."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">Key Action Points for EHS Professionals</h3><p>To comply with the BRSR, EHS departments must act swiftly. Key steps include: <strong>1) Establishing Robust Data Collection Systems:</strong> Manual data collection will no longer suffice. Implementing digital EHS platforms is crucial for accurately tracking energy, water, waste, and emissions data across all operations. <strong>2) Expanding GHG Accounting:</strong> Companies must now measure and report Scope 3 emissions, which includes the entire value chain—from suppliers to end-of-life treatment of products. This requires unprecedented collaboration with procurement and logistics teams. <strong>3) Water Positivity and Waste Management:</strong> The report demands details on water footprint, recycling efforts, and initiatives towards becoming 'water positive'. Similarly, detailed breakdowns of total waste generated, including hazardous and plastic waste, and its disposal method are required.</p><p>While the BRSR presents a compliance challenge, it is also a strategic opportunity. By embedding these rigorous tracking and reporting mechanisms, companies can identify inefficiencies, mitigate environmental risks, and build a more resilient and sustainable business model that appeals to a growing cohort of conscious investors.</p>`
@@ -632,10 +737,10 @@
                     title: "Vertical Farming: The Future of Urban Agriculture?",
                     category: "Green Tech",
                     categoryColor: "green",
-                    image: "images/articles/ver.avif", // <-- TODO: Add your image here
+                    image: "images/articles/ver.avif",
                     imageAlt: "A modern vertical farm with rows of leafy greens under purple LED lights",
                     summary: "As urban populations grow, vertical farms offer a high-tech solution to produce fresh food locally, but is it a scalable solution for global food security?...",
-                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 6, 2025",
                     isFeatured: false,
                     fullContent: `<p>As cities expand and global populations concentrate in urban centers, traditional agriculture faces unprecedented challenges. From land scarcity and soil degradation to the immense carbon footprint of long supply chains, our current food system is under strain. A promising solution is sprouting in warehouses, shipping containers, and skyscrapers: vertical farming. This method of growing crops in vertically stacked layers, often in controlled indoor environments, is revolutionizing urban agriculture.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">How It Works</h3><p>By controlling every variable—light, temperature, humidity, and nutrients—in a closed-loop system, vertical farms can produce high yields of fresh produce year-round, independent of external weather conditions. Using techniques like hydroponics (growing in nutrient-rich water) and aeroponics (misting roots with nutrient solutions), these farms use up to 95% less water than traditional field agriculture. Furthermore, by being located within or near cities, they drastically reduce transportation costs, spoilage, and carbon emissions.</p><blockquote>"Vertical farming brings the farm to the community, ensuring access to fresh, nutritious food while minimizing environmental impact. It's a key component of building resilient cities."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Hurdles to Overcome</h3><p>However, the technology is not without its challenges. The primary obstacle is the high energy consumption required for artificial LED lighting and climate control. While this makes it currently best suited for high-value, fast-growing crops like leafy greens and herbs, the economics are rapidly improving. As renewable energy sources become cheaper and LED technology more efficient, the viability of vertical farming for a wider range of crops continues to grow. It may not replace traditional farming, but it is poised to become a cornerstone of future food security and sustainable urban living.</p>`
@@ -644,11 +749,11 @@
                     title: "The Circular Economy: A Blueprint for a Waste-Free Future",
                     category: "EHS",
                     categoryColor: "blue",
-                    image: "images/articles/bin.avif", // <-- TODO: Add your image here
+                    image: "images/articles/bin.avif",
                     imageAlt: "Diagram illustrating the loops of a circular economy",
                     summary: "Moving beyond the destructive 'take-make-dispose' model to create systems that are regenerative and restorative by design...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "October 3, 2025",
                     isFeatured: false,
@@ -658,11 +763,11 @@
                     title: "The Rise of Mycelium: Can Fungus Replace Plastic Packaging?",
                     category: "Green Tech",
                     categoryColor: "red",
-                    image: "images/articles/mi.avif", // <-- TODO: Add your image here
+                    image: "images/articles/mi.avif",
                     imageAlt: "A biodegradable packaging material made from mushroom mycelium",
                     summary: "Startups are attracting major investment for a remarkable, biodegradable material made from the root network of mushrooms...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "October 1, 2025",
                     isFeatured: false,
@@ -672,11 +777,11 @@
                     title: "Gene-Edited Crops: An Answer to Climate Change?",
                     category: "Eco Science",
                     categoryColor: "sky",
-                    image: "images/articles/gene.avif", // <-- TODO: Add your image here
+                    image: "images/articles/gene.avif",
                     imageAlt: "Scientist in a lab observing plant samples for gene editing",
                     summary: "Using the revolutionary CRISPR-Cas9 tool, scientists are developing crops that can thrive in a warming, volatile world...",
                     author: "Devansh Singh Rawal",
-                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",
                     date: "September 28, 2025",
                     isFeatured: false,
@@ -686,10 +791,10 @@
                     title: "Next-Gen Solar Panels: Perovskite Crystals Promise Higher Efficiency",
                     category: "Green Tech",
                     categoryColor: "green",
-                    image: "images/articles/solar.avif", // <-- TODO: Add your image here
+                    image: "images/articles/solar.avif",
                     imageAlt: "Futuristic flexible solar panel reflecting a blue sky",
                     summary: "A new class of materials, perovskite crystals, is set to shatter the efficiency limits of traditional silicon-based solar cells, potentially making solar power cheaper and more accessible than ever before.",
-                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 9, 2025",
                     isFeatured: false,
                     fullContent: `<p>For decades, silicon has been the undisputed king of solar panels, but its reign may be coming to an end. Scientists are incredibly excited about a class of synthetic crystalline materials known as perovskites. These remarkable materials can absorb a broader spectrum of light and convert it into electricity more efficiently than silicon, promising a new era for solar energy.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Efficiency Breakthrough</h3><p>Tandem solar cells, which layer a thin film of perovskite on top of a traditional silicon cell, have already broken efficiency records in laboratory settings, surpassing the theoretical limits of silicon alone. Because perovskites can be formulated as a liquid "ink," they can be printed onto surfaces, opening the door for flexible, lightweight, and even transparent solar panels that could be integrated into windows, vehicles, and clothing.</p><blockquote>"Perovskites are the most exciting development in solar technology in the last 20 years. They have the potential to make solar energy ubiquitous."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Durability Challenge</h3><p>The primary obstacle holding back commercialization is durability. Early perovskite cells degraded quickly when exposed to moisture and oxygen. However, recent breakthroughs in chemical engineering and encapsulation techniques have dramatically improved their stability, bringing them closer to the 25-year lifespan expected of commercial solar panels. As researchers solve these final engineering hurdles, perovskite technology is poised to supercharge the global transition to renewable energy.</p>`
@@ -698,17 +803,26 @@
                     title: "Rewilding: How Letting Nature Take Over Can Restore Ecosystems",
                     category: "Eco Science",
                     categoryColor: "sky",
-                    image: "images/articles/nat.avif", // <-- TODO: Add your image here
+                    image: "images/articles/nat.avif",
                     imageAlt: "A majestic wolf standing in a lush, wild forest",
                     summary: "Rewilding is a progressive approach to conservation that involves stepping back and allowing natural processes to repair damaged ecosystems and restore landscapes.",
-                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg", // <-- TODO: Add author photo
+                    author: "Devansh Singh Rawal",                    authorPhoto: "images/authors/D.jpeg",
                     authorBio: "Currently pursuing his M.Sc. in Environmental Science, Devansh is an emerging thought leader dedicated to bridging the gap between ecological theory and real-world application. He explores the vanguard of EHS, seeking to leverage data-driven insights and technological innovation to architect a more sustainable and resilient future for both industries and ecosystems.",                    date: "October 8, 2025",
                     isFeatured: false,
                     fullContent: `<p>For centuries, conservation has been about managing nature. We build fences, control populations, and actively maintain habitats. But a new, more radical idea is gaining traction: rewilding. The core concept is to restore ecosystems to a point where nature itself can take the lead, reducing the need for human intervention. It often involves reintroducing keystone species—like wolves in Yellowstone or beavers in the UK—that have a disproportionately large effect on their environment.</p><h3 class="text-2xl font-lora font-bold mt-8 mb-4">The Role of Keystone Species</h3><p>The reintroduction of wolves to Yellowstone National Park is a classic example. The wolves preyed on elk, which had overgrazed the valleys. With fewer elk, trees and shrubs like aspen and willow rebounded along riverbanks. This stabilized the soil, provided food and habitat for beavers, and even changed the course of rivers. The return of one species created a cascade of positive changes, restoring the health and complexity of the entire ecosystem.</p><blockquote>"Rewilding is about ceding control. It's about having the humility to admit that nature often knows best how to heal itself."</blockquote><h3 class="text-2xl font-lora font-bold mt-8 mb-4">Beyond Parks and Reserves</h3><p>Rewilding isn't just for national parks. It can happen in abandoned farmland, industrial sites, and even urban areas. By removing dams, reforesting land, and connecting fragmented habitats with wildlife corridors, we can create resilient, self-sustaining ecosystems. This approach not only increases biodiversity but also enhances natural services like carbon sequestration, flood control, and water purification, making it a powerful tool in the fight against climate change and ecological collapse.</p>`
                 }
             ];
 
+            // --- Firebase Variables ---
+            let db, auth;
+            let currentArticleSlug = null;
+            let unsubscribeFromComments = null;
+            let unsubscribeFromLikes = null;
+
             // --- DOM Elements ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
             const allPageLinks = document.querySelectorAll('nav a, header a, footer a, .page-section a[href^="#page-"]');
             const mainNavLinks = document.querySelectorAll('nav ul a.nav-item');
             const pageSections = document.querySelectorAll('.page-section');
@@ -735,6 +849,10 @@
             const newsletterForm = document.getElementById('newsletter-form');
             const contactForm = document.getElementById('contact-form');
             const submissionForm = document.getElementById('submission-form');
+            const commentForm = document.getElementById('comment-form');
+            const likeBtn = document.getElementById('like-btn');
+            const likeIcon = document.getElementById('like-icon');
+            const likeCountSpan = document.getElementById('like-count');
 
             // --- State ---
             let isViewerOpen = false;
@@ -743,6 +861,34 @@
             const contactFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
             const newsletterFormScriptURL = 'https://script.google.com/macros/s/AKfycbw17Yg4R_irWt9A3k3wXdISbZP2h5RsL6IrTnjb5ihHH7c6tpxI-41xDY9-XsvdjU4/exec';
             const submissionFormScriptURL = 'https://script.google.com/macros/s/AKfycbzvJpJrngVozkg6JGFM8UA4o3yZcJYKOd8-pjqP3DmjZZvZ8iMU1yNQxRW4exFsQSAo/exec';
+
+            // --- THEME SWITCHER LOGIC ---
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                }
+            };
+
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else {
+                applyTheme(prefersDark ? 'dark' : 'light');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                const newTheme = isDark ? 'light' : 'dark';
+                localStorage.setItem('theme', newTheme);
+                applyTheme(newTheme);
+            });
 
             // --- UTILITY FUNCTIONS ---
             const slugify = (text) => text.toString().toLowerCase().trim()
@@ -788,7 +934,7 @@
                 shareXBtn.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`;
                 shareLinkedinBtn.href = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
                 shareWhatsappBtn.href = `https://api.whatsapp.com/send?text=${whatsappText}`;
-                shareInstagramBtn.href = `https://www.instagram.com/`; // Direct web sharing to Instagram is not supported. This links to the platform.
+                shareInstagramBtn.href = `https://www.instagram.com/`;
             };
 
             // --- RENDER FUNCTIONS ---
@@ -798,21 +944,21 @@
                         <img src="${article.image}" alt="${article.imageAlt}" class="rounded-lg shadow-lg w-full h-auto object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2d3748/ffffff?text=Derawvibes';">
                     </div>
                     <div class="lg:col-span-2">
-                        <span class="article-category text-xs font-bold uppercase text-${article.categoryColor}-600">Featured Story</span>
+                        <span class="article-category text-xs font-bold uppercase text-${article.categoryColor}-600 dark:text-${article.categoryColor}-400">Featured Story</span>
                         <h2 class="article-title text-3xl md:text-4xl font-bold my-3 leading-tight">${article.title}</h2>
-                        <p class="text-gray-600 mb-4">${article.summary}</p>
-                        <p class="text-sm text-gray-500 mb-4">By ${article.author} | Published on ${article.date}</p>
-                        <a href="#" class="read-more-btn inline-block bg-black text-white font-bold py-2 px-5 rounded-md hover:bg-gray-800 transition duration-300">Read More</a>
+                        <p class="text-[var(--text-secondary)] mb-4">${article.summary}</p>
+                        <p class="text-sm text-[var(--text-muted)] mb-4">By ${article.author} | Published on ${article.date}</p>
+                        <a href="#" class="read-more-btn inline-block bg-black dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-white text-white font-bold py-2 px-5 rounded-md transition duration-300">Read More</a>
                     </div>
                 </article>`;
 
             const createLatestArticleCard = (article, index) => `
-                <article class="article-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col animate-on-scroll" data-slug="${article.slug}" data-category="${article.category}" style="--delay: ${index * 100}ms;">
+                <article class="article-card bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex flex-col animate-on-scroll" data-slug="${article.slug}" data-category="${article.category}" style="--delay: ${index * 100}ms;">
                     <img src="${article.image}" alt="${article.imageAlt}" class="rounded-md mb-4 w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400?text=Derawvibes';">
-                    <span class="article-category text-xs font-bold uppercase text-${article.categoryColor}-700 mb-2">${article.category}</span>
+                    <span class="article-category text-xs font-bold uppercase text-${article.categoryColor}-700 dark:text-${article.categoryColor}-400 mb-2">${article.category}</span>
                     <h4 class="article-title text-xl font-bold mb-2 flex-grow">${article.title}</h4>
-                    <p class="text-gray-600 text-sm mb-4">${article.summary}</p>
-                    <a href="#" class="read-more-btn font-bold text-sm text-gray-800 hover:underline mt-auto">Continue Reading &rarr;</a>
+                    <p class="text-[var(--text-secondary)] text-sm mb-4">${article.summary}</p>
+                    <a href="#" class="read-more-btn font-bold text-sm text-[var(--text-primary)] hover:underline mt-auto">Continue Reading &rarr;</a>
                 </article>`;
 
             const renderArticles = (categoryFilter = 'all') => {
@@ -827,7 +973,6 @@
                     greenTech: document.getElementById('green-tech-articles-container')
                 };
 
-                // Clear containers on initial full render
                 if (categoryFilter === 'all') {
                     Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
                 } else {
@@ -835,7 +980,6 @@
                 }
 
                 sortedArticles.forEach((article, index) => {
-                    // Populate category-specific pages on initial load
                     if (categoryFilter === 'all') {
                         if (article.isFeatured && containers.featured) containers.featured.innerHTML += createFeaturedArticleCard(article);
                         if (article.category === 'EHS' && containers.ehs) containers.ehs.innerHTML += createLatestArticleCard(article, index);
@@ -843,18 +987,15 @@
                         else if (article.category === 'Green Tech' && containers.greenTech) containers.greenTech.innerHTML += createLatestArticleCard(article, index);
                     }
 
-                    // Populate homepage latest articles with filter
                     if (containers.latest && (categoryFilter === 'all' || article.category === categoryFilter)) {
                         containers.latest.innerHTML += createLatestArticleCard(article, index);
                     }
                 });
 
-                // Add event listeners and trigger scroll animations
                 addArticleCardListeners();
                 observeElements();
             };
             
-            // --- EVENT LISTENERS ---
             function addArticleCardListeners() {
                 document.querySelectorAll('.article-card').forEach(card => {
                     card.addEventListener('click', (e) => {
@@ -869,10 +1010,13 @@
             const openArticle = (articleData, shouldPushState) => {
                 const { category, title, image, author, date, authorPhoto, authorBio, fullContent, slug, categoryColor } = articleData;
                 
-                const colorMap = { 'red': 'red-600', 'sky': 'sky-600', 'blue': 'blue-600', 'green': 'green-600' };
-                const textColor = `text-${colorMap[categoryColor] || 'teal-600'}`;
+                if (unsubscribeFromComments) unsubscribeFromComments();
+                if (unsubscribeFromLikes) unsubscribeFromLikes();
+                currentArticleSlug = slug;
 
-                // Populate main article content
+                const colorMap = { 'red': 'red', 'sky': 'sky', 'blue': 'blue', 'green': 'green' };
+                const textColor = `text-${colorMap[categoryColor]}-600 dark:text-${colorMap[categoryColor]}-400`;
+
                 document.getElementById('article-viewer-category').className = `text-sm font-bold uppercase ${textColor}`;
                 document.getElementById('article-viewer-category').textContent = category;
                 document.getElementById('article-viewer-title').textContent = title;
@@ -883,12 +1027,10 @@
                 document.getElementById('article-viewer-content').innerHTML = fullContent;
                 document.getElementById('article-viewer-read-time').querySelector('span').textContent = calculateReadTime(fullContent);
 
-                // Populate author bio
                 document.getElementById('author-bio-photo').src = authorPhoto;
                 document.getElementById('author-bio-name').textContent = author;
                 document.getElementById('author-bio-text').textContent = authorBio;
 
-                // Populate related articles
                 const relatedContainer = document.getElementById('related-articles-container');
                 const relatedArticles = articlesData
                     .filter(a => a.category === category && a.slug !== slug)
@@ -896,7 +1038,7 @@
                 relatedContainer.innerHTML = relatedArticles.map(related => `
                     <div class="related-article-card article-card" data-slug="${related.slug}">
                         <img src="${related.image}" alt="${related.imageAlt}" class="rounded-lg mb-3 w-full h-40 object-cover">
-                        <span class="text-xs font-bold uppercase text-${colorMap[related.categoryColor] || 'gray-500'}">${related.category}</span>
+                        <span class="text-xs font-bold uppercase text-${colorMap[related.categoryColor]}-600 dark:text-${colorMap[related.categoryColor]}-400">${related.category}</span>
                         <h4 class="font-bold text-lg mt-1">${related.title}</h4>
                     </div>`).join('');
 
@@ -907,7 +1049,6 @@
                     });
                 });
 
-                // Show viewer and update UI
                 articleViewer.classList.remove('hidden');
                 articleViewer.classList.add('viewer-fade-in');
                 floatingShareBar.classList.add('is-active');
@@ -919,10 +1060,17 @@
 
                 if (shouldPushState) history.pushState({ articleSlug: slug }, '', `#article/${slug}`);
                 setupShareLinks(title, slug);
+                
+                listenForComments(slug);
+                listenForLikes(slug);
+                updateLikeButtonState(slug);
             };
             
             const closeArticle = () => {
                 if (!isViewerOpen) return;
+                if (unsubscribeFromComments) unsubscribeFromComments();
+                if (unsubscribeFromLikes) unsubscribeFromLikes();
+                currentArticleSlug = null;
                 articleViewer.classList.add('hidden');
                 articleViewer.classList.remove('viewer-fade-in');
                 floatingShareBar.classList.remove('is-active');
@@ -931,18 +1079,15 @@
                 isViewerOpen = false;
             };
 
-            // --- PAGE ROUTING ---
             const showPage = (targetId) => {
                 pageSections.forEach(section => section.classList.add('hidden'));
                 const targetPage = document.querySelector(targetId);
                 if (targetPage) {
                     targetPage.classList.remove('hidden');
-                    observeElements(); // Re-observe elements on the new page
+                    observeElements();
                 }
-                
                 mainNavLinks.forEach(navLink => {
                     let isActive = navLink.getAttribute('href') === targetId;
-                    // Special case for home link to be active when no other page is selected
                     if (targetId === '#page-home' || !targetId.startsWith('#page-')) {
                         if(navLink.getAttribute('href') === '#page-home') isActive = true;
                     }
@@ -964,7 +1109,6 @@
             
             backToMainBtn.addEventListener('click', () => history.back());
             
-            // --- Copy Link Functionality ---
             copyLinkBtn.addEventListener('click', () => {
                 const url = `${window.location.origin}${window.location.pathname}${window.location.hash}`;
                 const textArea = document.createElement("textarea");
@@ -984,7 +1128,6 @@
                 document.body.removeChild(textArea);
             });
 
-            // --- SEARCH FUNCTIONALITY ---
             const closeSearch = () => {
                 searchOverlay.classList.add('opacity-0');
                 searchBox.classList.add('-translate-y-10');
@@ -1022,7 +1165,6 @@
             });
             searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter' && searchInput.value.length > 1) closeSearch(); });
             
-            // --- FORM HANDLING ---
             const setupFormListener = (form, url, successMessage) => {
                 if (!form) return;
                 const btn = form.querySelector('button[type="submit"]');
@@ -1040,7 +1182,6 @@
                 });
             };
 
-            // --- CATEGORY FILTERING LOGIC ---
             document.querySelectorAll('#category-filters .filter-btn').forEach(button => {
                 button.addEventListener('click', () => {
                     document.querySelectorAll('#category-filters .filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -1049,8 +1190,6 @@
                 });
             });
 
-            // --- Explore button smooth scroll ---
-            const exploreBtn = document.querySelector('.explore-btn');
             if (exploreBtn) {
                 exploreBtn.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -1062,7 +1201,6 @@
                 });
             }
 
-            // --- SCROLL ANIMATION OBSERVER ---
             let observer;
             function observeElements() {
                 if (observer) observer.disconnect();
@@ -1077,7 +1215,164 @@
                 document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
             }
 
-            // --- INITIALIZATION & ROUTING ---
+            // --- FIREBASE INTERACTION ---
+            async function initFirebase() {
+                try {
+                    const firebaseConfig = {
+                        apiKey: "AIzaSyAzZqjiVAjmKiBSkn_NZKMRWFea6PjeLc8",
+                        authDomain: "derawvibes-849ca.firebaseapp.com",
+                        projectId: "derawvibes-849ca",
+                        storageBucket: "derawvibes-849ca.appspot.com",
+                        messagingSenderId: "873464263523",
+                        appId: "1:873464263523:web:ed5766c441ad8126b89956",
+                        measurementId: "G-8BVXXVLZWQ"
+                    };
+
+                    const app = initializeApp(firebaseConfig);
+                    const analytics = getAnalytics(app);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    setLogLevel('debug');
+
+                    await signInAnonymously(auth);
+                    
+                    console.log("Firebase initialized and user signed in.", auth.currentUser?.uid);
+                    setupCommentFormListener();
+                    setupLikeButtonListener();
+
+                } catch (error) {
+                    console.error("Firebase initialization failed:", error);
+                }
+            }
+            
+            function setupCommentFormListener() {
+                if (!commentForm) return;
+                commentForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    if (!commentForm.checkValidity()) {
+                        commentForm.reportValidity();
+                        return;
+                    }
+                    if (!currentArticleSlug || !auth.currentUser) return;
+
+                    const btn = commentForm.querySelector('button[type="submit"]');
+                    const originalText = btn.textContent;
+                    btn.disabled = true;
+                    btn.textContent = 'Posting...';
+
+                    const author = commentForm.querySelector('#comment-author').value;
+                    const text = commentForm.querySelector('#comment-text').value;
+
+                    const appId = 'derawvibes-blog';
+                    const commentsCollectionPath = `/artifacts/${appId}/public/data/comments`;
+                    const commentDocRef = doc(db, commentsCollectionPath, currentArticleSlug);
+
+                    const newComment = {
+                        author: author.trim(),
+                        text: text.trim(),
+                        timestamp: serverTimestamp()
+                    };
+
+                    try {
+                        await setDoc(commentDocRef, { messages: arrayUnion(newComment) }, { merge: true });
+                    } catch (error) {
+                        console.error("Error posting comment: ", error);
+                    } finally {
+                        commentForm.reset();
+                        btn.disabled = false;
+                        btn.textContent = originalText;
+                    }
+                });
+            }
+
+            function listenForComments(slug) {
+                const commentsList = document.getElementById('comments-list');
+                commentsList.innerHTML = '<p class="text-[var(--text-muted)] text-center">Loading comments...</p>';
+                
+                const appId = 'derawvibes-blog';
+                const commentsCollectionPath = `/artifacts/${appId}/public/data/comments`;
+                const commentDocRef = doc(db, commentsCollectionPath, slug);
+
+                unsubscribeFromComments = onSnapshot(commentDocRef, (docSnap) => {
+                    commentsList.innerHTML = '';
+                    if (docSnap.exists() && docSnap.data().messages && docSnap.data().messages.length > 0) {
+                        const comments = docSnap.data().messages.sort((a,b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0) );
+                        comments.forEach(comment => {
+                            const commentEl = document.createElement('div');
+                            commentEl.className = 'p-4 bg-[var(--bg-secondary-accent)] rounded-lg';
+                            const date = comment.timestamp ? new Date(comment.timestamp.seconds * 1000).toLocaleString() : 'Just now';
+                            commentEl.innerHTML = `
+                                <div class="flex justify-between items-center mb-2">
+                                    <p class="font-bold text-[var(--text-primary)]">${comment.author}</p>
+                                    <p class="text-xs text-[var(--text-muted)]">${date}</p>
+                                </div>
+                                <p class="text-[var(--text-secondary)]">${comment.text.replace(/\n/g, '<br>')}</p>
+                            `;
+                            commentsList.appendChild(commentEl);
+                        });
+                    } else {
+                        commentsList.innerHTML = '<p class="text-[var(--text-muted)] text-center">Be the first to comment!</p>';
+                    }
+                }, (error) => {
+                    console.error("Error listening for comments: ", error);
+                    commentsList.innerHTML = '<p class="text-red-500 text-center">Could not load comments.</p>';
+                });
+            }
+
+            function updateLikeButtonState(slug) {
+                const likedArticles = JSON.parse(localStorage.getItem('likedArticles') || '[]');
+                if (likedArticles.includes(slug)) {
+                    likeIcon.classList.add('text-red-500', 'fill-current');
+                    likeIcon.classList.remove('text-gray-500');
+                    likeBtn.disabled = true;
+                } else {
+                    likeIcon.classList.remove('text-red-500', 'fill-current');
+                    likeIcon.classList.add('text-gray-500');
+                    likeBtn.disabled = false;
+                }
+            }
+
+            function listenForLikes(slug) {
+                const appId = 'derawvibes-blog';
+                const statsCollectionPath = `/artifacts/${appId}/public/data/article_stats`;
+                const statsDocRef = doc(db, statsCollectionPath, slug);
+
+                unsubscribeFromLikes = onSnapshot(statsDocRef, (docSnap) => {
+                    likeCountSpan.textContent = (docSnap.exists() && docSnap.data().likes) ? docSnap.data().likes : '0';
+                }, (error) => {
+                    console.error("Error listening for likes:", error);
+                    likeCountSpan.textContent = '0';
+                });
+            }
+
+            async function handleLikeClick() {
+                if (!currentArticleSlug || !auth.currentUser || likeBtn.disabled) return;
+                likeBtn.disabled = true;
+
+                const likedArticles = JSON.parse(localStorage.getItem('likedArticles') || '[]');
+                if (likedArticles.includes(currentArticleSlug)) return;
+
+                const appId = 'derawvibes-blog';
+                const statsCollectionPath = `/artifacts/${appId}/public/data/article_stats`;
+                const statsDocRef = doc(db, statsCollectionPath, currentArticleSlug);
+
+                try {
+                    await setDoc(statsDocRef, { likes: increment(1) }, { merge: true });
+                    likedArticles.push(currentArticleSlug);
+                    localStorage.setItem('likedArticles', JSON.stringify(likedArticles));
+                    updateLikeButtonState(currentArticleSlug);
+                } catch (error) {
+                    console.error("Error liking article:", error);
+                    likeBtn.disabled = false;
+                }
+            }
+
+            function setupLikeButtonListener() {
+                if (likeBtn) {
+                    likeBtn.addEventListener('click', handleLikeClick);
+                }
+            }
+
             const handleInitialLoad = () => {
                 renderArticles();
                 const hash = window.location.hash;
@@ -1103,35 +1398,24 @@
                 }
             });
 
-            // Back to top button
             window.addEventListener('scroll', () => {
                 backToTopBtn.classList.toggle('opacity-0', window.scrollY <= 300);
                 backToTopBtn.classList.toggle('translate-y-4', window.scrollY <= 300);
             });
             backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-            // --- NEW: Enhanced 2D Hero Animation ---
             const heroCanvas = document.getElementById('hero-canvas');
             if (heroCanvas) {
                 const ctx = heroCanvas.getContext('2d');
                 let width, height, particles, animationFrameId;
-
-                const mouse = {
-                    x: null,
-                    y: null,
-                    radius: 150
-                };
+                const mouse = { x: null, y: null, radius: 150 };
 
                 window.addEventListener('mousemove', event => {
                     const rect = heroCanvas.getBoundingClientRect();
                     mouse.x = event.clientX - rect.left;
                     mouse.y = event.clientY - rect.top;
                 });
-                
-                window.addEventListener('mouseout', () => {
-                    mouse.x = null;
-                    mouse.y = null;
-                });
+                window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
 
                 function resizeCanvas() {
                     width = heroCanvas.offsetWidth;
@@ -1149,29 +1433,25 @@
                         this.y = Math.random() * height;
                         this.vx = (Math.random() - 0.5) * 0.5;
                         this.vy = (Math.random() - 0.5) * 0.5;
-                        this.baseRadius = Math.random() * 2 + 1.5; // Increased size
+                        this.baseRadius = Math.random() * 2 + 1.5;
                         this.radius = this.baseRadius;
                         this.density = (Math.random() * 30) + 1;
                     }
-
                     draw() {
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(20, 184, 166, 0.8)`; // Brighter teal
+                        ctx.fillStyle = `rgba(20, 184, 166, 0.8)`;
                         ctx.closePath();
                         ctx.fill();
                     }
-
                     update() {
                         let dx = mouse.x - this.x;
                         let dy = mouse.y - this.y;
                         let distance = Math.sqrt(dx * dx + dy * dy);
-                        
                         if (distance < mouse.radius) {
                             const forceDirectionX = dx / distance;
                             const forceDirectionY = dy / distance;
-                            const maxDistance = mouse.radius;
-                            const force = (maxDistance - distance) / maxDistance;
+                            const force = (mouse.radius - distance) / mouse.radius;
                             const directionX = forceDirectionX * force * this.density * 0.6;
                             const directionY = forceDirectionY * force * this.density * 0.6;
                             this.x -= directionX;
@@ -1187,7 +1467,7 @@
 
                 function initParticles() {
                     particles = [];
-                    const particleCount = Math.floor((width * height) / 9000); // Increased density
+                    const particleCount = Math.floor((width * height) / 9000);
                     for (let i = 0; i < particleCount; i++) {
                         particles.push(new Particle());
                     }
@@ -1197,13 +1477,10 @@
                     let opacityValue = 1;
                     for (let a = 0; a < particles.length; a++) {
                         for (let b = a; b < particles.length; b++) {
-                            let dx = particles[a].x - particles[b].x;
-                            let dy = particles[a].y - particles[b].y;
-                            let distance = Math.sqrt(dx * dx + dy * dy);
-
+                            let distance = Math.sqrt((particles[a].x - particles[b].x) ** 2 + (particles[a].y - particles[b].y) ** 2);
                             if (distance < 100) {
                                 opacityValue = 1 - (distance / 100);
-                                ctx.strokeStyle = `rgba(20, 184, 166, ${opacityValue * 0.6})`; // Brighter lines, more opaque
+                                ctx.strokeStyle = `rgba(20, 184, 166, ${opacityValue * 0.6})`;
                                 ctx.lineWidth = 1;
                                 ctx.beginPath();
                                 ctx.moveTo(particles[a].x, particles[a].y);
@@ -1216,10 +1493,7 @@
 
                 function animate() {
                     ctx.clearRect(0, 0, width, height);
-                    particles.forEach(p => {
-                        p.update();
-                        p.draw();
-                    });
+                    particles.forEach(p => { p.update(); p.draw(); });
                     connectParticles();
                     animationFrameId = requestAnimationFrame(animate);
                 }
@@ -1227,9 +1501,7 @@
                 function startAnimation() {
                     resizeCanvas();
                     initParticles();
-                    if(animationFrameId) {
-                        cancelAnimationFrame(animationFrameId);
-                    }
+                    if(animationFrameId) cancelAnimationFrame(animationFrameId);
                     animate();
                 }
                 
@@ -1250,9 +1522,12 @@
             setupFormListener(newsletterForm, newsletterFormScriptURL, 'You are now subscribed!');
             setupFormListener(contactForm, contactFormScriptURL, 'Your message has been sent!');
             setupFormListener(submissionForm, submissionFormScriptURL, 'Your article has been received!');
+            initFirebase();
             document.getElementById('current-year').textContent = new Date().getFullYear();
             handleInitialLoad();
         });
     </script>
 </body>
 </html>
+
+
